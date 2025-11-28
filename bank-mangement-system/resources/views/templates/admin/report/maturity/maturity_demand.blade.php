@@ -1,0 +1,53 @@
+@extends('templates.admin.master')
+@section('content')
+@section('css')
+<style>
+    .datatable {
+        display: none;
+    }
+</style>
+@endsection
+<div class="content">
+    <div class="row">
+        @include('templates.admin.report.maturity.maturity_demand_filter')
+        <div class="col-md-12 table-section datatable">
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h6 class="card-title font-weight-semibold">Maturity Demand Details</h6>
+                    <div class="">
+                        <button type="button" class="btn bg-dark legitRipple export-maturity-demanad" data-extension="1">Export xslx</button>
+                    </div>
+                </div>
+                <div class="">
+                    <table id="maturity_listing" class="table datatable-show-all">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>Branch</th>
+                                <th>Customer Id</th>
+                                <th>Member Id</th>
+                                <th>Member name</th>
+                                <th>Account number</th>
+                                <th>Plan</th>
+                                <th>Tenure </th>
+                                <th>Open date</th>
+                                <th>Maturity date</th>
+                                <th>Demand date</th>
+                                <th>Total deposit</th>
+                                <th>Payment Date</th>
+                                <th>Payment Mode</th>
+                                <th>Status</th>
+                                <th>Associate Code</th>
+                                <th>Associate Name</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+@include('templates.admin.report.maturity.maturity_demand_js')
+
+@stop

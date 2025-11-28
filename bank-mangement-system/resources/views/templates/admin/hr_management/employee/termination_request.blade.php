@@ -1,0 +1,111 @@
+@extends('templates.admin.master')
+
+@section('content')
+<?php
+$employee_code='';
+if(isset($_GET['employee']))
+{
+  $employee_code=$_GET['employee'];
+}
+
+
+?>
+
+<div class="content"> 
+    <div class="row"> 
+        @if ($errors->any())
+            <div class="col-md-12">
+                  <div class="alert alert-danger">
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+            </div>
+        @endif
+
+        <form action="{!! route('admin.hr.terminate_save') !!}" method="post" enctype="multipart/form-data" id="employee_termination" name="employee_termination"  style="width: 100%">
+    @csrf
+      <div class="row">
+        <div class="col-lg-12"> 
+      
+          <div class="card bg-white" >
+            <div class="card-body">
+              <h3 class="card-title mb-3">Employee Terminate</h3>
+              <div class="row">
+                <div class="col-lg-12 "><h6 class=" mb-3">Employee Information</h6></div>
+                <div class="col-lg-12">
+                    <div class="form-group row">                      
+                      <label class="col-form-label col-lg-2">Employee Code<sup class="required">*</sup> </label>
+                      <div class="col-lg-10 error-msg">
+                        <input type="text" name="employee_code" id="employee_code" class=" form-control" value="{{ $employee_code }}" @if(isset($_GET['employee'])) readonly @endif>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 show_emp_detail" style="display: none;"  >
+                    <div class="form-group row" >                      
+                      <label class="col-form-label col-lg-2">Company Name<sup class="required">*</sup> </label>
+                      <div class="col-lg-10 error-msg">
+                        <input type="text" name="company_name" id="company_name" class=" form-control" readonly>
+                        <input type="hidden" name="company_id" id="company_id" class=" form-control" readonly>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12" id="error_msg_emp"></div>
+                  <div class="col-lg-12 show_emp_detail" style="display: none;">
+                    <div class="form-group row ">
+                      <label class="col-form-label col-lg-2">Employee Name<sup class="required">*</sup></label>
+                      <div class="col-lg-10 error-msg">
+                        <input type="text" name="employee_name" id="employee_name" class="form-control" readonly>
+                         <input type="hidden" name="employee_id" id="employee_id" class="form-control" readonly>
+                         <input type="hidden" class="form-control created_at " name="created_at" id="created_at"  >
+                          <input type="hidden" class="form-control create_application_date " name="create_application_date" id="create_application_date"  >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 show_emp_detail" style="display: none;">
+                    <div class="form-group row ">
+                      <label class="col-form-label col-lg-2">Branch<sup class="required">*</sup></label>
+                      <div class="col-lg-10 error-msg">
+                        <input type="text" name="branch" id="branch" class="form-control" readonly>
+                        <input type="hidden" name="branch_id" id="branch_id" class="form-control" >
+                      </div>
+                    </div> 
+                  </div>
+                  <div class="col-lg-12 ">
+                    <div class="form-group row ">
+                      <label class="col-form-label col-lg-2">Remark<sup class="required">*</sup></label>
+                      <div class="col-lg-10 error-msg">
+                      <textarea name="remark" id="remark" class="form-control"></textarea>
+                      </div>
+                    </div> 
+                  </div>
+
+
+            </div>
+          </div>
+
+           
+
+          
+        </div> 
+        </div> 
+
+
+        <div class="col-lg-12">
+          <div class="card bg-white" >            
+            <div class="card-body">
+              <div class="text-center">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            </div>
+          </div>
+        </div>
+
+      </div> 
+    </form>
+    </div>
+</div>
+@include('templates.admin.hr_management.employee.script_terminate')
+@stop

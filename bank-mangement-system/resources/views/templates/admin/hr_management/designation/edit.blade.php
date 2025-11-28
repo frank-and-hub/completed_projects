@@ -1,0 +1,204 @@
+@extends('templates.admin.master')
+
+@section('content')
+
+<div class="content"> 
+  <div class="row"> 
+        @if ($errors->any())
+            <div class="col-md-12">
+                  <div class="alert alert-danger">
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+            </div>
+        @endif
+
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header header-elements-inline">
+          <h4 class="card-title mb-3">Edit Designation</h4>
+        </div>
+        <div class="card-body">
+          <form action="{!! route('admin.hr.designation_update') !!}" method="post" enctype="multipart/form-data" id="designation_edit" name="designation_edit"  >
+            @csrf
+            <div class="row">
+              <div class="col-lg-12"> 
+                <div class="row">
+                  <div class="col-lg-6"> 
+                    <div class="form-group row">
+                      <label class="col-form-label col-lg-4">Designation Name <sup class="required">*</sup></label>
+                      <div class="col-lg-8 error-msg">
+                        <input type="text" name="designation_name" id="designation_name" class="form-control" value="{{$designation->designation_name}}"  >
+                        <input type="hidden" class="form-control created_at " name="created_at" id="created_at"  >
+                        <input type="hidden" class="form-control create_application_date " name="create_application_date" id="create_application_date"  >
+
+                        <input type="hidden" class="form-control id " name="id" id="id" value="{{$designation->id}}"   >
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6"> 
+                    <div class="form-group row">
+                      <label class="col-form-label col-lg-4">Category<sup class="required">*</sup></label>
+                      <div class="col-lg-8 error-msg">
+                        <select   name="category" id="category" class="form-control" >  
+                          <option value="">Select category</option> 
+                          <option  value="1"  @if($designation->category==1) selected @endif>On-rolled</option> 
+                          <option value="2" @if($designation->category==2) selected @endif>Contract</option> 
+
+                        </select>
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="col-lg-6"> 
+                    <div class="form-group row">
+                      <label class="col-form-label col-lg-4">Basic Salary <sup class="required">*</sup></label>
+                      <div class="col-lg-8 error-msg">
+                        <input type="text" name="basic_salary" id="basic_salary" class="form-control" value="{{ number_format((float)$designation->basic_salary, 2, '.', '')}}"     onkeyup="gross_salary_calculate();">
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="col-lg-6"> 
+                    <div class="form-group row">
+                      <label class="col-form-label col-lg-4">Daily Allowances </label>
+                      <div class="col-lg-8 error-msg">
+                        <input type="text" name="daily_allowances" id="daily_allowances" class="form-control" value="{{ number_format((float)$designation->daily_allowances, 2, '.', '')}}"    onkeyup="gross_salary_calculate();">
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="col-lg-6"> 
+                    <div class="form-group row">
+                      <label class="col-form-label col-lg-4">HRA</label>
+                      <div class="col-lg-8 error-msg">
+                        <input type="text" name="hra" id="hra" class="form-control" value="{{ number_format((float)$designation->hra, 2, '.', '')}}"     onkeyup="gross_salary_calculate();">
+                      </div>
+                    </div>
+                  
+                  </div> 
+                  <div class="col-lg-6"> 
+                    <div class="form-group row">
+                      <label class="col-form-label col-lg-4">HRA Metro City</label>
+                      <div class="col-lg-8 error-msg">
+                        <input type="text" name="hra_metro_city" id="hra_metro_city" class="form-control" value="{{ number_format((float)$designation->hra_metro_city, 2, '.', '')}}"    onkeyup="gross_salary_calculate();">
+                      </div>
+                    </div>
+                  </div> 
+                  
+                  <div class="col-lg-6"> 
+                    <div class="form-group row">
+                      <label class="col-form-label col-lg-4">UMA</label>
+                      <div class="col-lg-8 error-msg">
+                        <input type="text" name="uma" id="uma" class="form-control" value="{{ number_format((float)$designation->uma, 2, '.', '')}}"    onkeyup="gross_salary_calculate();">
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="col-lg-6"> 
+                    <div class="form-group row">
+                      <label class="col-form-label col-lg-4">Convenience Charges</label>
+                      <div class="col-lg-8 error-msg">
+                        <input type="text" name="convenience_charges" id="convenience_charges" class="form-control"  value="{{ number_format((float)$designation->convenience_charges, 2, '.', '')}}"    onkeyup="gross_salary_calculate();">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6"> 
+                    <div class="form-group row">
+                      <label class="col-form-label col-lg-4">Maintenance Allowance</label>
+                      <div class="col-lg-8 error-msg">
+                        <input type="text" name="maintenance_allowance" id="maintenance_allowance" class="form-control"  value="{{ number_format((float)$designation->maintenance_allowance, 2, '.', '')}}"    onkeyup="gross_salary_calculate();">
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="col-lg-6"> 
+                    <div class="form-group row">
+                      <label class="col-form-label col-lg-4">Communication Allowance</label>
+                      <div class="col-lg-8 error-msg">
+                        <input type="text" name="communication_allowance" id="communication_allowance" class="form-control"  value="{{ number_format((float)$designation->communication_allowance, 2, '.', '')}}"   onkeyup="gross_salary_calculate();">
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="col-lg-6"> 
+                    <div class="form-group row">
+                      <label class="col-form-label col-lg-4">PRD</label>
+                      <div class="col-lg-8 error-msg">
+                        <input type="text" name="prd" id="prd" class="form-control"   value="{{ number_format((float)$designation->prd, 2, '.', '')}}"    onkeyup="gross_salary_calculate();">
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="col-lg-6"> 
+                    <div class="form-group row">
+                      <label class="col-form-label col-lg-4">IA</label>
+                      <div class="col-lg-8 error-msg">
+                        <input type="text" name="ia" id="ia" class="form-control" value="{{ number_format((float)$designation->ia, 2, '.', '')}}"    onkeyup="gross_salary_calculate();" >
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="col-lg-6"> 
+                    <div class="form-group row">
+                      <label class="col-form-label col-lg-4">CA</label>
+                      <div class="col-lg-8 error-msg">
+                        <input type="text" name="ca" id="ca" class="form-control"  value="{{ number_format((float)$designation->ca, 2, '.', '')}}"   onkeyup="gross_salary_calculate();">
+                      </div>
+                    </div>
+                  </div>  
+                  <div class="col-lg-6"> 
+                    <div class="form-group row">
+                      <label class="col-form-label col-lg-4">FA</label>
+                      <div class="col-lg-8 error-msg">
+                        <input type="text" name="fa" id="fa" class="form-control" value="{{ number_format((float)$designation->fa, 2, '.', '')}}"    onkeyup="gross_salary_calculate();">
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="col-lg-6"> 
+                    <div class="form-group row">
+                      <label class="col-form-label col-lg-4">PF</label>
+                      <div class="col-lg-8 error-msg">
+                        <input type="text" name="pf" id="pf" class="form-control" value="{{ number_format((float)$designation->pf, 2, '.', '')}}"   onkeyup="gross_salary_calculate();">
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="col-lg-6"> 
+                    <div class="form-group row">
+                      <label class="col-form-label col-lg-4">TDS</label>
+                      <div class="col-lg-8 error-msg">
+                        <input type="text" name="tds" id="tds" class="form-control"  value="{{ number_format((float)$designation->tds, 2, '.', '')}}"   onkeyup="gross_salary_calculate();">
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="col-lg-6"> 
+                    <div class="form-group row">
+                      <label class="col-form-label col-lg-4">Gross Salary</label>
+                      <div class="col-lg-8 error-msg">
+                        <input type="text" name="gross_salary" id="gross_salary" class="form-control"   readonly>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  
+                   
+
+                </div>
+              </div>
+
+
+              <div class="col-lg-12">
+                <div class="form-group row text-center"> 
+                  <div class="col-lg-12 ">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+        
+
+  </div>
+</div>
+@include('templates.admin.hr_management.designation.script_edit')
+@stop

@@ -1,0 +1,437 @@
+@extends('templates.admin.master')
+
+@section('content')
+<div class="content">
+@if ( $memberDetail->status == 1 ) 
+    <div class="row">   
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h4 class="card-title font-weight-semibold">Member Form Information</h4>
+                </div>
+                <div class="card-body">  
+                    <div class="row">
+                        <label class=" col-lg-4">Form No</label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  "> {{ $memberDetail->form_no }} </div>
+                    </div>
+                    <div class="row">
+                        <label class=" col-lg-4">Join Date </label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7"> @if($memberDetail->re_date) {{ date("d/m/Y", strtotime($memberDetail->re_date)) }} @endif</div>
+                    </div> 
+                    <div class="row">
+                        <label class=" col-lg-4">Member Id </label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  "> {{ $memberDetail->member_id }} </div>  
+                    </div> 
+                    <div class="row">
+                        <label class=" col-lg-4">Branch MI </label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  "> {{ $memberDetail->branch_mi }} </div>  
+                    </div>                
+                </div>
+            </div>
+             
+
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h4 class="card-title font-weight-semibold">Personal Information </h4>
+                </div>
+                <div class="card-body">  
+                    <div class="row">
+                        <label class=" col-lg-4">First Name </label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  "> {{ $memberDetail->first_name }} </div>
+                    </div>
+                    <div class="row">
+                        <label class=" col-lg-4">Last Name </label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  "> {{ $memberDetail->last_name }} </div> 
+                    </div>
+                    <div class="  row">
+                        <label class=" col-lg-4">Email Id </label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  "> {{ $memberDetail->email }} </div>
+                    </div>
+                    <div class="  row">
+                        <label class=" col-lg-4">Mobile No</label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  "> {{ $memberDetail->mobile_no }} </div>
+                    </div>   
+                    <div class="  row">
+                        <label class=" col-lg-4">Date of Birth </label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  ">@if ( $memberDetail->dob ) {{ date("d/m/Y", strtotime($memberDetail->dob)) }} @endif </div>
+                    </div>
+                    <div class="  row">
+                    <label class=" col-lg-4">Age</label><label class=" col-lg-1">:</label>
+                    <div class="col-lg-7  "> {{ $memberDetail->age }} </div>
+                  </div>
+                  <div class="  row">
+                    <label class=" col-lg-4">Gender </label><label class=" col-lg-1">:</label>
+                    <div class="col-lg-7  "> @if($memberDetail->gender==1) Male @else Female @endif </div>
+                  </div> 
+                  <div class="  row">
+                    <label class=" col-lg-4">Occupation</label><label class=" col-lg-1">:</label>
+                    <div class="col-lg-7  "> {{ getOccupationName($memberDetail->occupation_id) }} </div>
+                  </div> 
+                  <div class="  row">
+                    <label class=" col-lg-4">Annual Income </label><label class=" col-lg-1">:</label>
+                    <div class="col-lg-7  "> {{ number_format($memberDetail->annual_income, 2, '.', ',') }} <img src="{{url('/')}}/asset/images/rs.png" width="9"> </div>
+                  </div>
+                  <div class="  row">
+                    <label class=" col-lg-4">Mother Name</label><label class=" col-lg-1">:</label>
+                    <div class="col-lg-7  "> {{ $memberDetail->mother_name }} </div>
+                  </div>
+                  <div class="  row">
+                    <label class=" col-lg-4">Father/ Husband's Name </label><label class=" col-lg-1">:</label>
+                    <div class="col-lg-7  "> {{ $memberDetail->father_husband }}</div>
+                  </div>
+                  <div class="  row">
+                    <label class=" col-lg-4">Marital status</label><label class=" col-lg-1">:</label>
+                    <div class="col-lg-7  ">  @if($memberDetail->marital_status==1) Married @else Un Married @endif  </div>
+                  </div>
+                  @if($memberDetail->anniversary_date)
+                  <div class="  row">
+                    <label class=" col-lg-4">Anniversary Date </label><label class=" col-lg-1">:</label>
+                      <div class="col-lg-7  "> @if ( $memberDetail->anniversary_date != null ) {{ date("d/m/Y", strtotime($memberDetail->anniversary_date)) }} @endif </div>
+                  </div>
+                  @endif 
+                  <div class="  row">
+                    <label class=" col-lg-4">Religion</label><label class=" col-lg-1">:</label>
+                    <div class="col-lg-7  "> @if($memberDetail->religion_id>0) {{ getReligionName($memberDetail->religion_id) }} @endif </div>
+                  </div>
+                  <div class="  row">
+                    <label class=" col-lg-4"> Categories </label><label class=" col-lg-1">:</label>
+                    <div class="col-lg-7  "> @if($memberDetail->special_category_id>0) {{ getSpecialCategoryName($memberDetail->special_category_id) }} @else General Category @endif
+                    </div>
+                  </div>
+                  <div class="  row">
+                    <label class=" col-lg-4">Status </label><label class=" col-lg-1">:</label>
+                    <div class="col-lg-7  "> @if($memberDetail->status==1) Active @else  Inactive @endif  </div>
+                  </div>
+                  <h5 class="card-title mb-3">Residence Address</h5>
+                  <div class="  row">
+                    <label class=" col-lg-4">Address </label><label class=" col-lg-1">:</label>
+                    <div class="col-lg-7  "> {{ $memberDetail->address }}  </div>
+                  </div>
+                  <div class="  row">
+                    <label class=" col-lg-4">State </label><label class=" col-lg-1">:</label>
+                    <div class="col-lg-7  "> {{ getStateName($memberDetail->state_id) }}  </div>
+                  </div>
+                  <div class="  row">
+                    <label class=" col-lg-4">District </label><label class=" col-lg-1">:</label>
+                    <div class="col-lg-7  "> {{ getDistrictName($memberDetail->district_id) }} </div>
+                  </div>
+                  <div class="  row">
+                    <label class=" col-lg-4">City </label><label class=" col-lg-1">:</label>
+                    <div class="col-lg-7  "> {{ getCityName($memberDetail->city_id) }} </div>
+                  </div>
+                  <div class="  row">
+                    <label class=" col-lg-4">Village Name </label><label class=" col-lg-1">:</label>
+                    <div class="col-lg-7  ">{{ $memberDetail->village }}</div>
+                  </div>
+                  <div class="  row">
+                   <label class=" col-lg-4">Pin Code </label><label class=" col-lg-1">:</label>
+                    <div class="col-lg-7  "> {{ $memberDetail->pin_code }} </div>
+                  </div>            
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h4 class="card-title font-weight-semibold">Nominee Information</h4>
+                </div>
+                <div class="card-body"> 
+                    <div class="row">
+                        <label class=" col-lg-4">Full Name </label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  "> {{ $nomineeDetail->name }}  </div>  
+                    </div>  
+                    <div class="row">
+                        <label class=" col-lg-4">Relationship</label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  ">   @if($nomineeDetail->relation>0) {{ getRelationsName($nomineeDetail->relation) }} @endif </div>  
+                    </div>
+                    <div class="row">
+                        <label class=" col-lg-4">Gender</label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  "> @if($nomineeDetail->gender ==1) Male @else Female @endif  </div>  
+                    </div>
+                    <div class="row">
+                        <label class=" col-lg-4">Date of Birth</label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  "> @if ($nomineeDetail->dob) {{ date("d/m/Y", strtotime($nomineeDetail->dob)) }} @endif  </div>
+                    </div>
+                    <div class="row">
+                        <label class=" col-lg-4">Age</label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  "> {{ $nomineeDetail->age }}  </div>  
+                    </div>
+                    <div class="row">
+                        <label class=" col-lg-4">Mobile No</label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  "> {{ $nomineeDetail->mobile_no }}  </div>  
+                    </div>
+                    <div class="row">
+                        <label class=" col-lg-4">Is Minor</label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  "> @if($nomineeDetail->is_minor ==1) Yes @else No @endif</div>  
+                    </div>
+                    @if($nomineeDetail->is_minor ==1)
+                    <div class="row">
+                        <label class=" col-lg-4">Parent Name</label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  ">  {{ $nomineeDetail->parent_name }} </div>  
+                    </div>
+                    <div class="row">
+                        <label class=" col-lg-4">Parent Mobile No</label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  "> {{ $nomineeDetail->parent_no }}  </div>  
+                    </div>
+                    @endif
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h4 class="card-title font-weight-semibold">Bank Information</h4>
+                </div>
+                <div class="card-body">
+                     @if($bankDetail)
+                        <div class="  row">
+                            <label class=" col-lg-4">Bank Name </label><label class=" col-lg-1">:</label>
+                            <div class="col-lg-7  "> {{ $bankDetail->bank_name }} </div>
+                        </div>
+                        <div class="  row">
+                            <label class=" col-lg-4">Branch Name</label><label class=" col-lg-1">:</label>
+                            <div class="col-lg-7  "> {{ $bankDetail->branch_name }} </div>
+                        </div>
+                        <div class="  row">
+                            <label class=" col-lg-4">Bank A/C No </label><label class=" col-lg-1">:</label>
+                            <div class="col-lg-7  "> {{ $bankDetail->account_no }}</div>
+                        </div>
+                        <div class="  row">
+                            <label class=" col-lg-4">IFSC Code</label><label class=" col-lg-1">:</label>
+                            <div class="col-lg-7  ">{{ $bankDetail->ifsc_code }}</div>
+                        </div>
+                        <div class="  row">
+                            <label class=" col-lg-4">Bank Address</label><label class=" col-lg-1">:</label>
+                            <div class="col-lg-7  ">{{ $bankDetail->address }} </div>
+                        </div>
+                   @else
+                        <div class="row">
+                            <div class="col-lg-12"> Bank detail not found! </div>   
+                        </div>
+                    @endif
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h4 class="card-title font-weight-semibold">Associate Details</h4>
+                </div>
+                <div class="card-body">  
+                    <div class="row">
+                        <label class=" col-lg-4">Associate Code</label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  "> {{ $memberDetail->associate_code }}  </div>
+                    </div>
+                    <div class="row">
+                        <label class=" col-lg-4">Associate Name</label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  "> {{ getSeniorData($memberDetail->associate_id,'first_name') }}  {{ getSeniorData($memberDetail->associate_id,'last_name') }} </div>  
+                    </div>                  
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h6 class="card-title font-weight-semibold">Profile Image</h6>
+                </div>
+                <div class="card-body text-center">
+                    <div class="card-img-actions d-inline-block mb-3">
+                        <div class="profile_image_div">
+                            <label> <i class="fas fa-camera"></i>
+                            <form enctype="multipart/form-data" id="upload_form" method="POST" action="{{ route('admin.member.image') }}">
+                              @csrf
+                              <input type="hidden" name="member-id" id="member-id" value="{{ $memberDetail->id }}">
+                              <input type="file" name="photo" class="profile_image" id="photo">
+                            </form>
+                          </label>
+
+                            @if($memberDetail->photo=='')
+                                <img class="img-fluid rounded-circle" id="photo-preview"  src="{{url('/')}}/asset/images/user.png">
+
+                            @else
+                                <!-- <img class="img-fluid rounded-circle" id="photo-preview"  src="{{url('/')}}/asset/profile/member_avatar/{{ $memberDetail->photo }}"> -->
+                                <img class="img-fluid rounded-circle" id="photo-preview"  src="{{ImageUpload::generatePreSignedUrl('profile/member_avatar/' .  $memberDetail->photo)}}"> 
+                            @endif
+                        </div>
+					
+<div class="form-group">
+                            @if($memberDetail->photo=='')
+                              <label class="profile_blocked">Note<sup class="required">*</sup>
+                                Upload picture otherwise the account will be blocked after 30 days
+                              </label>
+                            @endif
+                        </div> 
+                     </div
+                        
+                    
+                </div>
+            </div> 
+        
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h6 class="card-title font-weight-semibold">Signature</h6>
+                </div>
+                <div class="card-body text-center">
+                    <div class="card-img-actions d-inline-block mb-3">
+                        <div class="signature_image_div">
+                            
+
+                            @if($memberDetail->signature=='')
+                                <img class="Image placeholder w-100"  id="signature-preview" src="{{url('/')}}/asset/images/signature-logo-design.png">
+
+                            @else
+                                <!-- <img class="Image placeholder w-100"  id="signature-preview" src="{{url('/')}}/asset/profile/member_signature/{{ $memberDetail->signature }}"> -->
+                                <img class="Image placeholder w-100"  id="signature-preview" src="{{ImageUpload::generatePreSignedUrl('profile/member_signature/' .  $memberDetail->signature)}}">
+                            @endif
+							
+							<label>
+                            <form enctype="multipart/form-data" id="signature_form" method="POST" action="{{ route('admin.member.image') }}">
+                              @csrf
+<!--
+                              <input type="hidden" name="member-id" id="member-id" value="{{ $memberDetail->id }}">
+                              <input type="file" name="signature" class="signature_image" id="signature">
+-->
+								
+							<div class="custom-file error-msg">
+							  <input type="hidden" name="member-id" id="member-id" value="{{ $memberDetail->id }}">
+							  <input type="file" name="signature" class="signature_image custom-file-input" id="signature">
+							  <label class="custom-file-label" for="signature">Select document</label>
+							</div>
+                            </form>
+                          </label>
+                        </div>
+
+                    </div> 
+<!--
+                        <div class="form-group">
+                            @if($memberDetail->signature=='')
+                              <label class="profile_blocked">Note<sup class="required">*</sup>Upload signature otherwise the account will be blocked after 30 days
+                              </label>
+                            @endif
+                        </div> 
+-->
+                    
+                </div>
+            </div> 
+
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h5 class="card-title font-weight-semibold">ID Proof</h5>
+                </div>
+                <div class="card-body ">
+                     <h6 class="card-title font-weight-semibold">First ID Proof </h6>
+                    <div class="row">
+                        <label class=" col-lg-4">ID Proof Document Type </label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  "> {{ getIdProofName($idProofDetail->first_id_type_id)}} </div>  
+                    </div>  
+                    <div class="row">
+                        <label class=" col-lg-4">ID No </label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  ">{{ $idProofDetail->first_id_no }}</div>  
+                    </div>
+                    <div class="row">
+                        <label class=" col-lg-4">Address </label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  ">{{ $idProofDetail->first_address }}</div>  
+                    </div> 
+                    <h6 class="card-title font-weight-semibold">Second ID Proof</h6> 
+                    <div class="row">
+                        <label class=" col-lg-4">ID Proof Document Type </label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  ">{{ getIdProofName($idProofDetail->second_id_type_id)}}</div>  
+                    </div>
+                    <div class="row">
+                        <label class=" col-lg-4">ID No </label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  ">{{ $idProofDetail->second_id_no }}</div>  
+                    </div> 
+                    <div class="row">
+                        <label class=" col-lg-4">Address </label><label class=" col-lg-1">:</label>
+                        <div class="col-lg-7  ">{{ $idProofDetail->second_address }}</div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 text-center">
+            <div class="card bg-white" >            
+            <div class="card-body">
+              <div class="text-center"> 
+              <a href="{!! route('admin.member.receipt',['id'=>$recipt]) !!}" target="_blank" class="btn bg-blue">Receipt </a>
+             
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+@else
+<div class="row">   
+        <div class="col-md-12">
+          <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h6 class="card-title font-weight-semibold">Profile Image</h6>
+                </div>
+                <div class="card-body text-center">
+                    <div class="card-img-actions d-inline-block mb-3">
+                        <div class="profile_image_div">
+                            <label> <i class="fas fa-camera"></i>
+                            <form enctype="multipart/form-data" id="upload_form" method="POST" action="{{ route('admin.member.image') }}">
+                              @csrf
+                              <input type="hidden" name="member-id" id="member-id" value="{{ $memberDetail->id }}">
+                              <input type="file" name="photo" class="profile_image" id="photo">
+                            </form>
+                          </label>
+
+                            @if($memberDetail->photo=='')
+                                <img class="img-fluid" id="photo-preview"  src="{{url('/')}}/asset/images/user.png">
+
+                            @else
+                                <!-- <img class="img-fluid" id="photo-preview" src="{{url('/')}}/asset/profile/member_avatar/{{ $memberDetail->photo }}"> -->
+                                <img class="img-fluid" id="photo-preview" src="{{ImageUpload::generatePreSignedUrl('profile/member_avatar/' .  $memberDetail->photo)}}">
+                            @endif
+                        </div>
+
+                    </div> 
+                        <div class="form-group">
+                            @if($memberDetail->photo=='')
+                              <label class="profile_blocked">Note<sup class="required">*</sup>
+                                Upload picture otherwise the account will be blocked after 30 days
+                              </label>
+                            @endif
+                        </div> 
+                    
+                </div>
+            </div> 
+        
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h6 class="card-title font-weight-semibold">Signature</h6>
+                </div>
+                <div class="card-body text-center">
+                    <div class="card-img-actions d-inline-block mb-3">
+                        <div class="signature_image_div">
+                            <label> <i class="fas fa-camera"></i>
+                            <form enctype="multipart/form-data" id="signature_form" method="POST" action="{{ route('admin.member.image') }}">
+                              @csrf
+                              <input type="hidden" name="member-id" id="member-id" value="{{ $memberDetail->id }}">
+                              <input type="file" name="signature" class="signature_image" id="signature">
+                            </form>
+                          </label>
+
+                            @if($memberDetail->signature=='')
+                                <img class="img-fluid"  id="signature-preview" src="{{url('/')}}/asset/images/signature-logo-design.png">
+
+                            @else
+                                <!-- <img class="img-fluid"  id="signature-preview" src="{{url('/')}}/asset/profile/member_signature/{{ $memberDetail->signature }}"> -->
+                                <img class="img-fluid"  id="signature-preview" src="{{ImageUpload::generatePreSignedUrl('profile/member_signature/' .  $memberDetail->signature)}}">
+                            @endif
+                        </div>
+
+                    </div> 
+                        <div class="form-group">
+                            @if($memberDetail->signature=='')
+                              <label class="profile_blocked">Note<sup class="required">*</sup>Upload signature otherwise the account will be blocked after 30 days
+                              </label>
+                            @endif
+                        </div> 
+                    
+                </div>
+            </div>
+  </div>
+</div>
+@endif
+</div>
+@include('templates.admin.member.partials.script')
+@stop

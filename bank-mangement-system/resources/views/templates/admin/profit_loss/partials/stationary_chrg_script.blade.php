@@ -1,0 +1,226 @@
+<script type="text/javascript">
+
+ $('document').ready(function(){
+    
+ $('#date').datepicker({
+        format: "dd/mm/yyyy",
+            orientation: "bottom",
+            autoclose: true,
+            setDate: new Date()
+    })
+    $('#to_date').datepicker({
+        format: "dd/mm/yyyy",
+            orientation: "bottom",
+            autoclose: true,
+            setDate: new Date()
+    })
+$.validator.addMethod("dateDdMm", function(value, element,p) {
+     
+      if(this.optional(element) || /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/g.test(value)==true)
+      {
+        $.validator.messages.dateDdMm = "";
+        result = true;
+      }else{
+        $.validator.messages.dateDdMm = "Please enter valid date";
+        result = false;  
+      }
+    
+    return result;
+  }, "");
+
+$('#filter').validate({
+      rules: {
+        date:{ 
+           required: true,
+            dateDdMm : true,
+          }, 
+           to_date :{ 
+           required: true,
+           dateDdMm : true,
+          }, 
+         /* branch :{ 
+           required: true,
+          },*/  
+
+      },
+      messages: {  
+          date:{ 
+            required: "Please enter date.",
+          },
+          // branch:{ 
+          //   required: 'Please select branch.'
+          // },
+      },
+      errorElement: 'span',
+      errorPlacement: function (error, element) {
+        error.addClass(' ');
+        element.closest('.error-msg').append(error);
+      },
+      highlight: function (element, errorClass, validClass) {
+        $(element).addClass('is-invalid');
+        if($(element).attr('type') == 'radio'){
+          $(element.form).find("input[type=radio]").each(function(which){
+            $(element.form).find("label[for=" + this.id + "]").addClass(errorClass);
+            $(this).addClass('is-invalid');
+          });
+        }
+      },
+      unhighlight: function (element, errorClass, validClass) {
+        $(element).removeClass('is-invalid');
+        if($(element).attr('type') == 'radio'){
+          $(element.form).find("input[type=radio]").each(function(which){
+            $(element.form).find("label[for=" + this.id + "]").addClass(errorClass);
+            $(this).removeClass('is-invalid');
+          });
+        }
+      }
+  });
+
+  $('.export').on('click',function(){
+  var extension = $(this).attr('data-extension');
+  $('#export').val(extension);
+  $('form#filter').attr('action',"{!! route('admin.profit-loss.stationary_chrg.report.export') !!}");
+  $('form#filter').submit();
+});
+ detailList = $('#stationary_chrg').DataTable({
+
+            processing: true,
+
+            serverSide: true,
+
+            pageLength: 20,
+
+            lengthMenu: [10, 20, 40, 50, 100],
+
+            "fnRowCallback" : function(nRow, aData, iDisplayIndex) {
+
+                var oSettings = this.fnSettings ();
+
+                $('html, body').stop().animate({
+
+                    scrollTop: ($('#stationary_chrg').offset().top)
+
+                }, 10);
+
+                $("td:nth-child(0)", nRow).html(oSettings._iDisplayStart+iDisplayIndex +1);
+
+                return nRow;
+
+            },
+
+            ajax: {
+
+                "url": "{!! route('admin.profit-loss.stationary_chrg_listing') !!}",
+
+                "type": "POST",
+
+                "data":function(d,oSettings) {
+                   if(oSettings.json != null)
+                   {
+                    $('#total_balance').val(oSettings.json.total);
+                     var total = oSettings.json.total;
+                   }
+                   else{
+                     $('#total_balance').val(0);
+                   }
+                    var page = ($('#stationary_chrg').DataTable().page.info());
+                    var currentPage  = page.page+1;
+                    d.pages = currentPage,
+                    d.searchform=$('form#filter').serializeArray(),
+                    d.label= $('#label').val(),
+                    d.branch_id= $('#branch_id').val(),
+                    d.date= $('#date').val(),
+                    d.to_date= $('#to_date').val(),
+                    d.head= $('#head').val(),
+                    d.total=$('#total_balance').val()
+                   
+                        
+                },
+
+                headers: {
+
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+                },
+
+            }, 
+            
+            columns: [
+
+                {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                {data: 'date', name: 'date'},
+                 {data: 'member_id', name: 'member_id'},
+                {data: 'member_name', name: 'member_name'},
+                {data: 'account_number', name: 'account_number'},
+                {data: 'cr', name: 'cr'},
+                {data: 'dr', name: 'dr'},
+                {data: 'balance', name: 'balance'},
+            
+            ]
+            ,"ordering": false
+        });
+
+        $(detailList.table().container()).removeClass( 'form-inline' );  
+
+
+
+
+$( document ).ajaxStart(function() {
+        $( ".loader" ).show();
+    });
+
+    $( document ).ajaxComplete(function() {
+        $( ".loader" ).hide();
+    });
+});
+
+ function searchstationarychrgForm()
+    {  
+      $('#is_search').val("yes");
+
+    var is_search=$('#is_search').val(); 
+    var date=$('#date').val(); 
+    var to_date=$('#to_date').val(); 
+    var branch_id= $('#branch_id').val()
+    var head=$('#head').val(); 
+     var queryParams = new URLSearchParams(window.location.search);
+ 
+// Set new or modify existing parameter value. 
+queryParams.set("date", date);
+queryParams.set("to_date", to_date);
+
+  
+// Replace current querystring with the new one.
+window.location.href = "{{url('/')}}/admin/profit-loss/detailed/stationary_charge/?"+queryParams;
+    }
+function resetForm()
+{
+    location.reload();
+    $('#is_search').val("no");  
+    $('#branch').val(""); 
+    $('#start_date').val(""); 
+  
+    var is_search=$('#is_search').val();
+     var start_date=$('#default_date').val(); 
+     var end_date=$('#default_end_date').val(); 
+     var head= $('#head').val();
+     var branch_id= $('#branch_id').val()
+    var queryParams = new URLSearchParams(window.location.search);
+ 
+// Set new or modify existing parameter value. 
+queryParams.set("date", start_date);
+queryParams.set("to_date", end_date);
+queryParams.set("head", head);
+queryParams.set("branch_id", branch_id);
+ 
+// Replace current querystring with the new one.
+            window.location.href = "{{url('/')}}/admin/profit-loss/detailed/stationary_charge/?"+queryParams;
+}
+
+
+
+
+
+
+</script>
+

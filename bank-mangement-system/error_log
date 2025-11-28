@@ -1,0 +1,24 @@
+[27-Apr-2023 10:21:22 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/mysamraddh/public_html/core/vendor/nunomaduro/collision/src/Highlighter.php on line 134
+[27-Apr-2023 10:21:22 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/mysamraddh/public_html/core/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 129
+[27-Apr-2023 11:36:23 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 606208 bytes) in /home/mysamraddh/public_html/core/vendor/composer/ClassLoader.php on line 571
+[27-Apr-2023 11:36:23 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 65536 bytes) in /home/mysamraddh/public_html/core/vendor/laravel/framework/src/Illuminate/Session/Store.php on line 562
+[27-Apr-2023 11:37:40 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 606208 bytes) in /home/mysamraddh/public_html/core/vendor/composer/ClassLoader.php on line 571
+[27-Apr-2023 11:37:40 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 65536 bytes) in /home/mysamraddh/public_html/core/vendor/laravel/framework/src/Illuminate/Session/Store.php on line 562
+[02-May-2023 18:04:29 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/mysamraddh/public_html/core/vendor/nunomaduro/collision/src/Highlighter.php on line 134
+[02-May-2023 18:04:29 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/mysamraddh/public_html/core/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 129
+[19-Jul-2023 18:23:12 Asia/Kolkata] PHP Fatal error:  Cannot declare class App\Console\Commands\MonthlyIncomeSchemeInterestTransfer, because the name is already in use in /home/mysamraddh/public_html/core/app/Console/Commands/moneyBackAmountTransfer.php on line 28
+[19-Jul-2023 18:25:11 Asia/Kolkata] PHP Fatal error:  Cannot declare class App\Console\Commands\MonthlyIncomeSchemeInterestTransfer, because the name is already in use in /home/mysamraddh/public_html/core/app/Console/Commands/moneyBackAmountTransfer.php on line 28
+[16-Aug-2023 11:38:01 UTC] PHP Parse error:  syntax error, unexpected 'dd' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST) in /home/mysamraddh/public_html/core/app/Console/Kernel.php on line 10
+[16-Aug-2023 11:38:02 UTC] PHP Parse error:  syntax error, unexpected 'dd' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST) in /home/mysamraddh/public_html/core/app/Console/Kernel.php on line 10
+[16-Aug-2023 11:38:03 UTC] PHP Parse error:  syntax error, unexpected 'dd' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST) in /home/mysamraddh/public_html/core/app/Console/Kernel.php on line 10
+[17-Aug-2023 12:01:22 Asia/Kolkata] PHP Fatal error:  Declaration of PDO::prepare(string $query, array $options = []) must be compatible with Doctrine\DBAL\Driver\Connection::prepare($prepareString) in /home/mysamraddh/public_html/core/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php on line 0
+[20-Sep-2023 11:35:53 Asia/Kolkata] API Response: SMS-SHOOT-ID/sher650a8bc35960b
+[03-Oct-2023 12:57:56 Asia/Kolkata] PHP Fatal error:  Cannot declare class App\Console\Commands\AssociateException because the name is already in use in /home/mysamraddh/public_html/core/app/Console/Commands/AssociateException.php on line 17
+[10-Oct-2023 17:20:46 Asia/Kolkata] API Response: SMS-SHOOT-ID/sher65253a9833ddf
+[10-Oct-2023 17:21:09 Asia/Kolkata] API Response: SMS-SHOOT-ID/sher65253aaedbf14
+[16-Oct-2023 07:58:09 UTC] PHP Parse error:  syntax error, unexpected ''echo' (T_ENCAPSED_AND_WHITESPACE), expecting end of file in Command line code on line 1
+[17-Oct-2023 03:55:44 UTC] PHP Parse error:  syntax error, unexpected ''echo' (T_ENCAPSED_AND_WHITESPACE), expecting end of file in Command line code on line 1
+[17-Oct-2023 13:13:16 UTC] PHP Warning:  require(/home/mysamraddh/public_html/core/vendor/composer/../symfony/deprecation-contracts/function.php): failed to open stream: No such file or directory in /home/mysamraddh/public_html/core/vendor/composer/autoload_real.php on line 53
+[17-Oct-2023 13:13:16 UTC] PHP Fatal error:  require(): Failed opening required '/home/mysamraddh/public_html/core/vendor/composer/../symfony/deprecation-contracts/function.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/mysamraddh/public_html/core/vendor/composer/autoload_real.php on line 53
+[30-Oct-2023 15:49:53 Asia/Kolkata] API Response: SMS-SHOOT-ID/sher653f834a2ca86
+[30-Oct-2023 15:52:19 Asia/Kolkata] API Response: SMS-SHOOT-ID/sher653f83db9ce43
