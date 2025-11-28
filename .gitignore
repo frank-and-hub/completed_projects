@@ -35,9 +35,11 @@
 /.history
 /.idea
 *.jpg
+*.jpgjpeg
+*.jpeg
 *.png
 *.gif
-*.svg
+# *.svg
 *.zip
 *.tar.gz
 *.exe
