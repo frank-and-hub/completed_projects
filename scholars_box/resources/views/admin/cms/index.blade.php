@@ -47,7 +47,7 @@
                                         <td>{{ ++$key}}</td>
 
                                         <td>{{ $cmsPage->page_name }}</td>
-                                        <td>{{ ($cmsPage->status==1)? 'Active':'InActive'; }}</td>
+                                        <td>{{ ($cmsPage->status==1)? 'Active':'InActive' }}</td>
 
                                         <td>
                                             @if(condication(auth()->user(),'8','edit'))
@@ -62,7 +62,7 @@
                                                 title="delete" class="btn btn-none bg-none border-0" >
                                                 <i class="fas fa-trash"></i> <!-- Delete icon -->
                                             </a> | @endif--}}
-                                            
+
                                         </td>
 
                                     </tr>
