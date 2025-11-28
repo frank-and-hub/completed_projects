@@ -1,0 +1,243 @@
+.property-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.property-count {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.header-right-section .btn {
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+.header-right-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+}
+
+.btn-add,
+.btn-search {
+    background-color: #ffe6ec;
+    color: #f30051;
+    margin-right: 10px;
+    border: none;
+    text-wrap: nowrap;
+}
+
+.header-right-section input {
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+.header-right-section .btn-add:hover,
+.btn-search:hover {
+    background-color: #f30051 !important;
+    color: white !important;
+
+    .fas {
+        color: white !important;
+    }
+}
+
+.property-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.dropdown-menu {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 4px;
+    padding: 0px;
+}
+.dropdown-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+}
+
+li.dropdown-menu-item:hover {
+    background-color: #f30051;
+    cursor: pointer;
+    border-radius: 4px;
+    .fa{
+        color: #fff !important;
+    }
+}
+
+li.dropdown-menu-item:hover p {
+    color: #fff;
+    background-color: #f30051;
+}
+li.menu-divider {
+    border-bottom: 1px solid #d8d3d3;
+}
+
+.dropdown-menu .dropdown-menu-item:hover .menu-option-icon {
+    color: #fff !important;
+    background-color: #f30051;
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+}
+
+.property-image {
+    position: relative;
+    height: 180px;
+}
+
+.property-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.property-check-box {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+
+    font-size: small;
+    font-weight: 700;
+    border-radius: 1rem;
+}
+
+.more-options {
+    position: absolute;
+    top: 0.7rem;
+    right: 0.7rem;
+    background-color: rgba(255, 255, 255, 1);
+    font-size: 1.2rem;
+    color: #000;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.property-details {
+    padding: 1rem;
+}
+
+.property-type {
+    background-color: #ffe6ec;
+    /* Light shade derived from #f30051 */
+    color: #f30051;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.property-card .property-status {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    padding: 5px 15px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.property-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.property-location {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.property-location i {
+    color: #f30051;
+    margin-right: 5px;
+    font-size: 0.8rem;
+}
+
+.property-matched .property-location {
+    color: #f30051 !important;
+    font-weight: bold;
+    text-decoration: underline !important;
+}
+
+.property-matched :hover {
+    color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1)) !important;
+}
+
+.property-features {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.feature i {
+    margin-right: 5px;
+    color: #f30051;
+    font-size: 0.8rem;
+}
+
+.property-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.read-more {
+    font-size: 0.9rem;
+    color: #f30051 !important;
+    text-decoration: none;
+}
+
+.read-more i {
+    margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+    .property-image {
+        height: 150px;
+    }
+
+    .property-title {
+        font-size: 1rem;
+    }
+
+    .property-features {
+        gap: 0.5rem;
+    }
+
+    .feature {
+        font-size: 0.75rem;
+    }
+
+    .header-right-section {
+        flex-wrap: wrap;
+    }
+}

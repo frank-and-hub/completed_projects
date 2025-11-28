@@ -1,0 +1,58 @@
+# Enable Gzip compression
+<IfModule mod_deflate.c>
+    # Compress HTML, CSS, JavaScript, Text, XML, and font files
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript application/json text/xml application/xml application/xml+rss font/woff2 font/woff
+</IfModule>
+
+# Set expiration headers for HTML
+<IfModule mod_headers.c>
+    <FilesMatch "\.html$">
+        Header set Cache-Control "private, max-age=36000, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+# Enable Keep-Alive
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    DirectorySlash Off
+    RewriteEngine On
+
+    # Prevent any further processing if the URL already ends with a file extension
+    RewriteRule \.\w{2,4}$ - [L]
+
+    # Redirect any requests to remove a trailing slash
+    RewriteRule (.*)/$ /$1 [R=301,L]
+
+    # Rewrite /foo to /foo.html if it exists
+    RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+    RewriteRule (.*) $1.html [L]
+
+    # Otherwise, rewrite /foo to /foo/index.html if it exists
+    RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+    RewriteRule (.*) $1/index.html [L]
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # Header set Access-Control-Allow-Origin "*"
+
+
+</IfModule>

@@ -1,0 +1,235 @@
+.agent-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.agent-count {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.search-input {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+}
+
+.search-input input {
+    border-radius: 20px;
+    border: 1px solid #ced4da;
+    padding: 8px 35px 8px 15px;
+    width: 100%;
+}
+
+.search-input .search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+.status-dropdown,
+.add-agent-btn {
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+.status-dropdown {
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    color: #333;
+}
+
+.add-agent-btn {
+    background-color: #ffe6ec;
+    color: #f30051;
+    border: none;
+    font-weight: bold;
+    align-items: center;
+}
+.add-agent-btn i {
+    font-size: 14px;
+}
+
+.header-right-section .add-agent-btn:hover,
+.add-agent-btn:hover {
+    background-color: #f30051 !important;
+    color: white !important;
+
+    .fa {
+        color: white !important;
+    }
+}
+.agent-card {
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); */
+    transition: transform 0.3s ease;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    height: 100%;
+}
+
+.agent-card:hover {
+    transform: translateY(-5px);
+}
+
+.user-check-box input {
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background-color: #f1f1f1;
+    height: 18px;
+    width: 18px;
+    right: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.agent-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    border: 3px solid #f30051;
+}
+
+.new-tag {
+    position: absolute;
+    top: -10px;
+    left: -40px;
+    background-color: #f30051;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    transform: rotate(-45deg);
+    height: 50px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.new-tag p {
+    margin: 15px;
+}
+
+@media (max-width: 480px) {
+    .new-tag {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+}
+
+.agent-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.agent-id {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.agent-location {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.agent-location i {
+    color: #f30051;
+    margin-right: 5px;
+}
+
+.agent-property {
+    font-size: 0.85rem;
+    margin-bottom: .5rem;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: #e6f4ea;
+    color: #28a745;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.action-btn.message {
+    background-color: #e6f4ea;
+}
+
+.action-btn.call {
+    background-color: #cce5ff;
+    color: #0066cc;
+}
+
+.btn-sz button i {
+    font-size: 12px;
+}
+
+.action-btn:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .agent-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-input {
+        max-width: 100%;
+    }
+
+    .agent-card {
+        margin-bottom: 1.5rem;
+    }
+
+    .agent-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .agent-name {
+        font-size: 1rem;
+    }
+}
+
+.status-dropdown {
+    appearance: none;
+    cursor: pointer;
+    max-width: 200px;
+}
