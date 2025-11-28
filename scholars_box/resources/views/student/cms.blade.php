@@ -1,5 +1,5 @@
 @extends('student.layout.app')
-@section('title', "Scholarship - {{$getPage->page_name??''}}")
+@section('title', "Scholarship - {{ $getPage?->page_name ?? '' }}")
 @section('content')
 
    <section class="main-inner-banner-one">
@@ -56,10 +56,10 @@
             <img src="assets/images/event-detail-shape-1-1.png" alt="">
         </div>
     <div class="container">
-        
+
         {{-- <div class="row">
 
-        
+
             <div class="col-xl-12 col-lg-12">
                 <h2 class="h2-title">Heading 1</h2>
                 <p>Aliquam erat volutpat. Praesent luctus sodales nisi, vitae molestie neque tincidunt in. Phasellus eu nunc dignissim, placerat est non, sollicitudin nunc. In aliquet tincidunt venenatis. Donec ullamcorper nisl vitae tincidunt imperdiet. Phasellus ullamcorper sapien ut augue sagittis, ac porttitor tellus luctus.</p>
@@ -70,7 +70,7 @@
 
         <div class="row">
 
-        
+
             <div class="col-xl-12 col-lg-12">
                 <h2 class="h2-title">Heading 2</h2>
                 <p>Aliquam erat volutpat. Praesent luctus sodales nisi, vitae molestie neque tincidunt in. Phasellus eu nunc dignissim, placerat est non, sollicitudin nunc. In aliquet tincidunt venenatis. Donec ullamcorper nisl vitae tincidunt imperdiet. Phasellus ullamcorper sapien ut augue sagittis, ac porttitor tellus luctus.</p>
@@ -81,7 +81,7 @@
 
         <div class="row">
 
-        
+
             <div class="col-xl-12 col-lg-12">
                 <h2 class="h2-title">Heading 3</h2>
                 <p>Aliquam erat volutpat. Praesent luctus sodales nisi, vitae molestie neque tincidunt in. Phasellus eu nunc dignissim, placerat est non, sollicitudin nunc. In aliquet tincidunt venenatis. Donec ullamcorper nisl vitae tincidunt imperdiet. Phasellus ullamcorper sapien ut augue sagittis, ac porttitor tellus luctus.</p>
@@ -92,7 +92,7 @@
 
         <div class="row">
 
-        
+
             <div class="col-xl-12 col-lg-12">
                 <h2 class="h2-title">Heading 4</h2>
                 <p>Aliquam erat volutpat. Praesent luctus sodales nisi, vitae molestie neque tincidunt in. Phasellus eu nunc dignissim, placerat est non, sollicitudin nunc. In aliquet tincidunt venenatis. Donec ullamcorper nisl vitae tincidunt imperdiet. Phasellus ullamcorper sapien ut augue sagittis, ac porttitor tellus luctus.</p>
