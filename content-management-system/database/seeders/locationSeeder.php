@@ -1,0 +1,242 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Location;
+use App\Models\Parks;
+use App\Traits\CommonTraits;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class locationSeeder extends Seeder
+{
+    use CommonTraits;
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $insert = [
+            ['city' => 'Brookline', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Chestnut Hill', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Newton', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Boston', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Waban', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'East Walpole', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Norwood', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Auburndale', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Natick', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Dover', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Jamaica Plain', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Nashua', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Hyde Park', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Hampton', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Chicago', 'state' => 'Illinois', 'country' => 'United States'],
+            ['city' => 'Cambridge', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Allston', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Savannah', 'state' => 'Georgia', 'country' => 'United States'],
+            ['city' => 'West Roxbury', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Brighton', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Somerville', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Framingham', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Everett', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Milton', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Hudson', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Merrimack', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Miami', 'state' => 'Florida', 'country' => 'United States'],
+            ['city' => 'Miami Beach', 'state' => 'Florida', 'country' => 'United States'],
+            ['city' => 'Portland', 'state' => 'Maine', 'country' => 'United States'],
+            ['city' => 'Portland', 'state' => 'Oregon', 'country' => 'United States'],
+            ['city' => 'Phoenix', 'state' => 'Arizona', 'country' => 'United States'],
+            ['city' => 'Paradise Valley', 'state' => 'Arizona', 'country' => 'United States'],
+            ['city' => 'Scottsdale', 'state' => 'Arizona', 'country' => 'United States'],
+            ['city' => 'Chandler', 'state' => 'Arizona', 'country' => 'United States'],
+            ['city' => 'Tempe', 'state' => 'Arizona', 'country' => 'United States'],
+            ['city' => 'San Diego', 'state' => 'California', 'country' => 'United States'],
+            ['city' => 'Evergreen', 'state' => 'Colorado', 'country' => 'United States'],
+            ['city' => 'Morrison', 'state' => 'Colorado', 'country' => 'United States'],
+            ['city' => 'Coral Gables', 'state' => 'Florida', 'country' => 'United States'],
+            ['city' => 'Estero', 'state' => 'Florida', 'country' => 'United States'],
+            ['city' => 'Fort Myers Beach', 'state' => 'Florida', 'country' => 'United States'],
+            ['city' => 'Naples', 'state' => 'Florida', 'country' => 'United States'],
+            ['city' => 'New Orleans', 'state' => 'Louisiana', 'country' => 'United States'],
+            ['city' => 'Metairie', 'state' => 'Louisiana', 'country' => 'United States'],
+            ['city' => 'North York', 'state' => 'Ontario', 'country' => 'Canada'],
+            ['city' => 'Toronto', 'state' => 'Ontario', 'country' => 'Canada'],
+            ['city' => 'East York', 'state' => 'Ontario', 'country' => 'Canada'],
+            ['city' => 'Thornhill', 'state' => 'Ontario', 'country' => 'Canada'],
+            ['city' => 'Montreal', 'state' => 'Quebec', 'country' => 'Canada'],
+            ['city' => 'Falmouth', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Limington', 'state' => 'Maine', 'country' => 'United States'],
+            ['city' => 'Bar Harbor', 'state' => 'Maine', 'country' => 'United States'],
+            ['city' => 'Alton Bay', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Auburn', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Goffstown', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Hollis', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Manchester', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Pelham', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'New York', 'state' => 'New York', 'country' => 'United States'],
+            ['city' => 'Washington', 'state' => 'Washington, D.C.', 'country' => 'United States'],
+            ['city' => 'New York City', 'state' => 'New York', 'country' => 'United States'],
+            ['city' => 'Bristol', 'state' => 'Rhode Island', 'country' => 'United States'],
+            ['city' => 'East Providence', 'state' => 'Rhode Island', 'country' => 'United States'],
+            ['city' => 'Providence', 'state' => 'Rhode Island', 'country' => 'United States'],
+            ['city' => 'Austin', 'state' => 'Texas', 'country' => 'United States'],
+            ['city' => 'Grand Isle', 'state' => 'Vermont', 'country' => 'United States'],
+            ['city' => 'North Hero', 'state' => 'Vermont', 'country' => 'United States'],
+            ['city' => 'Fairfax', 'state' => 'Virginia', 'country' => 'United States'],
+            ['city' => 'Aquinnah', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Arlington', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Waltham', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Belmont', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Mattapan', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'East Boston', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'South Boston', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Dorchester', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Charlestown', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Roxbury', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Roslindale', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Seattle', 'state' => 'Washington', 'country' => 'United States'],
+            ['city' => 'Braintree', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Brockton', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Burlington', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Canton', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Chelsea', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Concord', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Lincoln', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Dedham', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'North Easton', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Essex', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Hingham', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Hull', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Ipswich', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Lexington', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Malden', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Mansfield', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Medfield', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Medford', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Melrose', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Nahant', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Needham', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Watertown', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Newton Upper Falls', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Quincy', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Randolph', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Sharon', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Stoneham', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Sudbury', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Wakefield', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Walpole', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Wayland', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Wellesley', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'West Tisbury', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Weston', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Westwood', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Weymouth', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Winchester', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Woburn', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Alburgh', 'state' => 'Vermont', 'country' => 'United States'],
+            ['city' => 'Outremont', 'state' => 'Quebec', 'country' => 'Canada'],
+            ['city' => 'Candia', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Chelmsford', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Jaffrey', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Nottingham', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Royalston', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Vancouver', 'state' => 'British Columbia', 'country' => 'Canada'],
+            ['city' => 'Groton', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Tyngsboro', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'San Francisco', 'state' => 'California', 'country' => 'United States'],
+            ['city' => 'Tel Aviv-Yafo', 'state' => 'Tel Aviv District', 'country' => 'Israel'],
+            ['city' => 'Beaverton', 'state' => 'Oregon', 'country' => 'United States'],
+            ['city' => 'Ramat Gan', 'state' => 'Tel Aviv District', 'country' => 'Israel'],
+            ['city' => 'Netanya', 'state' => 'Central District', 'country' => 'Israel'],
+            ['city' => 'Haifa', 'state' => 'Haifa District', 'country' => 'Israel'],
+            ['city' => 'Nesher', 'state' => 'Haifa District', 'country' => 'Israel'],
+            ['city' => 'Riga', 'state' => 'Riga Region', 'country' => 'Latvia'],
+            ['city' => 'Warszawa', 'state' => 'Mazowieckie Province', 'country' => 'Poland'],
+            ['city' => 'Acton', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Lowell', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Paxton', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'North Chelmsford', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Westmount', 'state' => 'Quebec', 'country' => 'Canada'],
+            ['city' => 'Amherst', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Lawrence', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Allenstown', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Tampa', 'state' => 'Florida', 'country' => 'United States'],
+            ['city' => 'Rocky Point', 'state' => 'Florida', 'country' => 'United States'],
+            ['city' => 'Pacifica', 'state' => 'California', 'country' => 'United States'],
+            ['city' => 'Woodside', 'state' => 'California', 'country' => 'United States'],
+            ['city' => 'San Bruno', 'state' => 'California', 'country' => 'United States'],
+            ['city' => 'North Billerica', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Boxborough', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Littleton', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Winthrop', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Wolfeboro', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Worcester', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Duxbury', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Fitchburg', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Gloucester', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Rockport', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Somersworth', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Salisbury', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Windham', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Rye', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Ayer', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Portsmouth', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Salem', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Milwaukee', 'state' => 'Wisconsin', 'country' => 'United States'],
+            ['city' => 'Brown Deer', 'state' => 'Wisconsin', 'country' => 'United States'],
+            ['city' => 'Greenfield', 'state' => 'Wisconsin', 'country' => 'United States'],
+            ['city' => 'Saint Francis', 'state' => 'Wisconsin', 'country' => 'United States'],
+            ['city' => 'Wauwatosa', 'state' => 'Wisconsin', 'country' => 'United States'],
+            ['city' => 'Cudahy', 'state' => 'Wisconsin', 'country' => 'United States'],
+            ['city' => 'Oak Creek', 'state' => 'Wisconsin', 'country' => 'United States'],
+            ['city' => 'Bayside', 'state' => 'Wisconsin', 'country' => 'United States'],
+            ['city' => 'Shorewood', 'state' => 'Wisconsin', 'country' => 'United States'],
+            ['city' => 'Franklin', 'state' => 'Wisconsin', 'country' => 'United States'],
+            ['city' => 'South Milwaukee', 'state' => 'Wisconsin', 'country' => 'United States'],
+            ['city' => 'West Allis', 'state' => 'Wisconsin', 'country' => 'United States'],
+            ['city' => 'Leominster', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Ashby', 'state' => 'Massachusetts', 'country' => 'United States'],
+            ['city' => 'Hales Corners', 'state' => 'Wisconsin', 'country' => 'United States'],
+            ['city' => 'Glendale', 'state' => 'Wisconsin', 'country' => 'United States'],
+            ['city' => 'Greendale', 'state' => 'Wisconsin', 'country' => 'United States'],
+            ['city' => 'Moultonborough', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'West Milwaukee', 'state' => 'Wisconsin', 'country' => 'United States'],
+            ['city' => 'Franconia', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Thornton', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Meredith', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Holderness', 'state' => 'New Hampshire', 'country' => 'United States'],
+            ['city' => 'Atlanta', 'state' => 'Georgia', 'country' => 'United States'],
+            ['city' => 'Lawrenceville', 'state' => 'Georgia', 'country' => 'United States']
+        ];
+
+        // $location = Location::insert($insert);
+
+        foreach ($insert as $data) {
+
+            Location::firstOrCreate(
+                [
+                    'city' => $data['city'],
+                    'city_slug' => $this->generateUniqueSlug($data['city'], null, Location::class),
+                    'state' => $data['state'],
+                    'country' => $data['country']
+                ],
+                $data
+            );
+
+            $parks = Parks::where('city', $data['city'])
+                ->where('country', $data['country'])
+                ->where(function ($q) {
+                    $q->whereNull('state')
+                        ->orWhere('state', '');
+                })
+                ->get();
+            foreach ($parks as $park) {
+                $park->update(['state' => $data['state']]);
+            }
+        }
+    }
+}

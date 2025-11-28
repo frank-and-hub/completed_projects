@@ -1,0 +1,342 @@
+@media (min-width:1900px) {
+    .feature_sec:after, .app_sec:after, .download_sec:after{
+        background-image: none !important;
+        background-color: var(--primary-color) !important;
+
+    }
+    .app_sec:after, .download_sec:after {
+        height: 400px;
+    }
+    .feature_content {
+        justify-content: flex-start;
+    }
+}
+@media (min-width:1440px){
+    .feature_sec:after{
+        height: 575px;
+        transform: translateY(-58%);
+    }
+}
+@media (max-width:1350px) {
+    .hero_row{
+        transform: translateX(8%);
+    }
+    .copy_info{
+        font-size: 16px;
+    }
+    .foot_row .h1{
+        font-size:28px
+    }
+    .work_sec .h1, .feature_content .h1, .app_sec .h1{
+        font-size: 48px;
+    }
+    .about_sec .row {
+        justify-content: center;
+        gap: 60px;
+    }
+    .hero_sec{
+        height: 610px;
+    }
+    .about_sec p {
+        font-size: 16px;
+    }
+    .about_sec .h1{
+        font-size: 48px;
+        margin: 0 0 30px;
+    }
+    .about_content{
+        max-width: 470px;
+    }
+}
+@media (max-width:1199px) {
+
+    .hero_sec:before{
+        display:none;
+    }
+    .download_sec .row .download_thumb{
+        width: 20%;
+    }
+    .download_sec .row{
+        justify-content: space-around;
+    }
+    .download_sec .download_content .btn_group{
+        margin: 0 0 2em;
+    }
+    .feature_content ul{
+        font-size:16px
+    }
+    .feature_content{
+        justify-content: end;
+        margin: 0 0 60px;
+    }
+    .feature_sec:after{
+        height: 100%;
+    }
+    .hero_row{
+        gap: 30px;
+        transform: none;
+    }
+}
+
+@media (max-width:991px) {
+    .foot_logo {
+        max-width: 270px;
+        margin: auto auto 30px;
+    }
+    .foot_row .foot_info li.map-ico:before {
+        height: 36px;
+        width: 36px;
+    }
+    .foot_row .foot-nav{
+        list-style: none;
+    }
+    .foot_row .foot_info li{
+        padding-left: 0px;
+    }
+    .foot_row .foot_info li:before{
+        left:0;
+        position: static;
+        display: block;
+        margin: auto auto 10px;
+        width: 30px;
+        height: 30px;
+    }
+    .foot_row .foot_info{
+        padding:0;
+        list-style: none;
+        gap: 30px;
+    }
+    footer .row .foot_row:nth-last-of-type(2){
+        margin:0
+    }
+    .foot_row .h1 {
+        margin: 0 0 20px;
+        font-size:24px;
+    }
+    footer .row > div, footer .row .foot_row{
+        width: 100% !important;
+    }
+    footer .row{
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    .feature_sec{
+        margin-top:15em
+    }
+    .hero_row{
+        transform:none;
+        align-items: center;
+
+    }
+    .feature_sec .row {
+        flex-direction: column;
+    }
+
+    .feature_thumb {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .feature_content {
+        width: 100%;
+    }
+    .feature_sec:after {
+        height: 50%;
+        background: var(--primary-color);
+        transform: none;
+    }
+    .work_row {
+        flex-wrap: wrap;
+        gap: 50px 2%;
+    }
+
+    .work_row .work_card {
+        width: 48%;
+    }
+
+    .work_sec:after {
+        height: 100%;
+    }
+    .about_content{
+        max-width: 100%;
+    }
+    .about_thumb{
+        display:none;
+    }
+    .about_sec .row{
+        flex-direction: column;
+    }
+    .follow-sec{
+        left:10px
+    }
+    .hero_sec .btn_group{
+        gap:10px
+    }
+    .hero_sec {
+        height: auto;
+        padding: 50px 0;
+    }
+    .hero_sec:before{
+        display:none
+    }
+    .hero-content h1 {
+        font-size: 40px;
+        margin: 20px 0;
+    }
+    .download_sec .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .download_sec .download_content .btn_group {
+        margin: 0;
+    }
+    .download_sec .download_content .h1 {
+        font-size: 32px;
+        margin: 14px 0 15px;
+    }
+    .download_sec .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about_sec{
+        padding:5em 0
+    }
+    .download_sec{
+        padding: 3em 0;
+    }
+    footer .row{
+        flex-wrap: wrap;
+    }
+    footer .row .foot_row:nth-last-of-type(2){
+        width: 100% !important;
+        order:1;
+    }
+    footer .row .foot_row{
+        width:100% !important
+    }
+    footer .row .foot_row:first-of-type{
+        order:2
+    }
+    footer .row .foot_row:last-of-type{
+        order:3
+    }
+}
+@media (max-width:767px) {
+    .foot_row a{
+        font-size:18px;
+    }
+    .copy_info{
+        margin: 50px 0 0;
+    }
+
+    .download_sec .row .download_thumb {
+        width: 50%;
+    }
+    .download_sec .download_content .btn_group {
+        max-width: 80%;
+        margin: auto;
+        gap: 10px;
+    }
+
+    .download_sec:after {
+        background: var(--primary-color);
+        height: 62%;
+    }
+    .feature_content ul {
+        font-size: 16px;
+        max-width: 85%;
+    }
+    .feature_sec:after{
+        top: auto;
+    bottom: 0;
+    height: 75%;
+    }
+    .hero_sec {
+        margin: 0 0 150px;
+    }
+
+    .about_sec .h1, .work_sec .h1, .feature_content .h1, .app_sec .h1 {
+        font-size: 32px;
+    }
+
+    .work_sec .h1 {
+        font-size: 32px;
+    }
+
+    .work_row .work_card {
+        width: 100%;
+    }
+
+    .feature_thumb {
+        margin:0 0 20px
+    }
+
+    .feature_thumb img {
+        width: 40%;
+    }
+    .follow-sec {
+        left: 10px;
+    }
+    .hero-content h1{
+        font-size:30px
+    }
+    .hero-thumbnail {
+        margin: 0 0 -180px;
+    }
+    .hero_sec .btn_group {
+        max-width: 78%;
+        margin: auto;
+    }
+    .hero_row {
+        flex-wrap: wrap;
+    }
+    .feature_sec {
+        margin-top:5em
+    }
+    .hero-thumbnail.sal-animate {
+        top: auto;
+    }
+    .about_sec {
+        padding: 2em 0;
+    }
+    .hero-content h1 {
+        font-size: 30px;
+        padding: 0 3%;
+        line-height: 36px;
+    }
+}
+
+@media (max-width:469px) {
+    .follow-sec {
+        left: 10px;
+      }
+      .hero-content h1 {
+        font-size: 28px;
+        padding: 0 3%;
+        line-height: 34px;
+    }
+    .about_sec {
+        padding: 1em 0 2em 0;
+    }
+    footer {
+        padding: 2em 0 2em;
+    }
+    .foot_row .h1 {
+        margin: 0 0 10px;
+        font-size: 22px;
+    }
+    footer .row {
+        gap: 20px;
+    }
+    .copy_info {
+        margin: 30px 0 0;
+    }
+    .copy_info {
+        font-size: 14px;
+    }
+    .hero_sec .btn_group {
+        max-width: 85%;
+        margin: auto;
+    }
+}
