@@ -1,0 +1,181 @@
+@media screen and (max-width: 1440px){
+	
+	  .bannerBlog{
+		padding-top: 130px;
+	  }
+	  .ppContentInner{
+		margin-top: 120px;
+	  }
+}
+
+@media screen and (max-width: 1024px)
+{
+	.appFeatures_slider { max-width: 90%; }
+}
+@media screen and (max-width: 991px)
+{
+	.screen_slider { max-width: 100%; }
+	.appFeatures_slider figure {
+		max-width: 100%;
+		margin-bottom: 50px;
+	}
+	.appFeatures_slider { max-width: 80%; }
+	.appFeatures_slider .features {
+		max-width: 100%;
+		 padding-left: 0px; 
+	}
+	.bannerBlog p { padding: 0; }
+
+
+	.navbar > .container {
+		align-items: center;
+	  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1440px){
+	
+
+	.navbar-toggler { padding: 2px 6px; min-height: 30px; background: #fff; }
+	.navbar-toggler:focus {box-shadow: none;}
+.app-icon-slider li{
+width: 200px;
+}
+	
+
+}
+
+@media screen and (max-width:991px){
+.headerBg {
+		background: #fff;
+		padding-top: 15px;
+	}
+	.aboutBlog {
+    padding: 100px 0;
+    background: rgba(41, 45, 50, 0.45);
+    text-align: left;
+    border-radius: 50px 0 0 50px;
+    margin-left: 80px;
+}
+}
+
+
+@media only screen and (max-width: 1035px){
+	
+	.contactBox {
+    background: #000000;
+    max-width: 260px;
+    width: 100%;
+    border-radius: 100px;
+    padding: 12px 24px;
+    display: flex;
+    text-align: left;
+    justify-content: left;
+    align-items: center;
+}
+.mailDetails h5 { font-size: 18px;}
+.mailDetails a {font-size: 15px; text-wrap: wrap;}
+.contactUsBlog h2{font-size: 28px;}
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+
+	.aboutBlog h2 {margin: 0 0 30px 0;	}
+	.featuresBlog h2 {margin: 0 0 30px 0;	}
+	.featuresBlog .featuresBox h3 {font-size: 18px;	}
+  .app-icon-slider li {
+  	width:156px;
+  }
+     
+
+	.bannerBlog h1 {font-size:42px;line-height:normal;text-align: left;}
+
+	.appStore, .playStore{margin: 0 0 15px 0;}
+	.appStore img, .playStore img{width: 40%; margin-bottom: 20px;}
+	.slidImg img{ width:70%;}.navbar-toggler { padding: 2px 6px; min-height: 30px; background: #fff; }
+	.navbar-toggler:focus {box-shadow: none;}
+	.aboutBlog {padding: 50px 0;}
+	.featuresBlog {padding: 50px 0;}
+	.downloadAppBlog {padding: 50px 0;text-align: left;	}
+	.ContactBlog {padding: 50px 0;	}
+	.ContactBlog h2 {margin: 0 0 40px 0;}
+	.downloadAppBlog span img{ width: 70%; margin-bottom: 30px;}
+	.footerMenu a {font-size: 14px;padding: 8px 5px;display: inline-block;}
+	
+
+}
+@media screen and (min-width: 767px)  and (max-width: 1200px)
+{
+    .bannerBlog h1 img{
+		width: 11%;
+	}
+}
+
+@media(max-width:767px){
+	.slick-prev, .slick-next {
+		position: static;
+		min-width: 30px;
+		width: 30px;
+		height: 30px;
+		border-radius: 100%;
+		background-size: 40px;
+		order: 3;
+		margin: 10px 5px 0;
+	}
+
+	.slick-slider {
+		flex-wrap: wrap;
+		justify-content: center; display: flex
+
+	}
+	.aboutBlog {
+    padding: 100px 0;
+    background: rgba(41, 45, 50, 0.45);
+    text-align: left;
+    border-radius: 50px 0 0 50px;
+    margin-left: 50px;
+}
+}
+	
+@media screen and (max-width: 767px) {
+	.bannerBlog{ padding:110px 0 50px 0; text-align: center;}
+	.bannerBlog h4 { font-size: 20px; margin-bottom: 10px; }
+	.bannerBlog h1 {font-size: 32px;line-height: 42px;text-align: center;}
+	.appStore, .playStore{margin: 0 0 15px 0;}
+	.appStore img, .playStore img{width: 40%; margin-bottom: 20px;}
+	.slidImg img{ width:70%;}.navbar-toggler { padding: 2px 6px; min-height: 30px; background: #fff; }
+	.navbar-toggler:focus {box-shadow: none;}
+	.aboutBlog {padding: 50px 0;}
+	.featuresBlog {padding: 50px 0;}
+	.downloadAppBlog {padding: 50px 0;text-align: center;	}
+	.ContactBlog {padding: 50px 0 10px;	}
+	.ContactBlog h2 {margin: 0 0 40px 0;}
+	.downloadAppBlog span img{ width: 70%; margin-bottom: 30px;}
+	.footerMenu a {font-size: 14px;padding: 8px 5px;display: inline-block;}
+	.appFeatures_slider { max-width: 100%; }
+	.featuresBlog h2 { margin-bottom: 40px; }
+	.app_screens { padding: 50px 0; }
+	.feature-cntr-img{
+		/* display: none;  */
+		margin-bottom: 30px;
+		}
+	.app-icon-slider li:not(:last-child){margin: 0 0 15px;}
+	.fea-card{width: 100%;}
+.app_screens{margin-right: 80px;}
+
+	.header .fixed-top { right: 20px; left: 20px; }
+	/* .outerContainer { padding: 0 20px; } */
+	/* .aboutBlog, .app_screens, .contactBgRow { border-radius: 30px; } */
+	.header .navbar { border-radius: 0 0 30px 30px; }
+	.headerBg {	padding: 5px 0; }
+	.contactBgRow{
+		border-radius: 150px;
+	}
+
+}
+
+@media(max-width: 575px){
+	.heading-typ1 {font-size: 28px;}
+	.fea-itm p {font-size: 18px; margin-top: 0px;}
+	.features-sec .rightArrow img {margin-top: 9px;}
+	.contactBgRow{top: 120px; border-radius: 60px;}
+}

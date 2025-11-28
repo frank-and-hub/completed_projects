@@ -1,0 +1,234 @@
+# Project Understanding: FoundationalFitness
+
+## Quick Project Summary
+FoundationalFitness is a Laravel-based web and API platform for managing fitness programs, users, and exercises. It features:
+- An admin panel for managing users, exercises, and subscriptions
+- RESTful APIs for mobile app integration (user auth, workouts, notifications, etc.)
+- Static informational pages and utility endpoints
+The project is structured for easy expansion, with versioned APIs and clear separation between admin, web, and mobile app functionality. Developers can quickly add new features or endpoints by following the existing route and controller patterns.
+
+## Main Modules Overview
+
+### Workout Module
+Handles user workout plans, exercise routines, marking workouts as completed, updating workout progress, and retrieving exercise data. It supports tracking of completed sets, updating weights, and managing workout logs for user progress analysis.
+
+### Training-Max Calculation
+Implements logic to calculate a user's training maximums based on their workout history and performance. This is used to personalize workout intensity and progression, ensuring users train at optimal levels for their goals.
+
+### Subscription Module
+Manages user subscriptions, including purchasing plans, verifying transactions, and tracking active/inactive subscriptions. Integrates with payment gateways and maintains purchase history for each user.
+
+### Workout Log
+Records detailed logs of user workouts, including exercises performed, sets, reps, weights, and completion status. Provides filtering and reporting features for users to review their workout history and progress over time.
+
+### Notification System
+Delivers notifications to users about workout reminders, subscription updates, and other important events. Supports marking notifications as read, deleting, and managing notification preferences.
+
+### User Profile & Support
+Allows users to manage their profile information, update personal details, request support, and reset their profile or password as needed.
+
+---
+
+*This file now focuses on the main modules and their responsibilities, omitting route-level details for a clearer, high-level understanding for developers.*
+---
+
+
+## Key Features and Admin Panel Modules
+
+
+### Cron Jobs
+Automated scheduled tasks (crons) run in the background to keep the system up-to-date and responsive. Examples include:
+- Sending daily or weekly workout reminders to users
+- Automatically expiring or renewing subscriptions based on end dates
+The subscription module manages the full lifecycle of user subscriptions:
+
+**Purchase Process:**
+```php
+// Controller: ApiSubscriptionController
+public function buyProducts(Request $req) {
+	// Validate request, process payment
+	$paymentResult = $this->processPayment($req);
+	if ($paymentResult['success']) {
+		// Activate subscription
+		$subscription = Subscription::create([
+			'user_id' => $req->user()->id,
+			'plan_id' => $req->plan_id,
+			'status' => 'active',
+			'expires_at' => now()->addMonth(),
+		]);
+		// Log purchase
+		PurchaseHistory::create([...]);
+		return response()->json(['success' => true, 'subscription' => $subscription]);
+	}
+	return response()->json(['success' => false, 'error' => $paymentResult['error']]);
+}
+```
+
+**Recurring Billing:**
+```php
+// Example cron job (Kernel.php)
+$schedule->call(function () {
+	$subs = Subscription::where('status', 'active')->where('expires_at', '<', now())->get();
+	foreach ($subs as $sub) {
+		// Attempt to charge user again
+		$result = $this->chargeRecurring($sub);
+		if ($result['success']) {
+			$sub->expires_at = now()->addMonth();
+			$sub->save();
+		} else {
+			$sub->status = 'past_due';
+			$sub->save();
+		}
+	}
+})->daily();
+```
+
+**Cancellation:**
+```php
+// Controller: ApiSubscriptionController
+public function cancel(Request $req) {
+	$sub = $req->user()->subscription;
+	$sub->status = 'cancelled';
+	$sub->cancelled_at = now();
+	$sub->save();
+	return response()->json(['success' => true]);
+}
+```
+
+**Admin Tools:**
+Admins can use the admin panel to filter, activate, or deactivate subscriptions. Example Eloquent query:
+```php
+$activeSubs = Subscription::where('status', 'active')->get();
+```
+- Dispatching jobs for sending challenge notifications or processing user progress
+Crons are defined in `app/Console/Kernel.php` and often use Laravel's queue system for scalable background processing. Admins can monitor cron activity and logs to ensure all automated processes are running smoothly.
+
+### Subscription Management
+
+The subscription module manages the full lifecycle of user subscriptions:
+
+**Purchase Process:**
+- Users select a subscription plan and initiate payment via integrated gateways (e.g., Stripe, PayPal).
+- On successful payment, the subscription is activated, and access is granted to premium features.
+- Purchase details and transaction IDs are stored for auditing and support.
+
+**Recurring Billing:**
+- For recurring plans, the system schedules automatic renewals before the current period expires.
+- Payment gateways handle recurring charges; on success, the subscription is extended.
+- If a renewal payment fails, the user is notified, and retries are attempted. After repeated failures, access is restricted.
+
+**Cancellation:**
+- Users can cancel subscriptions from their profile or via support.
+- On cancellation, the subscription remains active until the end of the paid period, then access is revoked.
+- Admins can also cancel or refund subscriptions from the admin panel.
+
+**Admin Tools:**
+- View all subscriptions, filter by status (active, expired, cancelled)
+- Manually activate, deactivate, or extend subscriptions
+- Manage promotional codes and discounts
+
+All subscription events (purchase, renewal, cancellation) are logged for transparency and support.
+
+
+### Social Login
+Users can sign up or log in using Google, Apple, or Facebook accounts. The system verifies tokens from these providers and links them to user profiles, streamlining onboarding and reducing password management issues. Only Google, Apple, and Facebook logins are allowed for social authentication in this project.
+
+The admin panel provides:
+- A list of users registered via social login (Google, Apple, Facebook)
+- The ability to unlink or disable social accounts if needed
+- Audit logs for social login attempts and errors
+This improves user experience and security by leveraging trusted third-party authentication.
+
+### User Login & Logout
+**Login:**
+- Users can log in using email/password or social login.
+- Credentials are validated, and a session or API token is issued.
+- Failed login attempts are tracked for security (rate limiting, lockout).
+
+**Logout:**
+- Users can log out from the web or mobile app, which invalidates their session or API token.
+- Admins can force logout users if suspicious activity is detected.
+
+**Code Example:**
+```php
+// Controller: ApiAuthController
+public function login(Request $req) {
+	$credentials = $req->only('email', 'password');
+	if (Auth::attempt($credentials)) {
+		$token = $req->user()->createToken('api-token')->plainTextToken;
+		return response()->json(['token' => $token]);
+	}
+	return response()->json(['error' => 'Invalid credentials'], 401);
+}
+
+public function logout(Request $req) {
+	$req->user()->tokens()->delete();
+	return response()->json(['message' => 'Logged out successfully']);
+}
+```
+### User Profile Reset
+The user profile reset feature allows users (or admins on their behalf) to clear all personal progress, workout history, and customizations. This is useful for:
+- Users who want to restart their fitness journey
+- Resolving data corruption or support issues
+- Testing and onboarding scenarios
+Admins can trigger a reset from the admin panel, and all affected data is archived or deleted according to business rules.
+
+#### App Reset Option Details
+- The app provides a Reset option that becomes available only when all mesos are unlocked and the user has completed every workout and logged their weight for each session.
+- When the reset is performed:
+	- All previously entered workout data—including logs, progress, and related records—are permanently deleted.
+	- The user’s current subscription plan is also deleted.
+- After the reset, the user must purchase a new subscription to continue using the workout program.
+This ensures users can only reset after fully completing the program, and that all historical data is cleared for a true fresh start.
+
+### Workouts Structure
+Workouts are built from a hierarchy:
+- **Workout**: A complete session assigned to a user or group
+- **Exercises**: Each workout contains multiple exercises (e.g., squats, push-ups)
+- **Sets & Reps**: Each exercise specifies sets, reps, and optionally weights or durations
+The admin panel provides:
+- Tools to create/edit workouts and exercises
+- Assignment of workouts to users or groups
+- Progress tracking dashboards showing completion rates and performance trends
+Workouts can be customized for different fitness levels and goals.
+
+### Exercise Plan Crons
+Automated crons ensure users stay on track with their exercise plans:
+- Daily/weekly jobs send reminders for scheduled workouts
+- Crons check for missed workouts and can trigger motivational notifications
+- Periodic jobs update user progress, unlock new exercises, or adjust plans based on performance
+Admins can configure cron frequency and monitor their execution from the admin panel or logs.
+
+**Code Example:**
+```php
+// Kernel.php
+$schedule->call(function () {
+	$users = User::all();
+	foreach ($users as $user) {
+		// Check if user missed a workout
+		if ($user->hasMissedWorkout()) {
+			Notification::send($user, new MissedWorkoutNotification());
+		}
+		// Send daily reminder
+		Notification::send($user, new WorkoutReminderNotification());
+	}
+})->daily();
+```
+### Meso Cycle Structure (Admin Panel)
+A meso cycle is a structured training phase (typically 3-4 weeks) designed for progressive overload and adaptation. Features include:
+- Definition of meso cycles with start/end dates, goals, and weekly breakdowns
+- Assignment of meso cycles to users or cohorts
+- Customization of exercises, intensities, and rest periods for each week
+- Progress monitoring tools for both users and admins
+The admin panel allows fitness professionals to design, assign, and track meso cycles, supporting evidence-based training methodologies.
+
+
+#### User Experience with Meso Cycles
+- Each user's dashboard displays their current weekly workout plan as part of their assigned meso cycle.
+- Users can switch between available meso cycles and view or complete their assigned weekly workout exercises.
+- After completing each exercise, users are prompted to fill in their lifter weight and other performance data via a form.
+- The submitted lifter weight and workout details are automatically recorded and displayed on the user's workout log page, allowing users and admins to track progress over time.
+
+---
+
+*This file now provides detailed descriptions of how crons, subscriptions, social login, user profile reset, workouts, and meso cycles are structured and managed in the project, especially from the admin panel perspective. Use this as a reference for onboarding, support, or further development.*
