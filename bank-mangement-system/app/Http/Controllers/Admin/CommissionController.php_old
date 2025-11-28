@@ -1,0 +1,439 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request as Request1;
+use Validator;
+use App\Models\Member;
+use App\Models\AssociateException;
+
+use App\Models\Branch;
+use App\Models\Carder;
+use App\Models\Memberinvestments;
+use App\Models\AssociateCommission;
+use App\Models\CommissionDailySetting;
+use App\Models\CommisionMonthEnd;
+use App\Models\CorrectionRequests;
+use App\Http\Controllers\Admin\CommanController;
+use Yajra\DataTables\DataTables;
+use Carbon\Carbon;
+use Session;
+use Image;
+use Redirect;
+use URL;
+use DB;
+use App\Services\Sms;
+use App\Models\SamraddhBank;
+
+
+
+class CommissionController extends Controller
+{
+
+    /**
+     * Create a new controller instance.
+     * @return void
+     */
+
+    public function __construct()
+    {
+        // check user login or not
+        $this->middleware('auth');
+    }
+
+     
+
+
+    public function exceptionList(Request $request)
+
+    {
+
+        // if(check_my_permission( Auth::user()->id,"297") != "1"){
+        //     return redirect()->route('admin.dashboard');
+        // }
+
+        $data['title']='Associate Mangement | Exception List';
+
+        return view('templates.admin.associate.commision_exception_list', $data);
+    
+    }
+
+
+	public function commexceptionListing(Request $request)
+    {
+
+        if(!empty($request->comissionid)){
+            AssociateException::where('id',$request->comissionid)->update(['status'=>0]);
+            return response()->json(['status' => 'true']);
+        }
+	 
+        $data=AssociateException::select('id','created_at','updated_at','status','associate_id','created_by','created_by_id','month','year','type')
+        ->with(['seniorData'=>function($q){
+            $q->select(['id','first_name','last_name','associate_no','current_carder_id']); }])->orderby('id','DESC');
+
+        
+        $data1=$data->count('id');
+        $count=$data1;
+
+        $totalCount =$count;
+
+        $data=$data->orderby('created_at','DESC')->offset($_POST['start'])->limit($_POST['length'])->get();
+
+        $sno=$_POST['start'];
+        $rowReturn = array(); 
+        //dd($data);
+        foreach ($data as $row)
+        {  
+            
+            $relationId = '';
+            $sno++;
+            $val['DT_RowIndex']=$sno;
+        
+            $val['created_at']= date("d/m/Y", strtotime($row->created_at));
+            $val['associate_name'] = $row['seniorData']->first_name.' '.$row['seniorData']->last_name;
+            $val['associate_code']= $row['seniorData']->associate_no;
+
+            $cardername = '';
+            $carder_id = $row['seniorData']->current_carder_id;
+            $val['cardername'] = getCarderName($carder_id);
+
+            if($row->type==1){
+                $val['type'] = 'Fuel';
+            }elseif($row->type==2){
+                $val['type'] = 'Commission';
+            }else{
+                $val['type'] = 'N/A';
+            }
+           
+
+
+            $val['transfer_month'] = date("F", mktime(0, 0, 0, $row->month, 1));
+
+            $val['transfer_year'] = date("Y", strtotime($row->year));
+
+            $createdbyname = "";
+
+            if($row->created_by == 1)
+            {
+                $createdbyname = "Admin";
+
+            }elseif($row->created_by == 2){
+
+                $createdbyname = "Branch";
+
+            }else{
+                $createdbyname = "Sub Admin";
+            }
+           
+            $val['created_by'] = $createdbyname ;
+
+
+            if($row->created_by == 1)
+            {
+            $createdbyname = \App\Models\Admin::where('id',$row->created_by_id)->first('username');
+            $createdbyname = $createdbyname->username;
+            }
+            else{
+                $createdbyname = \App\Models\Branch::where('id',$row->created_by_id)->first('name');
+                $createdbyname = $createdbyname->name;
+            }   
+            
+            
+
+            $val['user_name'] = $createdbyname;
+            $status ='';
+            if($row->status==1)
+            {
+                $status .= '<button class="list-icons-item" onclick="isReleased('.$row->id.')" ><i class="fas fa-ban" style="color:red" title="No"></i></button>';
+            }
+            else
+            {
+                $status .= '<button class="list-icons-item"><i class="fa fa-check" style="color:green" title="Yes"></i> </button>';
+            } 
+            $val['status']=$status;
+            
+            $rowReturn[] = $val; 
+        }
+        $output = array( "draw" => $_POST['draw'], "recordsFiltered" => $count,"recordsTotal" => $totalCount,"data" => $rowReturn, );
+        return json_encode($output);
+    }
+	
+	
+    public function assexceptiontransfer()
+    {
+        
+       
+    $data['title'] = 'Associate | Commision Exception';
+      
+    return view('templates.admin.associate.associatexceptiontransfer', $data);
+    }
+    public function getAssociateextansferData(Request $request)
+    {
+        $branch =   Branch::where('status',1);   
+        $data = Member::where('associate_no', $request->code)
+            ->where('is_deleted', 0);
+        if (Auth::user()->branch_id > 0)
+        {
+            $branch=$branch->where('id', Auth::user()->branch_id);
+        }
+		
+		$branch=$branch->get();
+		
+        $data = $data->first();
+        $type = $request->type;
+        if ($data)
+        {
+            if ($data->is_block == 1)
+            {
+                return \Response::json(['view' => 'No data found', 'msg_type' => 'error2']);
+            }
+            else
+            {
+                if ($data->associate_status == 1)
+                {
+                    $id = $data->id;
+                    $carder = $data->current_carder_id;
+                    return \Response::json(['view' => view('templates.admin.associate.partials.associateexceptiontransfer_detail', ['memberData' => $data, 'branch'=> $branch])->render() , 'msg_type' => 'success', 'id' => $id, 'carder' => $carder]);
+                }
+                else
+                {
+                    return \Response::json(['view' => 'No data found', 'msg_type' => 'error1']);
+                }
+            }
+        }
+        else
+        {
+            return \Response::json(['view' => 'No data found', 'msg_type' => 'error']);
+        }
+    }
+	
+	
+    public function monthList(Request $request)
+
+    {
+        // if(check_my_permission( Auth::user()->id,"296") != "1"){
+        //     return redirect()->route('admin.dashboard');
+        //   }
+        $data['title']='Commission | Commission Month End Listing';
+        //$data['commsionnmonth']  =  CommisionMonthEnd::orderBy('id','ASC')->get();
+    
+        return view('templates.admin.associate.commision_month_list',$data);
+
+    }
+    public function list(Request $request)
+    { 
+    
+        if ($request->ajax()) {
+
+    
+                
+                $data=CommisionMonthEnd::select('id','created_at','month','year','created_by','created_by_id')->orderby('id','DESC')->get();
+            
+            
+
+            return Datatables::of($data)
+            ->addIndexColumn() 
+            ->addColumn('created_at', function($row){
+                $created_at = date("d/m/Y", strtotime($row->created_at));
+                return $created_at;
+            })
+            ->rawColumns(['created_at'])  
+        ->addColumn('month', function($row){
+            $monthNum = $row->month;
+                $name = date("F", mktime(0, 0, 0, $monthNum, 10));
+                return $name;
+            })
+            ->rawColumns(['month']) 
+            
+            ->addColumn('year', function($row){
+                $name = $row->year;
+                return $name;
+            })
+            ->rawColumns(['year']) 
+        
+            
+            ->addColumn('created_by', function($row){
+                $createdbyname = "";
+                if($row->created_by == 1)
+                {
+                    $createdbyname = "Admin";
+                }elseif($row->created_by == 2)
+                {
+                    $createdbyname = "Branch";
+
+                }else{
+
+                    $createdbyname = "Sub admin";
+                }
+
+            return $created_by = $createdbyname;
+                
+            })
+            ->rawColumns(['created_by']) 
+            
+            ->addColumn('created_by_id', function($row){
+                if($row->created_by == 1)
+                {
+                $createdbyname = \App\Models\Admin::where('id',$row->created_by_id)->first('username');
+                $createdbyname = $createdbyname->username;
+                }
+                else{
+                    $createdbyname = \App\Models\Branch::where('id',$row->created_by_id)->first('name');
+                    $createdbyname = $createdbyname->name;
+                }   
+                
+                
+                return $createdbyname;
+            })
+            
+            
+            ->make(true);
+        }
+    }  
+
+
+    public function exceptiontransfersave(Request $request)
+    {
+       
+        $created_by_id = Auth::user()->id; 
+        $AssociateExceptionTransfer  = new  AssociateException;
+        $AssociateExceptionTransfer->month = $request['month_id'];
+        $AssociateExceptionTransfer->year = $request['year_id'];
+        $AssociateExceptionTransfer->type = $request['type_id'];
+        $AssociateExceptionTransfer->created_by_id =$created_by_id;
+        $AssociateExceptionTransfer->associate_id = $request['associate_id'];
+
+        $exist = AssociateException::where('associate_id',$request['associate_id'])->where('month',$request['month_id'])->where('year',$request['year_id'])->where('type',$request['type_id'])->exists();
+        if(!$exist)
+        {
+                
+                $AssociateExceptionTransfer->save();
+
+                return redirect('admin/commision/exception-list')->with('success', 'Associate exception updated successfully');
+        }
+        else{
+                return back()->with('alert', 'Associate exception already exist');
+        }
+            
+       
+       
+    }
+
+    public function assmonth()
+    {
+        $stateid = 33;
+        $globaldate = checkMonthAvailability(date('d'),date('m'),date('Y'),$stateid);
+        $data['month'] = date('m',strtotime("-1 month",strtotime($globaldate)));
+        $data['year']= date('Y',strtotime($globaldate));
+        $data['exist'] = \App\Models\CommissionLeaserMonthly::where('month',$data['month'])->where('year',$data['year'])->where('is_deleted',0)->exists();
+        
+        if(!$data['exist'])
+        {
+            $data['newmonth'] =  date('M',strtotime("-1 month",strtotime($globaldate)));
+            $data['month'] =  $data['month'];
+        }
+        else{
+            $data['newmonth'] = '';
+        }
+       
+
+        $data['title'] = 'Commision | Create Month End Commission';
+        return view('templates.admin.associate.associatemonthtransfer', $data);
+    }
+
+    public function monthtransfersave(Request $request)
+    {
+        
+        
+        
+        $exist = CommisionMonthEnd::where('month',$request['month_id'])->where('year',$request['year_id'])->exists();
+
+        $created_by_id = Auth::user()->id; 
+        $AssociateCommisionMonthEnd  = new  CommisionMonthEnd;
+        $AssociateCommisionMonthEnd->month = $request['month_id'];
+        
+        $AssociateCommisionMonthEnd->year = $request['year_id'];
+
+        $AssociateCommisionMonthEnd->created_by_id =$created_by_id;
+        
+        
+        if(!$exist)
+        {
+            
+            $AssociateCommisionMonthEnd->save();
+            return redirect('admin/associate/commision/month-end-comission-list')->with('success', 'Commission generated successfully');
+        }
+        else{
+            return back()->with('alert', 'Commission for this month already exist');
+        }
+
+
+            
+    }
+	
+    public function dailyacc()
+    {
+       
+            // if(check_my_permission( Auth::user()->id,"298") != "1"){
+            //     return redirect()->route('admin.dashboard');
+            // }
+            $data['dailyaccountsettings']  =  CommissionDailySetting::orderBy('created_at','DESC')->get();
+            $data['title'] = 'Commission | Daily Account Setting';
+            return view('templates.admin.associate.daily_account_setting', $data);
+
+    }
+
+    // public function checkCommissionData(Request $req)
+    // {
+    //     $getAssociate = \App\Models\Member::where('associate_no',$req->associate)->first();
+    //     $checkData = AssociateException::where('associate_id',$getAssociate->id)->where('month',$req->month)->where('year',$req->year)->where('type',$req->value)->first('type');
+
+    //     $chk=0;
+        
+    //     if($chk)
+    //     {
+    //         $chk=1;
+    //     }
+    //     return response()->json($chk);
+
+    // }
+
+    public function accountsettingsave(Request $request)
+    {
+        $created_by_id = Auth::user()->id; 
+
+        $exist = CommissionDailySetting::where('status',1)->orderBy('created_at','desc')->first();
+        
+    
+        if($exist){
+
+            CommissionDailySetting::where('id',$exist->id)->update(['status'=>0]);
+
+        }
+
+        $AssociateDailyAccountSetting  = new  CommissionDailySetting;
+        $AssociateDailyAccountSetting->min_days = $request['min_days'];
+        $AssociateDailyAccountSetting->max_days = $request['max_days'];
+
+        $AssociateDailyAccountSetting->created_by_id =$created_by_id;
+
+        
+        
+
+        $AssociateDailyAccountSetting->save();
+        
+        return back()->with('success', 'Daily Account Setting updated successfully');
+    }
+
+    
+	
+
+
+}
+

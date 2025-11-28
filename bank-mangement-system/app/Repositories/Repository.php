@@ -1,0 +1,439 @@
+<?php
+namespace App\Repositories;
+
+use App\Interfaces\RepositoryInterface;
+use App\Models\{BankBalance, MemberCompany, About, AccountBranchTransfer, AccountHeads, AccountHeadView, Admin, Adminbank, AdvancedTransaction, Alerts, AllHeadTransaction, AllHeadTransaction1, AllTransaction, Asset, Assettransfer, AssignNoticeToBranch, AssociateCarder, AssociateCommission, AssociateCommissionTotal, AssociateCommissionTotalMonthly, AssociateDependent, AssociateException, AssociateGuarantor, AssociateKotaBusiness, AssociateKotaBusinessTeam, AssociateMonthlyCommission, AssociateStatus, AssociateTdsDeduct, AssociateTransaction, AssociateTree, BalanceSheetClosing, BalanceSheetHeadWiseAmount, Bank, BankingAdvancedLedger, BankingDueBillsLedger, BankingLedger, BankODLimits, Banktransfer, BillExpense, Blog, Branch, BranchCash, BranchClosing, BranchCurrentBalance, BranchDaybook, BranchDaybookReference, Brands, BrsSavedData, BusinessTarget, Buyer, Carder, CashInHand, Category, Chart, City, CollectorAccount, CommisionMonthEnd, CommissionCarryForward, CommissionDailySetting, CommissionDetail, CommissionEntryDetail, CommissionEntryLoan, CommissionFuleCollection, CommissionLeaser, CommissionLeaserDetail, CommissionLeaserDetailMonthly, CommissionLeaserMonthly, CommissionLoanDetail, Companies, CompanyBound, CompanyBoundTransaction, Contact, CorrectionLog, CorrectionRequests, CreditCard, CreditCradTransaction, Currency, CustomerTransaction, Daybook, DeathHelpSetting, DebitCard, DebitCardAmountSetting, DebitCardLog, DebitCardTransaction, DemandAdvice, DemandAdviceExpense, Deposits, Design, Designation, District, EliMoneybackInvestments, Employee, EmployeeApplication, EmployeeDiploma, EmployeeExperience, EmployeeLedger, EmployeeQualification, EmployeeSalary, EmployeeSalaryLeaser, EmployeeSalaryTransfer, EmployeeTerminate, EmployeeTransfer, Etemplate, Event, Exchange, Expense, ExpenseItem, ExpenseLogs, Exttransfer, FaCode, Faq, Files, Form15G, FundTransfer, Gateway, Grouploanmembers, Grouploans, GstSetting, GstTransaction, HeadClosing, HeadSetting, HolidaySettings, IdType, Int_transfer, InvestmentMonthlyYearlyInterestDeposits, Investmentplanamounts, Investmentplantransactions, IpAddresses, JvJournalHeads, JvJournals, KotaBusinessDetail, Loan, LoanAgainstDeposit, Loanapplicantdetails, LoanCharge, LoanDayBooks, LoanEmi, LoanEmisNew, LoanFromBank, LoanFromBankController, Loaninvestmentmembers, LoanLog, Loanotherdocs, Loans, Loanscoapplicantdetails, Loansguarantordetails, LoanTenure, Logo, MaturityCalculate, MaturityCalculation, Member, MemberBankDetail, MemberIdProof, MemberInvestmentAssociate, MemberInvestmentInterest, MemberInvestmentInterestTds, Memberinvestments, Memberinvestmentsnominees, Memberinvestmentspayments, Memberloans, MemberNominee, MemberReinvest, MemberTransaction, Merchant, MoneyBackSetting, Noticeboard, Notification, Occupation, Page, PasswordReset, Permission, PlanCategory, PlanDenos, Plans, PlansNew, PlanTenures, Profits, Receipt, ReceiptAmount, ReceivedCheque, ReceivedChequePayment, ReceivedVoucher, RedemandDemandAdvice, Reinvest, ReinvestData, ReinvestMember, ReinvestMemberBankDetail, ReinvestMemberIdProof, ReinvestMemberNominee, ReinvestTransactionAmounts, Relations, Religion, RentLedger, RentLiability, RentLiabilityLedger, RentPayment, Reply, Review, Role, RoleHasPermission, SamraddhBank, SamraddhBankAccount, SamraddhBankClosing, SamraddhBankDaybook, SamraddhCheque, SamraddhChequeBook, SamraddhChequeIssue, Save, SavingAccount, SavingAccountTranscation, Seller, Services, Settings, ShareHolder, Social, SpecialCategory, SsbAccountSetting, State, States, SubAccountHeads, Subscriber, SuperAdmin, SystemDefaultSettings, TdsDeductionSetting, TdsDeposit, TdsPayable, Ticket, TransactionReferences, TransactionType, Transcation, TranscationLog, Transfer, User, UserActivity, UserEmployees, Userpermission, Vendor, VendorBill, VendorBillItem, VendorBillPayment, VendorCategory, VendorCreditNode, VendorLog, VendorTransaction, Withdraw, Withdrawm, CompanyBranch, DutiesTaxesPayable, TdsTransfer, DutiesTaxesSettingLog };
+
+class Repository implements RepositoryInterface
+{
+	// Companies
+	public function getAllModel($model)
+	{
+		return $model::whereNotNull('id');
+	}
+	public function getModelById($model, $id)
+	{
+		return $model::whereId($id);
+	}
+	public function deleteModel($model, $id)
+	{
+		return $model::whereId($id)->delete();
+	}
+	public function createModel($model, array $details)
+	{
+		return $model::create($details);
+	}
+	public function updateModel($model, $id, array $details)
+	{
+		return $model::whereId($id)->update($details);
+	}
+	public function getAllCompanies()
+	{
+		return Companies::withoutGlobalScopes()->whereNotNull('id');
+	}
+	public function newCompanies()
+	{
+		return new Companies;
+	}
+	public function getCompaniesById($id)
+	{
+		return Companies::withoutGlobalScopes()->whereId($id);
+	}
+	public function deleteCompanies($id)
+	{
+		return Companies::withoutGlobalScopes()->whereId($id)->delete();
+	}
+	public function createCompanies(array $details)
+	{
+		return Companies::withoutGlobalScopes()->create($details);
+	}
+	public function createAllHeadTransaction(array $details)
+	{
+		return AllHeadTransaction::create($details);
+	}
+	public function updateCompanies($id, array $details)
+	{
+		return Companies::withoutGlobalScopes()->whereId($id)->update($details);
+	}
+	// TdsDeductionSetting
+	public function getAllTdsDeductionSetting()
+	{
+		return TdsDeductionSetting::whereNotNull('id');
+	}
+	public function getTdsDeductionSettingById($id)
+	{
+		return TdsDeductionSetting::whereId($id);
+	}
+	public function deleteTdsDeductionSetting($id)
+	{
+		return TdsDeductionSetting::whereId($id)->delete();
+	}
+	public function createTdsDeductionSetting(array $details)
+	{
+		return TdsDeductionSetting::create($details);
+	}
+	public function updateTdsDeductionSetting($id, array $details)
+	{
+		return TdsDeductionSetting::whereId($id)->update($details);
+	}
+	public function getUserById($id)
+	{
+		return User::whereId($id);
+	}
+	public function getAllAccountHeads()
+	{
+		return AccountHeads::whereNotNull('id');
+	}
+	public function getAllSystemDefaultSettings()
+	{
+		return SystemDefaultSettings::whereNotNull('id');
+	}
+	public function getNewSystemDefaultSettings()
+	{
+		return new SystemDefaultSettings;
+	}
+	public function createSystemDefaultSettings(array $details)
+	{
+		return SystemDefaultSettings::create($details);
+	}
+	public function updateSystemDefaultSettings($id, array $details)
+	{
+		return SystemDefaultSettings::whereId($id)->update($details);
+	}
+	public function getAllPlans()
+	{
+		return Plans::whereNotNull('id');
+	}
+	public function getAllRelations()
+	{
+		return Relations::whereNotNull('id');
+	}
+	public function getPlansById($id)
+	{
+		return Plans::whereId($id);
+	}
+	public function createPlanTenures($details)
+	{
+		return PlanTenures::create($details);
+	}
+	public function getAllPlanTenures()
+	{
+		return PlanTenures::whereNotNull('id');
+	}
+	public function getAllCarder()
+	{
+		return Carder::whereNotNull('id');
+	}
+	public function getAllBranchCash()
+	{
+		return BranchCash::whereNotNull('id');
+	}
+	public function getAllCommissionLoanDetails()
+	{
+		return CommissionLoanDetail::whereNotNull('id');
+	}
+	public function createCommissionLoanDetails(array $commissionLoanDetails)
+	{
+		return CommissionLoanDetail::create($commissionLoanDetails);
+	}
+	public function getAllCompanyBranch()
+	{
+		return CompanyBranch::whereNotNull('id');
+	}
+	public function createCompanyBranch($details)
+	{
+		return CompanyBranch::create($details);
+	}
+	public function insertCompanyBranch($details)
+	{
+		// dd($details);
+		$insert = CompanyBranch::insert($details);
+		return ($insert ? '1' : '0');
+	}
+	public function updateCompanyBranch($id, $details)
+	{
+		return CompanyBranch::whereId($id)->update($details);
+	}
+	public function getCompanyBranchById($id)
+	{
+		return CompanyBranch::whereId($id);
+	}
+	public function getNewCompanyBranch()
+	{
+		return new CompanyBranch;
+	}
+	public function deleteCompanyBranch($id)
+	{
+		return CompanyBranch::whereId($id)->update(['status' => '0']);
+	}
+	public function getAllSamraddhBank()
+	{
+		return SamraddhBank::whereNotNull('id');
+	}
+
+	public function getAllSamraddhBankAccounts()
+	{
+		return SamraddhBankAccount::whereNotNull('id');
+	}
+	public function getAllBranch()
+	{
+		return Branch::whereNotNull('id');
+	}
+	public function getAllMember()
+	{
+		return Member::whereNotNull('id');
+	}
+	public function getAllSavingAccountWithMember($id)
+	{
+		return SavingAccount::whereNotNull('id')->whereMemberId($id);
+	}
+	public function getAllSavingAccount()
+	{
+		return SavingAccount::whereNotNull('id');
+	}
+	public function getAllMemberCompany()
+	{
+		return MemberCompany::whereNotNull('id');
+	}
+	public function CreateMemberinvestmentsnominees($details)
+	{
+		return Memberinvestmentsnominees::create($details);
+	}
+	public function CreateMemberinvestments($details)
+	{
+		return Memberinvestments::create($details);
+	}
+	public function CreateMemberCompany($details)
+	{
+		return MemberCompany::create($details);
+	}
+	public function CreateSavingAccount($details)
+	{
+		return SavingAccount::create($details);
+	}
+	public function getBankBalance($entryDate, $companyId, $bankId, $accountId, $endDate)
+	{
+		return BankBalance::whereDate('entry_date', '<', $entryDate)->whereCompanyId($companyId)->whereBankId($bankId)->whereAccountId($accountId);
+	}
+	public function getAllMemberinvestments()
+	{
+		return Memberinvestments::whereNotNull('id');
+	}
+	public function getAllDaybook()
+	{
+		return Daybook::whereNotNull('id');
+	}
+	public function getAllCommissionDetail()
+	{
+		return CommissionDetail::whereNotNull('id');
+	}
+	public function createCommissionDetail($details)
+	{
+		return CommissionDetail::create($details);
+	}
+	public function insertAllHeadTransaction(array $details)
+	{
+		return AllHeadTransaction::insert($details);
+	}
+	public function getAllMemberNominee()
+	{
+		return MemberNominee::whereNotNull('id');
+	}
+	public function getAllGrouploans()
+	{
+		return Grouploans::whereNotNull('id');
+	}
+	public function getAllMemberloans()
+	{
+		return Memberloans::whereNotNull('id');
+	}
+	public function getCorrectionRequestsById($id)
+	{
+		return CorrectionRequests::whereId($id);
+	}
+	public function getSavingAccountTranscationById($id)
+	{
+		return SavingAccountTranscation::whereId($id);
+	}
+	public function getDaybookById($id)
+	{
+		return Daybook::whereId($id);
+	}
+	public function getAllTransactionType()
+	{
+		return TransactionType::whereNotNull('id');
+	}
+	public function getTransactionTypeById($id)
+	{
+		return TransactionType::whereId($id);
+	}
+	public function getAllCommissionLeaserMonthly()
+	{
+		return CommissionLeaserMonthly::whereNotNull('id');
+	}
+	public function getAllSavingAccountTranscation()
+	{
+		return SavingAccountTranscation::whereNotNull('id');
+	}
+	public function getSavingAccountById($id)
+	{
+		return SavingAccount::whereId($id);
+	}
+	public function getMemberinvestmentsById($id)
+	{
+		return Memberinvestments::whereId($id);
+	}
+	public function getHeadTransactionById($id)
+	{
+		return AllHeadTransaction::whereId($id);
+	}
+	public function getAllAllHeadTransaction()
+	{
+		return AllHeadTransaction::whereNotNull('id');
+	}
+	public function getAllBranchDaybook()
+	{
+		return BranchDaybook::whereNotNull('id');
+	}
+	public function getBranchDaybookById($id)
+	{
+		return BranchDaybook::whereId($id);
+	}
+	public function getAllSamraddhBankDaybook()
+	{
+		return SamraddhBankDaybook::whereNotNull('id');
+	}
+	public function getSamraddhBankDaybookById($id)
+	{
+		return SamraddhBankDaybook::whereId($id);
+	}
+	public function getAllReceivedCheque()
+	{
+		return ReceivedCheque::whereNotNull('id');
+	}
+	public function getReceivedChequeById($id)
+	{
+		return ReceivedCheque::whereId($id);
+	}
+	public function createCorrectionLog($details)
+	{
+		return CorrectionLog::create($details);
+	}
+	public function getAllBranchCurrentBalance()
+	{
+		return BranchCurrentBalance::query();
+	}
+	public function getAllFundTransfer()
+	{
+		return FundTransfer::query();
+	}
+	public function getBranchById($id)
+	{
+		return Branch::whereId($id);
+	}
+	public function getHeadSettingById($id)
+	{
+		return HeadSetting::whereId($id);
+	}
+	public function createHeadSetting($data)
+	{
+		return HeadSetting::create($data);
+	}
+	public function getAllHeadSetting()
+	{
+		return HeadSetting::query();
+	}
+	public function getAllGstTransaction()
+	{
+		return GstTransaction::query();
+	}
+	public function getAllStates()
+	{
+		return States::query();
+	}
+	public function getGstSettingById($id)
+	{
+		return GstSetting::whereId($id);
+	}
+	public function getAllGstSetting()
+	{
+		return GstSetting::query();
+	}
+	public function createGstSetting($data)
+	{
+		return GstSetting::create($data);
+	}
+	public function createFiles($data)
+	{
+		return Files::insertGetId($data);
+	}
+	public function getDutiesTaxesPayableById($id)
+	{
+		return DutiesTaxesPayable::whereId($id);
+	}
+	public function getAllDutiesTaxesPayable()
+	{
+		return DutiesTaxesPayable::query();
+	}
+	public function createDutiesTaxesPayable(array $data)
+	{
+		return DutiesTaxesPayable::insertGetId($data);
+	}
+	public function getAllTdsTransfer()
+	{
+		return TdsTransfer::query();
+	}
+	public function createTdsTransfer($data)
+	{
+		return TdsTransfer::insertGetId($data);
+	}
+	public function getTdsTransferById($id)
+	{
+		return TdsTransfer::whereId($id);
+	}
+	public function createDutiesTaxesSettingLog(array $data)
+	{
+		return DutiesTaxesSettingLog::insertGetId($data);
+	}
+	public function getAllDutiesTaxesSettingLog()
+	{
+		return DutiesTaxesSettingLog::query();
+	}
+	public function getDutiesTaxesSettingLogByTypeId($id)
+	{
+		return DutiesTaxesSettingLog::whereTypeId($id);
+	}
+	public function getDutiesTaxesSettingLogById($id)
+	{
+		return DutiesTaxesSettingLog::whereId($id);
+	}
+	public function updateHeadSetting($data,$id)
+	{
+		return HeadSetting::whereId($id)->update($data);
+	}
+	public function getAllSamraddhCheque()
+	{
+		return SamraddhCheque::query();
+	}
+	public function getSamraddhChequeByChequeNo($chequeNo)
+	{
+		return SamraddhCheque::whereChequeNo($chequeNo);
+	}
+	public function getSamraddhChequeById($id)
+	{
+		return SamraddhCheque::where('id',$id);
+	}
+	public function getMemberById($id)
+	{
+		return Member::whereId($id);
+	}
+	public function updateSamraddhCheque($data,$id)
+	{
+		return SamraddhCheque::whereId($id)->update($data);
+	}
+	public function getChequeLogById($id)
+	{
+		return ChequeLog::whereId($id);
+	}
+}
+

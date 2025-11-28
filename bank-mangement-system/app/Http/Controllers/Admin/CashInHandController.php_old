@@ -1,0 +1,150 @@
+<?php
+namespace App\Http\Controllers\Admin;
+
+use Illuminate\Http\Request;
+use Auth;
+use App\Models\BranchCurrentBalance;
+use App\Http\Controllers\Controller;
+use App\Models\Branch;
+use App\Models\Companies;
+use App\Models\FundTransfer;
+use Yajra\DataTables\DataTables;
+use Carbon\Carbon;
+use App\Interfaces\RepositoryInterface;
+
+class CashInHandController extends Controller
+{
+	public function __construct(RepositoryInterface $repository)
+	{
+		$this->middleware('auth');
+		$this->repository = $repository;
+	}
+	// Cash In Hand Table
+	public function index()
+	{
+		if (check_my_permission(Auth::user()->id, "35") != "1") {
+			return redirect()->route('admin.dashboard');
+		}
+		$data['title'] = "Cash In Hand Report";
+		$data['branches'] = $this->repository->getAllBranch()->get(['id', 'name']);
+		$data['region'] = $this->repository->getAllBranch()->whereStatus('1')->groupBy('regan')->pluck('regan');
+		$data['companys'] = $this->repository->getAllCompanies()->whereStatus('1')->pluck('name', 'id');
+		return view('templates.admin.cash_in_hand.index', $data);
+	}
+	// Fetch Table Lsiting
+	public function cashInHandListing(Request $request)
+	{
+		$arrFormData = array();
+		if (!empty($_POST['searchform'])) {
+			foreach ($_POST['searchform'] as $frm_data) {
+				$arrFormData[$frm_data['name']] = $frm_data['value'];
+			}
+		}
+		$company_id = $arrFormData['company_id'];
+		$branch_id = $arrFormData['branch_id'];
+		if ($request->ajax() && check_my_permission(Auth::user()->id, "35") == "1" && $arrFormData['branch_id']) {
+			$date = Carbon::today()->toDateString();
+			$data = BranchCurrentBalance::select('totalAmount', 'entry_date', 'branch_id', 'company_id')
+				->with([
+					'cashBranch:id,name,branch_code,sector,regan,zone',
+					'company:id,name,status'
+				]);
+			if (isset($arrFormData['is_search']) && $arrFormData['is_search'] == 'yes') {
+				if (isset($branch_id)) {
+					if ($branch_id != '0') {
+						$data = $data->where('branch_id', $branch_id);
+					}
+					;
+					if ($company_id != '0') {
+						$data = $data->where('company_id', $company_id);
+					}
+					;
+					if ($arrFormData['start_date'] != '') {
+						$startDate = date("Y-m-d", strtotime(convertDate($arrFormData['start_date'])));
+						if ($arrFormData['end_date'] != '') {
+							$endDate = date("Y-m-d ", strtotime(convertDate($arrFormData['end_date'])));
+						} else {
+							$endDate = '';
+						}
+						$data = $data->whereBetween(\DB::raw('entry_date'), ["" . $startDate . "", "" . $endDate . ""]);
+					}
+				} else {
+					$data = $data->whereDate('entry_date', $date);
+				}
+				$data1 = $data->orderBy('entry_date', 'DESC')->get();
+				$count = count($data1);
+				$data = $data->orderBy('entry_date', 'DESC')->skip($_POST['start'])->take($_POST['length'])->get();
+				$totalCount = BranchCurrentBalance::where('branch_id', '=', $branch_id)->count();
+				$sn = 0;
+				$rowReturn = array();
+				foreach ($data as $key) {
+					$opening = $this->branchcurrentbalance($key, $branch_id, $company_id);
+					$sn++;
+					$val['DT_RowIndex'] = $sn;
+					$val['company_name'] = $key['company']->name;
+					$val['opening'] = $opening;
+					$val['closing'] = $key->totalAmount + $opening;
+					$val['date'] = date('d/m/Y', strtotime($key->entry_date));
+					$val['name'] = ($key['cashBranch'][0]['name']) ?? "N/A";
+					$val['branch_code'] = ($key['cashBranch'][0]['branch_code']) ?? "N/A";
+					$rowReturn[] = $val;
+				}
+				$output = array("draw" => $_POST['draw'], "recordsTotal" => $totalCount, "recordsFiltered" => $count, "data" => $rowReturn);
+			}
+		} else {
+			$output = array("draw" => 0, "recordsTotal" => 0, "recordsFiltered" => 0, "data" => 0);
+		}
+		return json_encode($output);
+	}
+	public function branchcurrentbalance($key, $branch_id, $company_id)
+	{
+		$data = $this->repository->getAllBranchCurrentBalance()->select('id', 'entry_date', 'branch_id', 'company_id', 'totalAmount')
+			->where('entry_date', '<', $key->entry_date)
+			->when(isset($branch_id) && ($branch_id != '0') && ($branch_id != ''), function ($q) use ($branch_id) {
+				$q->where('branch_id', $branch_id);
+			})
+			->when($company_id != '0', function ($q) use ($company_id) {
+				$q->where('company_id', $company_id);
+			})
+			->sum('totalAmount');
+		return $data;
+	}
+	public function branchbankingbalance($key, $company_id, $branch_id, $sector, $region)
+	{
+		$data = $this->repository->getAllFundTransfer()->
+			join('branch', 'funds_transfer.branch_id', '=', 'branch.id')
+			->whereNotNull('transfer_date_time')
+			->whereDate('transfer_date_time', '=', $key->entry_date)
+			->whereTransferType('0')
+			->when(isset($region) && ($region != '0') && ($region != ''), function ($q) use ($region) {
+				$q->where('branch.regan', 'like', '%' . $region . '%');
+			})
+			->when(isset($sector) && ($sector != '0') && ($region != ''), function ($q) use ($sector) {
+				$q->where('branch.sector', 'like', '%' . $sector . '%');
+			})
+			->when(isset($branch_id) && ($branch_id != '0') && ($branch_id != ''), function ($q) use ($branch_id) {
+				$q->where('branch_id', $branch_id);
+			})
+			->when(isset($company_id) && ($company_id != '0'), function ($q) use ($company_id) {
+				$q->where('company_id', $company_id);
+			})
+			->sum('amount');
+		return $data;
+	}
+	public function region_sector(Request $request)
+	{
+		$data = $this->repository->getAllBranch()->whereStatus('1')
+			->where('regan', 'like', '%' . $request->region . '%')
+			->groupBy('sector')
+			->pluck('sector');
+		return $data;
+	}
+	public function sector_branch(Request $request)
+	{
+		$data = $this->repository->getAllBranch()->whereStatus('1')
+			->where('regan', 'like', '%' . $request->region . '%')
+			->where('sector', 'like', '%' . $request->sector . '%')
+			->pluck('name', 'id');
+		return $data;
+	}
+}
