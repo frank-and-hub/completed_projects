@@ -1,0 +1,25 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+
+class OtpTemplateSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $data = [
+            [
+                'code' => 'SIGNUP-VERIFICATION',
+                'message' => "Hi, your OTP for accessing your " . config('app.name') . " account is: ##otp##. This OTP will expire in 10 minutes"
+            ],
+        ];
+
+        DB::table(config('tables.otp_templates'))->insert($data);
+    }
+}

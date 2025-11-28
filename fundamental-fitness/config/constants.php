@@ -1,0 +1,8 @@
+<?php
+
+return [
+    'file_upload_location' => 'public',
+    'uploads' => 'uploads',
+    'user_profile_photo' => 'user_profile_photo',
+    'per_page' => '15',
+];
