@@ -1,0 +1,29 @@
+{
+  "name": "e-commerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "backend": "cd admin-panel && npm start",
+    "frontend": "cd front-panel && npm start",
+    "start": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "clean": "rm -rf build/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frank-and-hub/e-commerce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frank-and-hub/e-commerce/issues"
+  },
+  "homepage": "https://github.com/frank-and-hub/e-commerce#readme",
+  "dependencies": {
+    "concurrently": "^9.1.2",
+    "leaflet": "^1.9.4",
+    "webpack": "^5.98.0"
+  }
+}

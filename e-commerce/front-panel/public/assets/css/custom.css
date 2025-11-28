@@ -1,0 +1,13 @@
+/*
+Custom Css
+*/
+
+.form-control:focus {
+    border-color: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+input {
+    
+}
