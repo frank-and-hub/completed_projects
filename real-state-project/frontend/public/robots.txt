@@ -1,0 +1,21 @@
+# *
+User-agent: *
+Disallow: /terms-conditions
+Disallow: /privacy-policy
+Disallow: /privatelandlord/login
+Disallow: /agency/login
+Disallow: /invitation-accepted
+Disallow: /agent/login
+Disallow: /portals
+Disallow: /requests
+Disallow: /property-detail
+Disallow: /transaction-history
+Disallow: /calendar-events
+Disallow: /property-needs
+Disallow: /api/v1/microsoft-callback
+
+# Host
+Host: https://pocketproperty.app
+
+# Sitemaps
+Sitemap: https://pocketproperty.app/sitemap.xml
