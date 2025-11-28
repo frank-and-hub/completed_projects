@@ -1,0 +1,9 @@
+table.dataTable {
+    width: 100%;
+    text-align: center;
+  }
+  
+  table.dataTable tbody tr td {
+    text-align: center;
+    vertical-align: middle;
+  }
