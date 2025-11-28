@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyundai Hope Scholarship</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta property="og:image" content="https://hyundai.scholarsbox.in/uploads/HMIF%20LOGO-1.jpg" />
+
+    @include('layouts.includes.style')
+</head>
+<style>
+    .hyundai-login {
+        background-color: transparent;
+    }
+
+    .hyundai-login .h1-title {
+        color: #000;
+        font-size: 60px;
+        font-weight: 800;
+        line-height: 70px;
+    }
+
+    .hyundai-login p {
+        color: black !important;
+    }
+
+    .hyundai-two {
+        padding: 70px 110px;
+    }
+
+    .hyundai-two .row {
+        align-items: center;
+    }
+
+    #page-id-hyundai .scolarship-title-one h2 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 45px;
+        font-weight: 600;
+    }
+
+    .hyundai-two .row .two-head {
+        color: #000;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 44px;
+    }
+
+    .hyundai-two .row .two-desc p {
+        font-size: 15px;
+        line-height: 28px;
+        color: #000;
+        text-align: justify;
+        margin-top: 17px;
+        margin-bottom: 30px;
+    }
+
+    .program-hyundai {
+        padding: 70px 110px;
+        background-color: #ededed;
+    }
+
+    .program-hyundai .hyundai-three-head h3 {
+        color: #000;
+        font-size: 60px;
+        font-weight: 800;
+        line-height: 70px;
+    }
+
+    .program-hyundai .hyundai-head-two h5 {
+        color: #000;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 50px;
+    }
+
+    .program-hyundai .hyundai-three-desc-one p {
+        font-size: 15px;
+        line-height: 28px;
+        color: #000;
+        text-align: justify;
+        margin-top: 17px;
+        margin-bottom: 30px;
+    }
+
+    .hyundai-two .row .hyundai-three-desc-two li {
+        font-size: 15px;
+        line-height: 28px;
+        color: #000 !important;
+        margin-top: 17px;
+        margin-bottom: 30px;
+    }
+
+    #page-id-hyundai .main-footer-one {
+        background-color: #013369;
+    }
+
+    #page-id-hyundai .footer-copyright-one {
+        background-color: #0298d7;
+    }
+
+    #page-id-hyundai .sec-btn-two:before {
+        background-color: #013369;
+    }
+
+    #page-id-hyundai .sec-btn-two {
+        background: #0298d7 !important;
+        border-radius: 5px !important;
+    }
+
+    #page-id-hyundai .sec-btn-one {
+        background-color: #013369;
+    }
+
+    #page-id-hyundai .sec-btn-one::before {
+        background-color: #0298d7 !important;
+        border-radius: 5px !important;
+    }
+
+    #page-id-hyundai .hyundai-login .h1-title {
+        font-size: 30px !important;
+        line-height: 50px !important;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 600 !important;
+    }
+
+    #page-id-hyundai .banner-slide-text p {
+        font-size: 15px;
+        text-align: justify;
+    }
+
+    #page-id-hyundai .program-hyundai .hyundai-three-head h3 {
+        font-size: 50px !important;
+    }
+
+    #page-id-hyundai .scolarship {
+        background-color: #013369 !important;
+    }
+
+    #page-id-hyundai .sidebar a {
+        color: white !important;
+    }
+
+    #page-id-hyundai .site-branding-one img {
+        width: 150px !important;
+    }
+
+    .program-hyundai .hyundai-three-head h4 {
+        color: #000;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 50px;
+    }
+
+    .hyundai-t-c {
+        text-align: right;
+    }
+
+    .hyundai-t-c a {
+        font-size: 15px;
+        color: white;
+    }
+
+    .hyundai-two li {
+        color: black !important;
+        text-align: justify;
+    }
+
+    li,
+    p {
+        color: black !important;
+    }
+
+    .smalldesc div {
+        color: black !important;
+        font-family: 'Roboto';
+    }
+
+    .newReadMoreBtn {
+        font-size: 16px;
+        text-transform: uppercase;
+        color: white;
+        background: #013369;
+        padding: 10px 20px;
+        display: inline-block;
+        text-align: left;
+        border-radius: 5%;
+        margin-top: 20px;
+    }
+
+    .newReadMoreBtn:hover {
+        color: white;
+    }
+
+    .newReadMoreBtn span.leftarrowicon {
+        margin-left: 0px;
+        transition: all 0.5s ease;
+    }
+
+    .newReadMoreBtn:hover span.leftarrowicon {
+        margin-left: 15px;
+        transition: all 0.5s ease;
+    }
+
+    .hyundai-one img {
+        width: 100% !important;
+    }
+
+    .imageinthissectionone {
+        width: 50%;
+    }
+
+    .hyundai-sch-disp-main {
+        padding: 0px 75px 50px 75px;
+        width: 90%;
+        margin: auto;
+    }
+
+    .sch-dis-card {
+        text-align: center;
+    }
+
+    .hyundai-sch-disp-main .col-md-4 {
+        padding: 0px 50px;
+    }
+
+    .card-sch-heading {
+        background: #e7e7e7;
+        border-radius: 10px 10px 10px 10px;
+        margin-bottom: -5px;
+        position: relative;
+        padding: 10px 25px;
+        padding-bottom: 50px;
+        min-height: 200px;
+    }
+
+    .card-sch-heading .schl-name {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .sch-dis-card-inner {
+        padding: 20px;
+    }
+
+    .card-sch-detail-one {
+        background: #013369;
+        padding: 20px 20px 0px 20px;
+        color: white;
+        font-size: 14px;
+    }
+
+    .card-sch-detail {
+        background: #013369;
+        padding: 5px 20px 30px 20px;
+        border-radius: 0px 0px 10px 10px;
+        color: white;
+        font-size: 18px;
+    }
+
+    .card-icon img {
+        width: 75px;
+        margin: 15px 0px;
+    }
+
+    .custom-shape-divider-bottom-1716994080 {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+    }
+
+    .custom-shape-divider-bottom-1716994080 svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 50px;
+    }
+
+    .custom-shape-divider-bottom-1716994080 .shape-fill {
+        fill: #013369;
+    }
+
+    #scholarship .col-md-12.scholar-list .course-grid-3 {
+        width: 33% !important;
+        display: inline-block;
+        padding: 0px 10px;
+    }
+
+    #scholarship .col-md-12.scholar-list .course-grid-3 .rbt-card.card-list-2 .rbt-card-img {
+        width: 100% !important;
+    }
+
+    #scholarship .col-md-12.scholar-list .course-grid-3 .rbt-card.card-list-2 {
+        display: block !important;
+        min-height: 450px;
+    }
+
+    #scholarship .col-md-12.scholar-list .course-grid-3 .rbt-card.card-list-2 .rbt-card-body .rbt-card-title {
+        font-size: 22px !important;
+    }
+
+    .rbt-card.card-list-2 .rbt-card-body {
+        padding-left: 25px;
+    }
+
+    #scholarship .col-md-12.scholar-list .course-grid-3 .bottom-list {
+        display: inline;
+        text-align:center;
+    }
+
+    #scholarship .rbt-card-body .row-first-block {
+        display: none !important;
+    }
+    #faqs{
+        margin-bottom: 30px !important;
+    }
+
+    @media only screen and (min-width: 767.5px) and (max-width: 1140px) {
+        .hyundai-one {
+            margin-top: 70px;
+        }
+
+        .hyundai-two {
+            padding: 40px 30px;
+        }
+
+        .hyundai-two .row .two-head {
+            color: #000;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 40px;
+        }
+
+        .hyundai-two .row .two-desc p {
+            text-align: justify !important;
+        }
+
+        .hyundai-two .row .col-6 {
+            width: 100%;
+        }
+
+        .program-hyundai {
+            padding: 40px 30px;
+            background-color: #ededed;
+        }
+
+        .program-hyundai .hyundai-three-head h4 {
+            color: #000;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 40px;
+        }
+
+        .program-hyundai .hyundai-three-desc-one p {
+            text-align: justify;
+        }
+
+        #scholarship .scolarship .rbt-course-grid-column.active-list-view .container {
+            max-width: 95%;
+        }
+
+        #loginnew .container {
+            max-width: 100%;
+        }
+
+        .banner-content-one {
+            padding: 0 30px;
+        }
+
+        .main-banner-one.hyundai-login .container .banner-slide-text p {
+            text-align: justify !important;
+        }
+
+        #page-id-hyundai .hyundai-login .h1-title {
+            font-size: 30px !important;
+            line-height: 40px !important;
+        }
+
+        .main-footer-one .container {
+            max-width: 95%;
+        }
+
+        .main-footer-one .container .col-md-6 {
+            max-width: 65%;
+            margin: auto;
+        }
+
+        .footer-copyright-one.micro {
+            margin-top: 30px;
+        }
+
+        .imageinthissectionone {
+            width: 100%;
+        }
+
+        .hyundai-sch-disp-main {
+            padding: 0px 0px 20px 0px;
+        }
+
+        .hyundai-sch-disp-main .col-md-4 {
+            padding: 0px;
+        }
+
+        .card-icon img {
+            width: 60px;
+        }
+
+        .card-sch-heading {
+            min-height: 250px;
+        }
+    }
+
+    @media only screen and (min-width: 767.5px) and (max-width: 8300px) {
+        .card-sch-heading {
+            min-height: 270px;
+        }
+    }
+
+    @media only screen and (max-width:767.5px) {
+        .hyundai-one {
+            margin-top: 70px;
+        }
+
+        .hyundai-two {
+            padding: 25px 20px;
+        }
+
+        .hyundai-two .row .col-6 {
+            width: 100%;
+        }
+
+        .hyundai-two .row .two-head {
+            color: #000;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 40px;
+        }
+
+        .hyundai-two .row .two-desc p {
+            text-align: justify !important;
+        }
+
+        .program-hyundai {
+            padding: 40px 20px;
+        }
+
+        .program-hyundai .hyundai-three-head h4 {
+            color: #000;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 40px;
+        }
+
+        .program-hyundai .hyundai-three-desc-one p {
+            text-align: justify;
+        }
+
+        #scholarship .rbt-course-grid-column .container {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .main-banner-one.hyundai-login .container {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .main-banner-one.hyundai-login .container .banner-slide-text p {
+            text-align: justify !important;
+        }
+
+        #page-id-hyundai .hyundai-login .h1-title {
+            font-size: 30px !important;
+            line-height: 40px !important;
+            text-align: left;
+        }
+
+        .hyundai-t-c {
+            text-align: center;
+        }
+
+        .hyundai-login p {
+            color: black !important;
+            margin-top: -20px !important;
+        }
+
+        #scholarship .scholar-list .anchor {
+            height: 10px !important;
+        }
+
+        #page-id-hyundai .rbt-card .rbt-card-body .row .col-10 {
+            width: 100% !important;
+        }
+
+        #page-id-hyundai .rbt-card .rbt-card-body .row .col-10 .rbt-card-title a {
+            font-size: 20px !important;
+        }
+
+        #page-id-hyundai .scholar-list {
+            padding-left: 15px !important;
+            margin-top: 20px;
+        }
+
+        #page-id-hyundai .banner-slide-text {
+            margin-top: 30px;
+        }
+
+        .newReadMoreBtn {
+            font-size: 14px;
+            padding: 7px 15px;
+        }
+
+        #page-id-hyundai .scolarship-title-one h2 {
+            font-size: 30px;
+        }
+
+        .imageinthissectionone {
+            width: 100%;
+        }
+
+        .hyundai-sch-disp-main {
+            padding: 0px 0px 20px 0px;
+        }
+
+        .hyundai-sch-disp-main .col-md-4 {
+            padding: 0px 25px;
+        }
+        #scholarship .col-md-12.scholar-list .course-grid-3{
+            width: 100% !important;
+        }
+
+    }
+
+    @media only screen and (min-width: 1199px) and (max-width: 1410px) {
+        .hyundai-sch-disp-main .col-md-4 {
+            padding: 0px 5px;
+        }
+
+        .card-sch-heading {
+            min-height: 240px;
+        }
+
+        #scholarship .col-md-12.scholar-list .course-grid-3 .bottom-list .list-btn {
+            margin-top: 10px;
+        }
+
+        #scholarship .col-md-12.scholar-list .course-grid-3 .rbt-card.card-list-2 {
+            min-height: 510px;
+        }
+    }
+
+    @media only screen and (min-width: 1411px) {
+        .hyundai-sch-disp-main .col-md-4 {
+            padding: 0px 25px;
+        }
+
+        .card-sch-heading {
+            min-height: 240px;
+        }
+    }
+    @media only screen and (max-width: 767.5px){
+        .video-section iframe{
+            height: 250px !important;
+            margin-top: 20px;
+        }
+    }
+</style>
+
+<body id="page-id-hyundai">
+
+    <!-- Loder Start -->
+    <div class="loader-box-two">
+        <div class="dank-ass-loader">
+            <div class="load-shap">
+                <div class="arrow-two up outer outer-18"></div>
+                <div class="arrow-two down outer outer-17"></div>
+                <div class="arrow-two up outer outer-16"></div>
+                <div class="arrow-two down outer outer-15"></div>
+                <div class="arrow-two up outer outer-14"></div>
+            </div>
+            <div class="load-shap">
+                <div class="arrow-two up outer outer-1"></div>
+                <div class="arrow-two down outer outer-2"></div>
+                <div class="arrow-two up inner inner-6"></div>
+                <div class="arrow-two down inner inner-5"></div>
+                <div class="arrow-two up inner inner-4"></div>
+                <div class="arrow-two down outer outer-13"></div>
+                <div class="arrow-two up outer outer-12"></div>
+            </div>
+            <div class="load-shap">
+                <div class="arrow-two down outer outer-3"></div>
+                <div class="arrow-two up outer outer-4"></div>
+                <div class="arrow-two down inner inner-1"></div>
+                <div class="arrow-two up inner inner-2"></div>
+                <div class="arrow-two down inner inner-3"></div>
+                <div class="arrow-two up outer outer-11"></div>
+                <div class="arrow-two down outer outer-10"></div>
+            </div>
+            <div class="load-shap">
+                <div class="arrow-two down outer outer-5"></div>
+                <div class="arrow-two up outer outer-6"></div>
+                <div class="arrow-two down outer outer-7"></div>
+                <div class="arrow-two up outer outer-8"></div>
+                <div class="arrow-two down outer outer-9"></div>
+            </div>
+            <p class="loader__label-one">Loading..
+                ...</p>
+        </div>
+    </div>
+    <!-- Loder End -->
+
+    <!-- Header Start -->
+    <header class="site-header-one microsite-mainheader">
+        @include('student.scholarship.calander')
+
+        <!--Navbar Start  -->
+        <div class="header-bottom-one">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2">
+                        <!-- Sit Logo Start -->
+                        <div class="site-branding-one">
+                            <a href="index.php" title="Scholarsbox">
+                                <img src="{{ asset('uploads/HMIF LOGO-1.jpg') }}" alt="Logo">
+                            </a>
+                        </div>
+                        <!-- Sit Logo End -->
+                    </div>
+                    <div class="col-xl-10 col-lg-10">
+                        <div class="header-menu-one">
+                            <nav class="main-navigation-one">
+                                <button class="toggle-button-one">
+                                    <span></span>
+                                    <span class="toggle-width-one"></span>
+                                    <span></span>
+                                </button>
+                                <ul class="menu">
+                                    <li class="">
+                                        <a href="/" title="Home">Home</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#aboutTheProgram" title="About">About the program</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#scholarship" title="Scholarship">Scholarship</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#faqs" title="Faqs">Learn More & FAQs</a>
+                                    </li>
+                                    <li class="">
+                                        @if (isset(auth()->user()->id))
+                                        <a href="{{route('Student.dashboard.redirect')}}" title="Login">Dashboard</a>
+
+                                        @else
+                                        <a href="#scholarship" title="Login">Login / Register</a> 
+                                        @endif
+                                    </li>
+
+                                    {{-- <li class="sub-items-one ustom-display-mobtab">
+                                        <a href="javascript:void(0);" title="My Account">My Account</a>
+                                        <ul class="sub-menu-one">
+                                            @auth
+                                            <li>
+                                                <a href="{{route('Student.dashboard')}}" title="Dashboard">Dashboard</a>
+                                            </li>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                            <li> 
+                                                <a href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                    {{ __('Logout') }}
+                                                </a>
+                                            </li>
+                                            @else
+                                            <li>
+                                                <a href="{{route('Student.login')}}" title="Login">Login</a>
+                                            </li>
+                                            @endif
+                                        </ul>
+                                    </li> --}}
+
+                                    <li class="">
+                                        <a href="{{ route('subdomainterm') }}" title="T&C">Terms & Conditions</a>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="https://youtu.be/TTpTiYSb8qI" target="_blank" title="How To Apply">How To Apply</a>
+                                    </li>
+
+
+                                </ul>
+                            </nav>
+                            <!-- <div class="search-box-one">
+                                <div class="search-icon-one">
+                                    <a href="javascript:void(0);" title="Search"><i class="fa fa-search"
+                                            aria-hidden="true"></i></a>
+                                </div>
+                                <div class="search-input-one">
+                                    <div class="search-input-box-one">
+                                        <form>
+                                            <input type="text" name="search" class="form-input-one"
+                                                placeholder="Search Here..." required>
+                                            <button type="submit" class="sec-btn-one"><span><i class="fa fa-search"
+                                                        aria-hidden="true"></i></span></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="black-shadow-one"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Navbar End  -->
+    </header>
+    <!-- Header End -->
+
+
+
+    <!-- Hero Section -->
+
+    <div class="hyundai-one">
+        <div class="sec-banner-image">
+
+            <a href="http://hyundai.bharatcares.org/" class="sec-banner-link"><img src="{{ asset('uploads/' . $data->banner) }}"
+                    width="100%" alt=""></a>
+        </div>
+    </div>
+
+    <!-- Hero Section Ends -->
+
+    <!-- ABOUT SECTION -->
+    <div class="hyundai-two" id="aboutTheProgram">
+        <div class="row">
+            <div class="col-6">
+                <div class="two-left">
+
+                    <div class="two-head">{{ $data->banner_titile }}</div>
+                    <div class="two-desc">{!! $data->about_description !!}</div>
+                    <!-- <div class="two-btn">
+                    <button>Read More</button>
+                </div> -->
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="video-section">
+                    <!-- <video width="100%" autoplay muted controls>
+                        <source src="{{ asset('uploads/Hyundai_Hope_Scholarship_Program.mp4') }}" type="video/mp4">
+                        
+                    </video> -->
+                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/2xnCUjKbBRY" title="Hyundai Hope Scholarship | About The Program" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ABOUT SECITON ENDS -->
+
+    <!-- NEW SCHOLARSHIP DISPLAY SECTION -->
+
+    <div class="hyundai-sch-disp-main">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="sch-dis-card">
+                    <div class="sch-dis-card-inner">
+                        <div class="card-sch-heading">
+                            <div class="card-icon">
+                                <img src="{{ asset('images/exam.png') }}" alt="">
+                            </div>
+                            <div class="schl-name">Hyundai Hope Scholarship for Union and State Civil Services
+                                Aspirants</div>
+                            <div class="custom-shape-divider-bottom-1716994080">
+                                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                                    preserveAspectRatio="none">
+                                    <path d="M598.97 114.72L0 0 0 120 1200 120 1200 0 598.97 114.72z"
+                                        class="shape-fill"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-sch-detail-one">Applications Open Till</div>
+                        <div class="card-sch-detail">15<sup>th</sup> SEPT 2024</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="sch-dis-card">
+                    <div class="sch-dis-card-inner">
+                        <div class="card-sch-heading">
+                            <div class="card-icon">
+                                <img src="{{ asset('images/exam.png') }}" alt="">
+                            </div>
+                            <div class="schl-name">Hyundai Hope Scholarship for Aspiring Innovators from IITs</div>
+                            <div class="custom-shape-divider-bottom-1716994080">
+                                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                                    preserveAspectRatio="none">
+                                    <path d="M598.97 114.72L0 0 0 120 1200 120 1200 0 598.97 114.72z"
+                                        class="shape-fill"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-sch-detail-one">Applications Open Till</div>
+                        <div class="card-sch-detail">15<sup>th</sup> SEPT 2024</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="sch-dis-card">
+                    <div class="sch-dis-card-inner">
+                        <div class="card-sch-heading">
+                            <div class="card-icon">
+                                <img src="{{ asset('images/exam.png') }}" alt="">
+                            </div>
+                            <div class="schl-name">Hyundai Hope Scholarship for Common Law Admission Test Aspirants
+                            </div>
+                            <div class="custom-shape-divider-bottom-1716994080">
+                                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                                    preserveAspectRatio="none">
+                                    <path d="M598.97 114.72L0 0 0 120 1200 120 1200 0 598.97 114.72z"
+                                        class="shape-fill"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-sch-detail-one">Applications Open Till</div>
+                        <div class="card-sch-detail">15<sup>th</sup> SEPT 2024</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW SCHOLARSHIP DISPLAY SECTION ENDS-->
+
+    <!-- PROGRAM SECTION STARTS -->
+
+    <!-- <div class="program-hyundai">
+        <div class="hyundai-three-head">
+            <h4>Hyundai Hope Scholarship Program</h4>
+        </div>
+        <div class="hyundai-three-desc-one" style="text-align: justify;">
+    <p>{!! $data->detail_description !!}</p>
+</div>
+
+       
+    </div> -->
+
+    <!-- PROGRAM SECTION ENDS -->
+    <main id="scholarship">
+        <section class="scolarship mt-10 mb-10">
+            <!-- <div class="scolarship-one-shape4">
+                <img src="{{ asset('images/banner-one-shap4.png') }}" alt="shap">
+            </div> -->
+            <div class="rbt-course-grid-column active-list-view">
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="scolarship-title-one">
+
+                                <h2 class="h2-title">Scholarships</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row align-items-top">
+
+                        <!-- <div class="col-md-3" id="stickMe">
+                            <aside class="sidebar">
+                                <h3 class="sidebar-title">Categories</h3>
+                                <ul class="side-list">
+                                    <li>
+                                        {{-- <a href="#edu1">Education 1</a> --}}
+                                        <a class="drop-icon" data-bs-toggle="collapse" href="#education1"
+                                            role="button" aria-expanded="true" aria-controls="education1"><i
+                                                class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                                        <ul class="collapse show" id="education1">
+                                            <li class="onclickexpand"><a href="#sub-scholarship">ABOUT THE
+                                                    SCHOLARSHIP</a></li>
+                                            <li class="onclickexpand"><a href="#sub-sponsor">ABOUT THE SPONSOR</a>
+                                            </li>
+                                            <li class="onclickexpand"><a href="#sub-who">WHO CAN APPLY?</a></li>
+                                            <li class="onclickexpand"><a href="#sub-apply">HOW CAN YOU APPLY?</a></li>
+                                            <li class="onclickexpand"><a href="#sub-faq">FAQs</a></li>
+                                            {{-- <li class="onclickexpand"><a href="#sub-contact">CONTACT DETAILS</a></li> --}}
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </aside>
+                        </div> -->
+                        <!-- Start Single Card  -->
+                        <!-- <div class="col-md-9 scholar-list">
+                            <span class="anchor" id="edu1"></span>
+                            {{-- <h2 class="h2-subtitle-one">Education 1</h2> --}}
+
+                            @foreach ($scholarships as $value)
+<div class="course-grid-3">
+                                    <div class="rbt-card variation-01 rbt-hover card-list-2">
+                                        <div class="rbt-card-img">
+                                            <a href="">
+                                                <img src="{{ $value->avatar ? asset($value->avatar) : asset('images/logo.png') }}"
+                                                    alt="img">
+                                            </a>
+                                        </div>
+                                        
+                                        <div class="rbt-card-body">
+                                            <div class="row row-first-block">
+                                            @if ($value->is_featured == 1)
+<a href="#"
+                                class="scholarship__item-tag_bookmark"><i class="fa fa-bookmark"></i></a>
+@endif
+                                @if ($value->is_scholarsip == 1)
+<a href="#"
+                                class="scholarship__item-tag background-grey-cstm">Powered By ScholarsBox</a>
+@endif
+
+                                @if (isset(auth()->user()->id))
+<span class="heart-btn heart-btn-schid-{{ $value->id }}"
+                                                            @if (
+                                                                $value->savescholorship &&
+                                                                    $value->savescholorship->where('schId', $value->id)->where('userid', auth()->user()->id)->isNotEmpty()) style="color:red;" @endif
+                                                            onClick="test({{ $value->id }})">
+                                                            <i class="fa fa-heart"></i>
+                                                        </span>
+@endif
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-11 col-10">
+                                                    <h4 class="rbt-card-title"><a
+                                                            href="">{{ $value->scholarship_name }}</a></h4>
+                                                </div>
+
+                                                <div class="col-md-1 col-2">
+                                                    <div class="rbt-bookmark-btn">
+                                                        @if (isset(auth()->user()->id))
+<span class="heart-btn heart-btn-schid-{{ $value->id }}"
+                                                            @if (
+                                                                $value->savescholorship &&
+                                                                    $value->savescholorship->where('schId', $value->id)->where('userid', auth()->user()->id)->isNotEmpty()) style="color:red;" @endif
+                                                            onClick="test({{ $value->id }})">
+                                                            <i class="fa fa-heart"></i>
+                                                        </span>
+@endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <ul class="meta-inner-content">
+                                                <li>
+                                                    <i class="fa fa-calendar" title="Published Date"></i>
+                                                    Published Date: {{ $value->published_date }}
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-calendar" title="End Date"></i>
+                                                    End Date: {{ $value->end_date }}
+                                                </li>
+                                            </ul>
+                                            <div class="a2a_kit a2a_kit_size_32 a2a_default_style"
+                                                id="my_centered_buttons_{{ $value->id }}"
+                                                style="display: none; justify-content: center;">
+                                                <a class="a2a_button_twitter"
+                                                    href="https://twitter.com/intent/tweet?url={{ urlencode(route('Student.scholarship.details', $value->id)) }}&text={{ urlencode($value->scholarship_name) }}"></a>
+                                                <a class="a2a_button_whatsapp"
+                                                    href="whatsapp://send?text={{ urlencode($value->scholarship_name . ' - ' . route('Student.scholarship.details', $value->id)) }}"></a>
+                                                <a class="a2a_button_linkedin"
+                                                    href="https://www.linkedin.com/shareArticle?url={{ urlencode(route('Student.scholarship.details', $value->id)) }}&title={{ urlencode($value->scholarship_name) }}"></a>
+                                            </div>
+                                            <div class="bottom-list">
+                                                <a id="sharebutton_{{ $value->id }}"
+                                                    class="btn sec-btn-one list-btn"
+                                                    onclick="toggleShare({{ $value->id }})">
+                                                    <img src="{{ asset('images/share.png') }}"
+                                                        style="width:20px; filter:invert(1);">
+                                                </a>
+
+                                                @if (isset($value->apply_now))
+@if (isset(auth()->user()->id))
+@if (alreadyApplieadScholarship($value->id))
+<a class="btn sec-btn-one list-btn alert_condication" data-ec=""
+                                                                data-limit="" data-check="true">Apply Now</a>
+@else
+@if (
+    (int) $value->min_age <= auth()->user()->age &&
+        count(array_intersect(education_req_details(), json_decode($value->education_req))) ===
+            count(json_decode($value->education_req)))
+<a class="btn sec-btn-one list-btn"
+                                                                    data-limit="{{ $value->min_age }}" data-bs-toggle="modal"
+                                                                    data-bs-target="#applyModal"
+                                                                    data-scholarship-id="{{ $value->id }}">Apply Now</a>
+@else
+<?php
+$f = (array) json_decode($value->education_req);
+$msg = '';
+foreach ($f as $k => $v) {
+    if (isset($degree)) {
+        $msg .= $degree[$v] . (count($f) != $k + 1 ? ', ' : ' ');
+    } else {
+        $msg .= 'Add Requried Fields';
+    }
+}
+$c = count(array_intersect(education_req_details(), json_decode($value->education_req))) !== count(json_decode($value->education_req));
+?>
+                                                                <a class="btn sec-btn-one list-btn alert_condication"
+                                                                    data-ec="{{ $c == true ? $msg : false }}"
+                                                                    data-limit="{{ $value->min_age }}" data-check="">Apply
+                                                                    Now</a>
+@endif
+@endif
+@else
+<a class="btn sec-btn-one list-btn"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#exampleModalCenterTitle"
+                                                                    >Apply Now</a>
+@endif
+@endif
+
+
+                                                <a class="btn sec-btn-one list-btn" id="authorize_button"
+                                                    onclick="handleAuthClick()">
+                                                    <img src="{{ asset('images/add-calendar-symbol-for-events.png') }}"
+                                                        style="width:20px; filter:invert(1);" />
+                                                </a>
+                                                </a>
+                                                <a class="readmore_{{ $value->scholarship_name }} btn sec-btn-two list-btn learnMoreHyundai">Learn More</a>
+                                            </div>
+
+                                            <div class="medium-12 small-12 columns smalldesc">
+                                                <span class="anchor-sub" id="sub-scholarship"></span>
+                                                <h2 class="h2-subtitle-one">About the Scholarship</h2>
+                                                <p class="font16 ">{{ $value->short_desc }}</p>
+                                                <span class="anchor-sub" id="sub-sponsor"></span>
+
+
+                                                <h2 class="h2-subtitle-one">Who can apply?</h2>
+                                                <p class="font16 ">{!! $value->who_can_apply_info !!}. </p>
+                                                <span class="anchor-sub" id="sub-apply"></span>
+
+                                                <h2 class="h2-subtitle-one">How can you apply?</h2>
+                                                <p class="font16 ">{!! $value->how_to_apply_info !!}. </p>
+                                                <span class="anchor-sub" id="sub-faq"></span>
+
+                                                {{-- <h2 class="h2-subtitle-one">Contact Details</h2>
+                                                <p class="font16 ">{{ $value->contact_details }}. </p> --}}
+
+                                                <div class="bottom-list">
+                                                @if (isset($value->apply_now))
+@if (isset(auth()->user()->id))
+@if (alreadyApplieadScholarship($value->id))
+<a class="btn sec-btn-one list-btn alert_condication" data-ec=""
+                                                                data-limit="" data-check="true">Apply Now</a>
+@else
+@if (
+    (int) $value->min_age <= auth()->user()->age &&
+        count(array_intersect(education_req_details(), json_decode($value->education_req))) ===
+            count(json_decode($value->education_req)))
+<a class="btn sec-btn-one list-btn"
+                                                                    data-limit="{{ $value->min_age }}" data-bs-toggle="modal"
+                                                                    data-bs-target="#applyModal"
+                                                                    data-scholarship-id="{{ $value->id }}">Apply Now</a>
+@else
+<?php
+$f = (array) json_decode($value->education_req);
+$msg = '';
+foreach ($f as $k => $v) {
+    if (isset($degree)) {
+        $msg .= $degree[$v] . (count($f) != $k + 1 ? ', ' : ' ');
+    } else {
+        $msg .= 'Add Requried Fields';
+    }
+}
+$c = count(array_intersect(education_req_details(), json_decode($value->education_req))) !== count(json_decode($value->education_req));
+?>
+                                                                <a class="btn sec-btn-one list-btn alert_condication"
+                                                                    data-ec="{{ $c == true ? $msg : false }}"
+                                                                    data-limit="{{ $value->min_age }}" data-check="">Apply
+                                                                    Now</a>
+@endif
+@endif
+@else
+<a class="btn sec-btn-one list-btn"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#exampleModalCenterTitle"
+                                                                    >Apply Now</a>
+@endif
+@endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+@endforeach
+
+                        </div> -->
+
+                        <!--Grid Scholarship Cards-->
+
+                        <div class="col-md-12 scholar-list">
+                            <span class="anchor" id="edu1"></span>
+                            {{-- <h2 class="h2-subtitle-one">Education 1</h2> --}}
+
+                            @foreach ($scholarships as $value)
+                            <div class="course-grid-3">
+                                <div class="rbt-card variation-01 rbt-hover card-list-2">
+                                    <div class="rbt-card-img">
+                                        <a href="">
+                                            <img src="{{ $value->avatar ? asset($value->avatar) : asset('images/logo.png') }}" alt="img">
+                                        </a>
+                                    </div>
+                                    <div class="rbt-card-body">
+                                        <div class="row row-first-block">
+                                            @if ($value->is_featured == 1)
+                                                <a href="#" class="scholarship__item-tag_bookmark"><i class="fa fa-bookmark"></i></a>
+                                            @endif
+                                            @if ($value->is_scholarsip == 1)
+                                                <a href="#" class="scholarship__item-tag background-grey-cstm">Powered By ScholarsBox</a>
+                                            @endif
+                                            @if (isset(auth()->user()->id))
+                                                <span class="heart-btn heart-btn-schid-{{ $value->id }}" 
+                                                    @if ($value->savescholorship && $value->savescholorship->where('schId', $value->id)->where('userid', auth()->user()->id)->isNotEmpty()) 
+                                                        style="color:red;" 
+                                                    @endif
+                                                    onClick="test({{ $value->id }})">
+                                                    <i class="fa fa-heart"></i>
+                                                </span>
+                                            @endif
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-11 col-10">
+                                                <h4 class="rbt-card-title"><a href="">{{ $value->scholarship_name }}</a></h4>
+                                            </div>
+                                        </div>
+                                        <ul class="meta-inner-content">
+                                            <li>
+                                                <i class="fa fa-calendar" title="Published Date"></i>
+                                                Published Date: {{ $value->published_date }}
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-calendar" title="End Date"></i>
+                                                End Date: {{ $value->end_date }}
+                                            </li>
+                                        </ul>
+                                        <div class="a2a_kit a2a_kit_size_32 a2a_default_style" id="my_centered_buttons_{{ $value->id }}" style="display: none; justify-content: center;">
+                                            <a class="a2a_button_twitter" href="https://twitter.com/intent/tweet?url={{ urlencode(route('Student.scholarship.details', $value->id)) }}&text={{ urlencode($value->scholarship_name) }}"></a>
+                                            <a class="a2a_button_whatsapp" href="whatsapp://send?text={{ urlencode($value->scholarship_name . ' - ' . route('Student.scholarship.details', $value->id)) }}"></a>
+                                            <a class="a2a_button_linkedin" href="https://www.linkedin.com/shareArticle?url={{ urlencode(route('Student.scholarship.details', $value->id)) }}&title={{ urlencode($value->scholarship_name) }}"></a>
+                                        </div>
+                                        <div class="bottom-list">
+                                            <a id="sharebutton_{{ $value->id }}" class="btn sec-btn-one list-btn" onclick="toggleShare({{ $value->id }})">
+                                                <img src="{{ asset('images/share.png') }}" style="width:20px; filter:invert(1);">
+                                            </a>
+                                            @if (isset($value->apply_now))
+                                                @if (isset(auth()->user()->id))
+                                                    @if (alreadyApplieadScholarship($value->id))
+                                                        <a class="btn sec-btn-one list-btn alert_condication" data-ec="" data-limit="" data-check="true">Apply Now</a>
+                                                    @else
+                                                    @if(!studentDocCheck($value->id)['data'])
+                                                    <a class="btn sec-btn-one list-btn alert_condication" data-doc="{{studentDocCheck($value->id)['msg']}}" data-ec="" data-limit="" data-check="">Apply Now</a>
+
+                                                        @elseif ((int) $value->min_age <= auth()->user()->age && count(array_intersect(education_req_details(), json_decode($value->education_req))) === count(json_decode($value->education_req)))
+                                                            <a class="btn sec-btn-one list-btn" data-limit="{{ $value->min_age }}" data-bs-toggle="modal" data-bs-target="#applyModal" data-scholarship-id="{{ $value->id }}">Apply Now</a>
+                                                        @else
+                                                            <?php
+                                                            $f = (array) json_decode($value->education_req);
+                                                            $msg = '';
+                                                            foreach ($f as $k => $v) {
+                                                                if (isset($degree)) {
+                                                                    $msg .= $degree[$v] . (count($f) != $k + 1 ? ', ' : ' ');
+                                                                } else {
+                                                                    $msg .= 'Add Required Fields';
+                                                                }
+                                                            }
+                                                            $c = count(array_intersect(education_req_details(), json_decode($value->education_req))) !== count(json_decode($value->education_req)); 
+                                                            ?>
+                                                            <a class="btn sec-btn-one list-btn alert_condication" data-ec="{{ $c == true ? $msg : false }}" data-limit="{{ $value->min_age }}" data-check="">Apply Now</a>
+                                                        @endif
+                                                    @endif
+                                                @else
+                                                    <a class="btn sec-btn-one list-btn" data-bs-toggle="modal" data-bs-target="#exampleModalCenterTitle">Apply Now</a>
+                                                @endif
+                                            @endif
+                                            <a class="btn sec-btn-one list-btn" id="authorize_button" onclick="handleAuthClick()">
+                                                <img src="{{ asset('images/add-calendar-symbol-for-events.png') }}" style="width:20px; filter:invert(1);" />
+                                            </a>
+                                            <!-- <a class="readmore_{{ $value->scholarship_name }} btn sec-btn-two list-btn learnMoreHyundai">Learn More</a> -->
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </section>
+
+
+    </main>
+    <!-- LOGIN SECTION -->
+
+
+    <section class="main-banner-one hyundai-login" id="loginnew">
+        
+        <div class="container" id="logins">
+            <div class="row align-items-center">
+                
+                <div class="col-md-6">
+                    <h2 class="h1-title">Hyundai Motor India Foundation [HMIF]</h2>
+                    <div class="banner-slide-text">
+                        <p style="font-weight: 400;">
+                            <b>Hyundai Motor India Foundation</b> was formed in the year 2006, with the purpose of
+                            ‘giving back’ to society and initiating Corporate Social Responsibility activities, in line
+                            with the vision of ‘Progress for Humanity’. HMIF has undertaken many welfare projects under
+                            the aegis of ‘Creating Shared Values’ (CSV) direction of ‘CONTINUE’, which encourages
+                            sustainable development and promotes inclusive growth. Activities undertaken under the CSV
+                            pillars of ‘Earth’, ‘Mobility’ and ‘Hope’ focus on areas of community development,
+                            healthcare, educational and vocational training, environment, road safety, art,
+                            science and technology.
+                        </p>
+                    </div>
+                    
+                    <a href="https://www.hyundai.com/in/en/hyundai-story/csr" class="newReadMoreBtn">
+                        <span>Read More</span>
+                        <span class="leftarrowicon"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <div class="">
+                        <img src="{{ asset('images/pyramid-hyundai.jpg') }}" alt="">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <section class="main-faq-in-one">
+        <div class="faq-shape1-one">
+            <!-- <img src="assets/images/faq-shap1-one.png" alt="Shape"> -->
+        </div>
+        <div class="faq-shape2-one">
+            <!-- <img src="assets/images/faq-shape2-one.png" alt="Shape"> -->
+        </div>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xl-12 col-lg-12">
+                    <div class="faq-content-one">
+                        <div class="fnaq-title-oe wow fadeInDown">
+                            <div class="subtitle" id="faqs">
+                                <!-- <div class="subtitle-circle-one"></div> -->
+                                <h1 class="h1-subtitle-one capitalize-xstm-head"
+                                    style="position: relative;font-family: 'Poppins', sans-serif;color: #1a91c9;line-height: 22px;font-weight: 700;text-transform: uppercase;margin-bottom: 0;display: inline-block;">
+                                    Learn More & FAQs</h1>
+                            </div>
+                            <!-- <h2 class="h2-title">Popular Questions</h2> -->
+                        </div>
+
+                        @foreach ($faqs as $faq)
+                            <div class="faq-accordion-one" id="accordionExample{{ $faq->id }}">
+                                <div class="accordion one">
+                                    <div class="accordion-item one wow fadeInLeft">
+                                        <h3 class="accordion-header h3-title" id="headingOne{{ $faq->id }}">
+                                            <button class="accordion-button one collapsed" type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOne{{ $faq->id }}"
+                                                aria-expanded="false" aria-controls="collapseOne">
+                                                {{ $faq->title }}<span class="icon"><i class="fa fa-angle-left"
+                                                        aria-hidden="true"></i></span>
+                                            </button>
+                                        </h3>
+                                        <div id="collapseOne{{ $faq->id }}" class="accordion-collapse collapse"
+                                            aria-labelledby="headingOne{{ $faq->id }}"
+                                            data-bs-parent="#accordionExample{{ $faq->id }}">
+                                            <div class="accordion-body">
+                                                <P>
+                                                    {!! $faq->description !!}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Bootstrap Modal -->
+    <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"> -->
+    <div class="modal fade" id="exampleModalCenterTitle" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="applyModalLabel">Login Form</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-lg-12 banner-mob-no-one micro-register">
+                        <div class="register-page-form banner-form signinform--disapear">
+                            <form id="loginFordsmdf" method="post" action="{{ route('Student.doLoginMicro') }}"
+                                class="row sign-in-form" style="visibility: visible !important;">
+
+                                @csrf
+
+                                <div class="text-center"><a href="{{ url('auth/google') }}"
+                                        class="btn sec-btn-one w-100"><i class="fa fa-google"> </i> Sign in with
+                                        Google</a></div>
+                                <div class="or-text">OR</div>
+
+                                <div class="text-center"><a href="{{ route('Student.otp.redirection') }}"
+                                        class="btn sec-btn-one w-100"> </i> Sign in with
+                                        OTP</a></div>
+                                <div class="or-text">OR</div>
+
+                                <!-- Form Input -->
+                                <div class="col-md-12 mt-3 mb-25">
+                                    <p class="p-sm input-header">E-mail Address/Mobile Number</p>
+                                    <input class="form-control email" type="text" name="identifier"
+                                        placeholder="example@example.com / 997xxxxxxx" required>
+                                </div>
+                                <style>
+                                    .password-container {
+                                        position: relative;
+                                    }
+
+                                    .password {
+                                        padding-right: 30px;
+                                        /* Space for the eye icon */
+                                    }
+
+                                    #password-toggle {
+                                        position: absolute;
+                                        top: 50%;
+                                        right: 10px;
+                                        transform: translateY(-50%);
+                                        cursor: pointer;
+                                    }
+                                </style>
+                                <!-- Form Input -->
+                                <div class="col-md-12 mb-25">
+                                    <p class="p-sm input-header">Password</p>
+                                    <div class="wrap-input">
+                                        <span class="btn-show-pass ico-20"><span
+                                                class="flaticon-visibility eye-pass"></span></span>
+                                        <div class="password-container">
+                                            <input class="form-control password" type="password" name="password"
+                                                placeholder="* * * * * * * * *" required>
+                                            <i class="fa fa-eye" id="password-toggle"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- Reset Password Link -->
+                                <div class="col-md-12 mb-25">
+                                    <div class="reset-password-link">
+                                        <p class="p-sm"><a href="{{ route('Student.forgot.pasword') }}"
+                                                class="color--theme">Forgot your password?</a></p>
+                                    </div>
+                                </div>
+
+                                <!-- Form Submit Button -->
+                                <div class="col-md-12 mb-25">
+                                    <button type="submit" id="submitBtn" class="btn sec-btn-one w-100">Log
+                                        In</button>
+                                </div>
+
+                                <!-- Sign Up Link -->
+                                <div class="col-md-12">
+                                    <p class="createss-accosunt text-center">
+                                        New user? Join the community! <a
+                                            href="{{ route('Student.register.redirectionsssss') }}" class="color--theme"
+                                            id="micrositeSignupsss">Sign up</a>
+                                    </p>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+
+    <!-- Modal for Learn More -->
+
+
+
+
+    <!-- LOGIN SECTION ENDS -->
+
+    <!--Footer Start-->
+    <footer class="main-footer-one">
+        <!-- <div class="footer-blur1-one">
+            <img src="https://bharatcares.scholarsbox.in/images/blur_7.png" alt="Blur">
+        </div>
+ <div class="footer-blur2-one">
+            <img src="https://bharatcares.scholarsbox.in/images/blur_7.png" alt="Blur">
+        </div> -->
+        <!-- <div class="footer-one-shape1 animate-this wow fadeIn" data-wow-delay=".4s"></div>
+        <div class="footer-one-shape2 animate-this wow fadeIn" data-wow-delay=".5s"></div>
+        <div class="footer-one-shape3 animate-this wow fadeIn" data-wow-delay=".6s"></div> -->
+        <div class="container">
+            <div class="row">
+
+                <div class="offset-lg-3 text-center col-xl-6 col-lg-5 col-md-6 col-sm-6 footer-links-one">
+                    <h3 class="h3-title">For more updates subscribe to the ScholarsBox Newsletter !</h3>
+                    <div class="footer-newsletter-form-two">
+                        <input type="email" name="email" class="form-input-two subscribe-input"
+                            placeholder="Email Address..." required>
+                        <button type="submit" class="sec-btn-two">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright-one micro">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-7">
+                        <div class="copyright-text-one">
+                            <span>Powered By <a href="">ScholarsBox.</a> All rights reserved.</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-5">
+                        <div class="hyundai-t-c">
+                            <span style="margin-right: 20px;"><a href="{{ route('subdomainterm') }}">Terms &
+                                    Conditions</a></span>
+                            <span><a href="{{ asset('uploads/Privacy Policy - Hyundai.pdf') }}"
+                                    target="_blank">Privacy Policy</a></span>
+                        </div>
+                        <!-- <div class="copyright-one float-right">
+                            <div class="footer-social-media-one micro">
+                                <ul>
+
+                                    <li class="twitter">
+                                        <a href="javascript:void(0);"><i class="fa fa-twitter"
+                                                aria-hidden="true"></i></a>
+                                    </li>
+                                    <li class="instagram">
+                                        <a href="javascript:void(0);"><i class="fa fa-instagram"
+                                                aria-hidden="true"></i></a>
+                                    </li>
+
+                                    <li class="facebook">
+                                        <a href="javascript:void(0);"><i class="fa fa-facebook"
+                                                aria-hidden="true"></i></a>
+                                    </li>
+                                    <li class="linkedin">
+                                        <a href="javascript:void(0);"><i class="fa fa-linkedin"
+                                                aria-hidden="true"></i></a>
+                                    </li>
+                                    <li class="youtube">
+                                        <a href="javascript:void(0);"><i class="fa fa-youtube-play"
+                                                aria-hidden="true"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--Footer Start-->
+
+
+
+
+
+
+
+    @include('student.includes.model')
+
+
+    @include('student.includes.scripts')
+
+    <script>
+        $(document).ready(function() {
+            // Get current URL
+            var currentURL = window.location.href;
+
+            // Check if URL contains a specific string
+            if (currentURL.indexOf("https://bharatcares.scholarsbox.in/") !== -1) {
+                // Change CSS based on URL
+                $(".main-banner-one").css("background-color", "#fff");
+                $(".banner-slide-text p").css("color", "#0D244D");
+                $(".h1-title").css("color", "#0D244D");
+                $(".banner-content-one p").css("color", "#0D244D");
+                $(".sec-btn-one").css("background-color", "#c90000");
+                $(".sec-btn-two").css("background-color", "#c90000");
+                $(".color--theme").css("color", "#0D244D");
+                $(".subtitle-circle-one").css("background-color", "#0D244D");
+                $(".h2-subtitle-one").css("color", "#0D244D");
+                $(".points-one p").css("color", "#6B6B6B");
+                $(".descript-one").css("color", "#6B6B6B");
+                $(".h2-subtitle-one").css("border-bottom", "2px solid #0e224b");
+                $(".h2-title").css("color", "#0D244D");
+                $(".home-fact-section .fact-right-inner-wrap .fact-inner-box .fact-content h4").css("color",
+                    "#0D244D");
+                $('.side-list ul li a').attr('style', 'color: #0D244D !important');
+                $('.sidebar a').attr('style', 'color: #0D244D !important');
+                $(".sec-btn-one::before").css("background-color", "#c90000");
+                $(".heart-btn").css("background", "#0D244D");
+                $(".footer-copyright-one").css("background-color", "#0e224b");
+
+                $(".sidebar-title").css("color", "#0d244d");
+
+                $(".check-list").css("background-color", "#c90000");
+                $(".scolarship").css("background-color", "#C0C0C0");
+                $(".main-footer-one").css("background-color", "#c90000");
+
+            } else if (currentURL.indexOf("https://csrbox.scholarsbox.in/") !== -1) {
+
+                $(".main-banner-one").css("background-color", "#fff");
+                $(".banner-slide-text p").css("color", "#1B91C9");
+                $(".h1-title").css("color", "#1B91C9");
+                $(".banner-content-one p").css("color", "#1B91C9");
+                // Change CSS based on URL
+
+            } else if (currentURL.indexOf("https://lg.scholarsbox.in/") !== -1) {
+
+                $(".main-banner-one").css("background-color", "#fff");
+                $(".banner-slide-text p").css("color", "#6b6b6b");
+                $(".h1-title").css("color", "#A50034");
+                $(".banner-content-one p").css("color", "#6b6b6b");
+                $(".sec-btn-one").css("background-color", "#A50034");
+                $(".sec-btn-two").css("background-color", "#6b6b6b");
+                $(".subtitle-circle-one").css("background-color", "#A50034");
+                $(".h2-subtitle-one").css("color", "#A50034");
+                $(".check-list").css("background-color", "#A50034");
+                $(".home-fact-section .fact-right-inner-wrap .fact-inner-box .fact-content h4").css("color",
+                    "#6b6b6b");
+                $(".scolarship").css("background-color", "#ececec");
+                $(".scolarship-title-one h2").css("color", "#A50034");
+                $(".h2-subtitle-one").css("border-bottom", "2px solid #A50034");
+                $(".sidebar-title").css("color", "#A50034");
+                $('.side-list ul li a').attr('style', 'color: #A50034 !important');
+                $('.sidebar a').attr('style', 'color: #A50034 !important');
+                $(".heart-btn").css("background", "#A50034");
+                $(".main-footer-one").css("background", "#A50034");
+                $(".footer-copyright-one").css("background-color", "#6b6b6b");
+
+
+                // Change CSS based on URL
+
+            }
+            // Add more conditions as needed
+
+            // Alternatively, you can use switch case for better readability
+            // switch(currentURL) {
+            //     case "example.com/page1":
+            //         $("body").css("background-color", "#ff0000");
+            //         $("body").css("color", "#ffffff");
+            //         break;
+            //     case "example.com/page2":
+            //         $("body").css("background-color", "#00ff00");
+            //         $("body").css("color", "#000000");
+            //         break;
+            //     // Add more cases as needed
+            // }
+        });
+
+
+        document.querySelector('.close').addEventListener('click', function() {
+            $('#exampleModalCenterTitle').modal('hide');
+        });
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>
+
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<script>
+    function toggleShare(scholarshipId) {
+        // Get the share div corresponding to the clicked share button
+        const shareDiv = document.getElementById('my_centered_buttons_' + scholarshipId);
+
+        // Toggle the display state of the share div
+        if (shareDiv.style.display === 'block') {
+            shareDiv.style.display = 'none'; // Hide the share div if it's currently visible
+        } else {
+            shareDiv.style.display = 'block'; // Show the share div if it's currently hidden
+        }
+    }
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script>
+    function test(schid) {
+        // Get the CSRF token from the meta tag
+        var csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('Student.save.scholorship') }}",
+            headers: {
+                'X-CSRF-TOKEN': csrfToken
+            },
+            data: {
+                scholarshipId: schid
+            },
+            success: function(response) {
+                // Display toastr popup on success
+                toastr.success(response.message);
+                if (response.data == 1) {
+                    $('.heart-btn-schid-' + schid).css('color', '#A2CC3B');
+                } else {
+                    $('.heart-btn-schid-' + schid).css('color', 'white');
+                }
+            },
+            error: function(error) {
+                console.error('Error saving scholarship', error);
+                // Display toastr popup on error
+                toastr.error('Error saving scholarship');
+            }
+        });
+    }
+</script>
+<script>
+    function sendEmail() {
+        var formData = $('#emailForm').serialize();
+
+        $.ajax({
+            type: 'POST',
+            url: '{{ route('newsletter.mail') }}',
+            data: formData,
+            success: function(response) {
+                toastr.success(response.message);
+                $('#emailForm')[0].reset(); // Reset the form
+            },
+            error: function(error) {
+                console.log(error.responseJSON);
+                toastr.error('Email Address Not found !!');
+
+            }
+        });
+    }
+
+    $('#emailForm').submit(function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        sendEmail();
+    });
+
+
+    document.getElementById('micrositeSignup').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Get company name
+        var companyName = "{{ $companyForSignUp }}";
+        var micrositeFlag = 1; // Set microsite flag
+
+        // Make AJAX request to set session
+        $.ajax({
+            type: "POST",
+            url: "{{ route('set.session') }}",
+            data: {
+                companyName: companyName,
+                Microsite: micrositeFlag
+            },
+            success: function(response) {
+                console.log("Session values set successfully");
+                // Optionally, redirect user after successful session setting
+                window.location.href = "{{ route('Student.register') }}";
+            },
+            error: function(xhr, status, error) {
+                console.error("Error setting session values:", error);
+            }
+        });
+    });
+</script>
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8PK2QYQN7R"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-8PK2QYQN7R');
+</script>
+
+<!-- <script>
+    // Get all elements with class 'learnMoreHyundai'
+    var buttons = document.querySelectorAll('.learnMoreHyundai');
+
+    // Iterate over each button
+    buttons.forEach(function(button) {
+        // Add click event listener to each button
+        button.addEventListener('click', function() {
+            // Find the corresponding .smalldesc element
+            var smalldesc = button.parentElement.parentElement.querySelector('.smalldesc');
+
+            // Toggle max-height for the corresponding .smalldesc element
+            if (smalldesc.style.maxHeight) {
+                smalldesc.style.maxHeight = null;
+            } else {
+                smalldesc.style.maxHeight = smalldesc.scrollHeight + 'px';
+            }
+        });
+    });
+</script> -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('loginFordsmdf');
+        if (form) {
+            form.style.setProperty('visibility', 'visible', 'important');
+        }
+    });
+
+</script>
+
+
+
