@@ -1,0 +1,173 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type BusinessCategoryEntity {
+  createdAt: DateTime!
+  deletedAt: DateTime
+  description: String!
+  id: String!
+  name: String!
+  status: Status!
+  updatedAt: DateTime!
+}
+
+type CityEntity {
+  country: CountryEntity!
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: String!
+  name: String!
+  state: StateEntity!
+  status: Status!
+  updatedAt: DateTime!
+}
+
+type CountryEntity {
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: String!
+  iso2: String!
+  iso3: String!
+  name: String!
+  status: Status!
+  updatedAt: DateTime!
+}
+
+input CreateUserDto {
+  cityId: String
+  countryId: String
+  dateOfBirth: DateTime
+  departmentId: String
+  deviceId: String
+  deviceType: String
+  email: String!
+  firstName: String!
+  gender: String
+  isNotify: Boolean = true
+  isVerified: Boolean = false
+  lastName: String
+  middleName: String
+  password: String
+  phone: String
+  relationshipStatus: String
+  roleId: String
+  stateId: String
+  status: Status! = ACTIVE
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type DepartmentEntity {
+  businessCategory: BusinessCategoryEntity!
+  createdAt: DateTime!
+  deletedAt: DateTime
+  description: String
+  id: String!
+  name: String!
+  status: Status!
+  updatedAt: DateTime!
+}
+
+"""Prisma enum: DeviceType"""
+enum DeviceType {
+  ANDROID
+  IOS
+  OTHER
+  WEB
+}
+
+"""Prisma enum: Gender"""
+enum Gender {
+  FEMALE
+  MALE
+  OTHER
+  PREFER_NOT_TO_SAY
+}
+
+type Mutation {
+  createUser(input: CreateUserDto!): UserResponse!
+  deleteUser(id: String!): UserResponse!
+  updateUser(id: String!, input: UpdateUserDto!): UserResponse!
+}
+
+type Query {
+  user(id: String!): UserEntity!
+  users: [UserEntity!]!
+}
+
+"""Prisma enum: RelationshipStatus"""
+enum RelationshipStatus {
+  DIVORCED
+  ENGAGED
+  FORFUN
+  IN_A_RELATIONSHIP
+  ITS_COMPLICATED
+  MARRIED
+  OPEN_RELATIONSHIP
+  SINGLE
+}
+
+type RoleEntity {
+  createdAt: DateTime!
+  deletedAt: DateTime
+  description: String
+  id: String!
+  name: String!
+  status: Status!
+  updatedAt: DateTime!
+}
+
+type StateEntity {
+  country: CountryEntity!
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: String!
+  name: String!
+  status: Status!
+  updatedAt: DateTime!
+}
+
+"""Prisma enum: Status"""
+enum Status {
+  ACTIVE
+  INACTIVE
+}
+
+input UpdateUserDto {
+  id: String!
+}
+
+type UserEntity {
+  aggreTerm: Boolean
+  city: CityEntity
+  country: CountryEntity
+  createdAt: DateTime!
+  dateOfBirth: DateTime
+  deletedAt: DateTime
+  department: DepartmentEntity
+  deviceId: String
+  deviceType: DeviceType
+  email: String!
+  firstName: String
+  gender: Gender
+  id: ID!
+  isNotify: Boolean!
+  lastName: String
+  middleName: String
+  phone: String
+  relationshipStatus: RelationshipStatus
+  role: RoleEntity
+  state: StateEntity
+  status: Status
+  updatedAt: DateTime!
+}
+
+type UserResponse {
+  message: String
+  ok: Boolean!
+  user: UserEntity
+}

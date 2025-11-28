@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "@apollo/server": "^5.0.0",
+    "concurrently": "^9.2.1"
+  },
+  "name": "klub-business",
+  "version": "1.0.0",
+  "description": "cluk management system",
+  "main": "public/index.js",
+  "scripts": {
+    "test": "test",
+    "backend": "cd klub-business-back && npm run start:dev-start",
+    "backend-dev": "cd klub-business-back && npm run start:dev-reset",
+    "frontend": "cd klub-business-front && npm run dev",
+    "start": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "dev": "concurrently \"npm run backend-dev\" \"npm run frontend\"",
+    "clean": "rm -rf build/",
+    "pm2":"pm2 start ecosystem.config.js",
+    "pm2-stop":"pm2 stop ecosystem.config.js",
+    "pm2-restart":"pm2 restart ecosystem.config.js",
+    "pm2-delete":"pm2 delete ecosystem.config.js"
+  },
+  "author": "Sourab Biswas",
+  "license": "ISC"
+}

@@ -1,0 +1,5 @@
+/node_modules
+/klub-business-back-microservice
+!/klub-business-back
+!/klub-business-front
+/docker

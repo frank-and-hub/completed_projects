@@ -1,0 +1,68 @@
+version: '3.9'
+
+services:
+  # 🟢 MongoDB
+  mongodb:
+    image: mongo:7
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - ./mongo_data:/data/db
+    restart: unless-stopped
+
+  # 🐘 PostgreSQL
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: testdb
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  # 🐬 MySQL
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    restart: unless-stopped
+
+  # 🧱 MariaDB
+  mariadb:
+    image: mariadb:11
+    container_name: mariadb
+    ports:
+      - "3307:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: testdb
+      MARIADB_USER: test
+      MARIADB_PASSWORD: test
+    volumes:
+      - ./mariadb_data:/var/lib/mysql
+    restart: unless-stopped
+
+  # 🟣 SQLite (runs in container just for completeness)
+  sqlite:
+    image: nouchka/sqlite3:latest
+    container_name: sqlite
+    volumes:
+      - ./sqlite_data:/root/db
+    command: tail -f /dev/null
+    restart: unless-stopped

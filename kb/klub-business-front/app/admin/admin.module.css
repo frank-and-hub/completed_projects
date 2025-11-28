@@ -1,0 +1,5 @@
+.shadow {
+  /* background-color: var(--mantine-color-transparent); */
+  box-shadow: var(--mantine-shadow-xl);
+  /* transition: all 300ms ease; */
+}

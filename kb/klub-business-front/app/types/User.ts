@@ -1,0 +1,16 @@
+export interface userDetails {
+    firstName: string,
+    middleName?: string,
+    lastName: string,
+    phone?: string,
+    email: string,
+    roleId?: string,
+    password: string,
+    dateOfBirth?: Date,
+    countryId?: string,
+    stateId?: string,
+    cityId?: string,
+    gender?: string,
+    deviceType?: string,
+    relationshipStatus?: string,
+}

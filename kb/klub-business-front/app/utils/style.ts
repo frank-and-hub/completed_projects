@@ -1,0 +1,13 @@
+export const commonStyle = `bg-blend-color-burn hover:bg-transparent text-gray-800 dark:bg-gray-100 hover:backdrop-blur-xs dark:border-gray-700 ease-in-out border transition-all duration-500 shadow-md/20 text-shadow-xs inset-shadow-lg hover:shadow-lg border-gray-200 rounded-4xl font-medium bg-transparent hover:scale-[1] dark:text-gray-100 items-center`;
+export const inputStyle = `${commonStyle} px-5 py-2 focus:outline-transparent focus:ring-0`;
+export const breadcrumbsStyle = `${commonStyle} px-3 py-2`;
+export const btnStyle = `${inputStyle} focus:border-none focus:ring-offset-0`;
+export const tableBtn = `${btnStyle} w-fit sm:w-auto min-w-10`;
+export const mainStyle = `${commonStyle} px-2 py-1 pb-8 sm:px-5 mt-1 h-fit w-full`;
+export const headerStyle = `${commonStyle}`;
+export const selectStyle = `${btnStyle}`;
+export const sideBarStyle = `${commonStyle} flex items-center gap-2 justify-between px-2 py-2 text-sm`;
+export const radius = `xl`;
+export const inputLabel = `text-gray-600 text-sm dark:text-gray-50`;
+export const formStyle = `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-7xl mx-auto px-0 py-3 sm:py-5 sm:px-5`;
+export const formClass = `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-7xl mx-auto px-0 transform transition-all duration-300 container`;

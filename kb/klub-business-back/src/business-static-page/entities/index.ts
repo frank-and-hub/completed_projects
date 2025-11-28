@@ -1,0 +1,1 @@
+export * from './business-static-page.entity';
