@@ -1,0 +1,149 @@
+.contact_sec {
+  background: #fafafa;
+  padding: 75px 0;
+  overflow: hidden;
+}
+.contact_uscard {
+  position: relative;
+  padding-left: 2rem;
+
+  &::after {
+    content: '';
+    width: 135px;
+    height: 135px;
+    background-image: url('../../../../../assets/images/cont_bg.png');
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 0;
+  }
+
+  form {
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0px 10px 40px 0px #181a200d;
+    padding: 35px 30px;
+    position: relative;
+    z-index: 1;
+
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 30px;
+      text-align: center;
+      color: #181a20;
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 26px;
+      text-align: left;
+      color: #181a20;
+      margin-bottom: 8px;
+    }
+    input,
+    textarea {
+      height: 53px;
+      padding: 16px 12px 16px 15px;
+      border-radius: 8px;
+      border: 1px solid #dddddd;
+      background: #fff;
+    }
+    ::placeholder {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      text-align: left;
+      color: #717171;
+    }
+  }
+}
+
+// responsive mobile view css here ---->
+@media (max-width: (1200px)) {
+  .contact_sec {
+    padding: 45px 0;
+  }
+  .contact_uscard {
+    padding-left: 0rem;
+  }
+
+  .active-custom-main {
+    .mantine-Grid-inner {
+      .mantine-Grid-col {
+        max-width: 100%;
+        margin: 0 0px;
+        flex-basis: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: (1024px)) {
+  .contact_sec {
+    padding: 30px 0;
+  }
+}
+
+@media (max-width: (991px)) {
+  .contact_sec {
+    padding: 30px 0;
+    .mantine-Grid-inner {
+      .mantine-Grid-col {
+        max-width: 100%;
+        margin: 0 0px;
+        flex-basis: 100%;
+      }
+    }
+  }
+
+  .contact_uscard {
+    form {
+      padding: 20px 15px;
+      h1 {
+        font-size: 18px;
+        line-height: inherit;
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .active-custom-main {
+    .contact_sec {
+      .mantine-Grid-inner {
+        .mantine-Grid-col {
+          max-width: 100%;
+          margin: 0 0px;
+          flex-basis: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: (768px)) {
+}
+
+@media (max-width: (479)) {
+  .get_contact_info {
+    ul {
+      li:nth-child(1) {
+        article {
+          background-color: aquamarine !important;
+          background: burlywood !important;
+          width: 100%;
+        }
+      }
+      li:nth-child(2) {
+        background-color: aquamarine !important;
+        background: burlywood !important;
+        width: 100%;
+      }
+    }
+  }
+}

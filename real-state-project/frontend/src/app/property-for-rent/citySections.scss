@@ -1,0 +1,461 @@
+.main_section_city {
+  background: #f30051;
+  height: 450px;
+  position: relative;
+
+  &::after {
+    content: "";
+    background-image: url("../../../assets/images/city_banner.png");
+    width: 50%;
+    height: 80%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    z-index: 0;
+  }
+  .mantine-Container-root {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100%;
+  }
+}
+
+.banner_section_content_container_city {
+  max-width: 700px;
+  z-index: 1;
+  margin-top: 5rem;
+
+  h1 {
+    font-size: 42px;
+    line-height: 64px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 15px;
+
+    span {
+      display: inline-block;
+      color: #f9b432;
+    }
+  }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 35px;
+    max-width: 660px;
+  }
+}
+
+.homeCard_sec {
+  padding: 3rem 0;
+
+  .heading_box_sec {
+    padding: 8px 15px;
+    background-color: #f3f3f3;
+    border-radius: 25px;
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #2c2c2c;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: 400;
+    color: #2c2c2c;
+    text-align: center;
+  }
+}
+.grid-container-maine {
+  display: grid;
+  grid-template-columns: 2.5fr 2.2fr;
+  gap: 0px 1em;
+}
+.rental_properties_container {
+  background: rgba(243, 0, 81, 0.05);
+  height: 100%;
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden;
+  background-image: url("../../../assets/images/rental_properties_BG.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000;
+  }
+}
+.rental_properties_card {
+  background-color: #ffff;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 6px 10px 6px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid #e3e3e3;
+  h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+  }
+  .rental_properties_card_icon {
+    background-color: rgba(243, 0, 81, 0.05);
+    padding: 8px;
+    border-radius: 8px;
+    margin-left: 25px;
+    color: #f30051;
+  }
+
+  &:hover {
+    background-color: #f30051;
+    color: #fff;
+    h3 {
+      color: #fff;
+    }
+
+    .rental_properties_card_icon {
+      background-color: #ffff;
+    }
+  }
+}
+.city_content {
+  // padding-top: 3rem;
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #2c2c2c;
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+  h4 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #2c2c2c;
+  }
+}
+.city_properties_available_container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 0px 2em;
+}
+.average_rental_prices_container {
+  background: #fff0cb;
+  // height: 100%;
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden;
+  background-image: url("../../../assets/images/average_rental_price.png");
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 40px;
+  padding-top: 60px;
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: rgba(255, 243, 220, 0.8);
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+  }
+  .logoImage {
+    z-index: 1;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+  }
+  h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 1;
+    span {
+      color: #f30051;
+    }
+  }
+  h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    text-align: center;
+    z-index: 1;
+  }
+  .average_rental_prices_box {
+    background-color: #fff;
+    width: 70%;
+    border-radius: 10px;
+    margin-top: 30px;
+    z-index: 1;
+    .table_row {
+      border-bottom: 0.5px solid #f7c547;
+    }
+    .table_row:first-child {
+      background-color: #f30051;
+      border-bottom: none;
+      border-radius: 10px;
+      p {
+        color: #fff;
+        font-weight: 800;
+      }
+    }
+    .table_row:last-child {
+      border-bottom: none;
+    }
+  }
+}
+// @media mobile responsive ----//
+@media (max-width: (1366px)) {
+  .main_section_city {
+    height: 450px;
+
+    .banner_section_content_container_city {
+      h1 {
+        font-size: 46px;
+        line-height: 54px;
+        max-width: 700px;
+      }
+      h2 {
+        //   font-size: 25px;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+@media (max-width: (1199px)) {
+  .main_section_city {
+    height: 450px;
+    .banner_section_content_container_city {
+      h1 {
+        font-size: 42px;
+        line-height: 50px;
+        max-width: 650px;
+      }
+      h2 {
+        // font-size: 20px;
+        font-weight: 600;
+      }
+    }
+  }
+  .homeCard_sec {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: (1024px)) {
+  .main_section_city {
+    height: 450px;
+    position: relative;
+
+    .banner_section_content_container_city {
+      h1 {
+        font-size: 30px;
+        line-height: 42px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        max-width: 550px;
+      }
+
+      h2 {
+        font-size: 18px;
+        margin-bottom: 25px;
+        max-width: 540px;
+        line-height: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: (991px)) {
+  .managing_properties_text_container {
+    width: 70% !important;
+
+    h2 {
+      font-size: 25px !important;
+      color: #000;
+      text-align: left;
+    }
+  }
+
+  .landlord_card_grid {
+    max-width: 50% !important;
+  }
+
+  .heading_box_flex {
+    justify-content: center !important;
+  }
+
+  .heading2 {
+    text-align: center !important;
+  }
+
+  .heading3 {
+    text-align: center !important;
+  }
+  .homeCard_sec {
+    padding: 2rem 0;
+  }
+  .city_properties_available_container {
+    display: block;
+  }
+  .grid-container-maine {
+    display: block;
+  }
+  .section_Two {
+    .grid-container {
+      display: block !important;
+
+      .left-side-container {
+        max-width: 100% !important;
+
+        .who_we_section_img {
+          width: 70%;
+        }
+      }
+
+      .right-side-container {
+        max-width: 100% !important;
+      }
+    }
+  }
+}
+@media (max-width: (900px)) {
+  .simple-grid-feature-properties {
+    grid-template-columns: auto !important;
+  }
+}
+@media (max-width: (768px)) {
+  .main_section_city {
+    height: auto;
+    padding: 10rem 0 6rem 0;
+
+    .banner_section_content_container_city {
+      max-width: 100%;
+      text-align: center;
+
+      h1 {
+        font-size: 26px;
+        line-height: 36px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        max-width: 100%;
+      }
+
+      h2 {
+        font-size: 16px;
+        margin-bottom: 25px;
+        max-width: 100%;
+        line-height: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: (698px)) {
+  .managing_properties_text_container {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: (548px)) {
+  .landlord_card_grid {
+    max-width: 1000% !important;
+    --col-offset: 0 !important;
+  }
+}
+
+@media (max-width: (480px)) {
+  .main_section_city {
+    height: auto;
+    padding: 8rem 0 4rem 0;
+
+    .banner_section_content_container_city {
+      max-width: 100%;
+      text-align: center;
+
+      h1 {
+        font-size: 26px;
+        line-height: 30px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        max-width: 100%;
+      }
+
+      h2 {
+        font-size: 14px;
+        margin-bottom: 30px;
+        max-width: 100%;
+        line-height: 20px;
+      }
+    }
+  }
+}
+.section_Two {
+  .grid-container {
+    width: calc(100% + calc(1rem * 1));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: var(--grid-justify);
+    align-items: var(--grid-align);
+    margin: calc(calc(1rem * 1) / -2);
+
+    .left-side-container {
+      --col-flex-grow: 0;
+      --col-offset: 0rem;
+      flex-shrink: 0;
+      flex-basis: 33.333333333333336%;
+      max-width: 33.333333333333336%;
+      flex-grow: auto;
+      margin-inline-start: 0rem;
+      padding: calc(calc(1rem * 1) / 2);
+    }
+
+    .right-side-container {
+      --col-flex-grow: 0;
+      --col-offset: 0rem;
+      flex-shrink: 0;
+      order: var(--col-order);
+      flex-basis: 66.66666666666667%;
+      max-width: 66.66666666666667%;
+      flex-grow: auto;
+      margin-inline-start: var(--col-offset);
+      padding: calc(calc(1rem * 1) / 2);
+    }
+  }
+
+  @media (max-width: (480px)) {
+    .left-side-container {
+      max-width: 100% !important;
+      flex-basis: 100% !important;
+
+      .who_we_section_img {
+        width: 100% !important;
+      }
+    }
+
+    .right-side-container {
+      max-width: 100% !important;
+      flex-basis: 100% !important;
+    }
+  }
+}

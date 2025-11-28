@@ -1,0 +1,268 @@
+.profile_filter_modal {
+  width: 100%;
+  padding: 30px;
+  // min-height: 555px;
+  .modal_head_close {
+    width: 100%;
+    border-bottom: 0;
+    margin-bottom: 5px;
+  }
+}
+.country_dropdown {
+  .css-1nmdiq5-menu {
+    height: 200px !important;
+    position: absolute !important;
+    z-index: 999;
+
+    .css-qr46ko {
+      height: 100% !important;
+      position: relative !important;
+      z-index: 999;
+    }
+  }
+}
+.comman_modal_profile {
+  .modal_head_close {
+    border-bottom: 0;
+  }
+
+  .mantine-Paper-root {
+    width: 75%;
+    max-width: 75%;
+    min-width: 75%;
+    border-radius: 28px;
+    box-shadow: 0px 11px 27px 0px rgba(0, 0, 0, 0.4);
+    border: 1.5px solid #3f0216;
+    padding: 10px;
+  }
+
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #181a20;
+    margin-bottom: 3px;
+  }
+  input {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  ::placeholder {
+    font-size: 12px;
+    font-weight: 400;
+    color: #717171;
+  }
+  .mantine-PasswordInput-innerInput {
+    border: 0;
+  }
+}
+
+.profile_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 30px;
+
+  h2 {
+    font-size: 40px;
+    font-weight: 600;
+    color: #f30051;
+  }
+
+  .user_profile {
+    .mantine-Avatar-root {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      border: 2px solid #f30051;
+      padding: 0;
+      margin-right: 20px;
+      img {
+        max-width: 105%;
+      }
+    }
+  }
+}
+.set_password {
+  color: #f30051;
+  text-align: end;
+  margin-top: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.user_profile {
+  position: relative;
+  .mantine-FileInput-wrapper {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+    min-width: 30px;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    bottom: 2px;
+    right: 20px;
+
+    button {
+      background: #f30051;
+      padding: 0;
+      border: none;
+    }
+    .mantine-FileInput-section {
+      color: #fff;
+      width: auto;
+      pointer-events: none;
+      max-width: 17px;
+      left: 6px;
+    }
+  }
+}
+
+.right_toggle_sec {
+  .mantine-Avatar-root {
+    border: 1px solid #000;
+    overflow: hidden;
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+  }
+}
+
+.cuntry_input {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  #mobile_code {
+    border: 0;
+    border-radius: 0px 5px 5px 0px;
+    max-width: calc(100% - 127px);
+    flex: 0 0 calc(100% - 127px);
+    height: 36px;
+    padding: 0px 0px;
+  }
+  .iti .iti__selected-dial-code {
+    margin-left: 5px;
+    width: 65px;
+    text-align: left;
+  }
+  .iti--inline-dropdown {
+    .iti__tel-input {
+      background-color: #181a20;
+      display: none;
+    }
+  }
+  .iti--inline-dropdown {
+    .iti__dropdown-content {
+      z-index: 2;
+      margin-top: 2px;
+      width: 320px !important;
+    }
+  }
+  .iti__country {
+    padding: 5px var(--iti-spacer-horizontal);
+  }
+  .iti__country-name {
+    font-size: 12px;
+  }
+  .iti--allow-dropdown .iti__country-container {
+    height: 36px;
+    border-right: 1px solid #ddd;
+    border-left: 0;
+    top: -18px;
+  }
+  .iti__search-input {
+    padding: 0px 12px;
+    height: 36px;
+  }
+  :focus-visible {
+    outline: 0px;
+  }
+}
+
+// responsive mobile view css here ---->
+
+@media (max-width: (767px)) {
+  .comman_modal_profile {
+    .mantine-Paper-root {
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+    }
+  }
+
+  .profile_card {
+    h2 {
+      font-size: 26px;
+    }
+    .user_profile {
+      .mantine-Avatar-root {
+        width: 72px;
+        height: 72px;
+      }
+    }
+  }
+  .profile_filter_modal {
+    padding: 30px 15px;
+    min-height: auto;
+    .mantine-Grid-col {
+      flex-basis: 100%;
+      max-width: 100%;
+      padding: 2.5px 15px;
+    }
+  }
+}
+
+@media (max-width: (479px)) {
+  .profile_card {
+    padding-bottom: 10px;
+  }
+  .comman_modal_profile {
+    .mantine-Modal-body {
+      padding: 0px !important;
+      margin: 0;
+    }
+  }
+
+  .profile_filter_modal {
+    padding: 15px;
+    .mantine-Grid-col {
+      padding: 2.5px 0px;
+    }
+  }
+
+  .profile_filter_modal {
+    .mantine-Grid-col {
+      flex-basis: 100%;
+      max-width: 100%;
+      padding-bottom: 0;
+    }
+  }
+}
+
+// .iti__dropdown {
+//   z-index: 1050; /* Higher than the modal */
+// }
+
+// .iti {
+//   position: relative;
+// }
+// .iti__dropdown {
+//   position: absolute;
+//   top: 100%; /* Ensures it appears below the input */
+//   left: 0;
+//   z-index: 1050; /* Adjust as per your modal's z-index */
+// }
+.iti__dropdown {
+  position: absolute !important;
+  z-index: 9999 !important;
+  max-height: 200px;
+  overflow: auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background: white;
+}

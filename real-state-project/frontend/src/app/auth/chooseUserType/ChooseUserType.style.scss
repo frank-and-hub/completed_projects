@@ -1,0 +1,44 @@
+.choose-userType-container {
+  .choose-card-type img {
+    border: 2px solid #efefef;
+    border-radius: 18px;
+    height: 130px;
+    object-fit: contain;
+  }
+
+  .active {
+    img {
+      border: 2px solid #f30051;
+      box-shadow: var(--mantine-shadow-lg);
+    }
+    .title {
+      color: #f30051;
+    }
+  }
+
+  .title {
+    text-align: center;
+    color: #000;
+    margin: 10px 0px;
+  }
+
+  .choose-card-type {
+    cursor: pointer;
+    width: 100%;
+    &:hover {
+      img {
+        border: 2px solid #f30051;
+        box-shadow: var(--mantine-shadow-lg);
+      }
+
+      .title {
+        color: #f30051;
+      }
+    }
+  }
+  @media (max-width: (479px)) {
+    .choose-card-type {
+      min-width: 220px;
+    }
+  }
+}

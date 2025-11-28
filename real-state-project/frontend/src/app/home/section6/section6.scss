@@ -1,0 +1,109 @@
+.gm-style .gm-style-iw-c {
+  padding: 0px !important;
+}
+.gm-style .gm-style-iw-d {
+  overflow: hidden !important;
+}
+
+.detail_card {
+  cursor: pointer;
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  .image_container {
+    height: 120px;
+    width: 170px;
+    overflow: hidden;
+    min-width: 170px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  .detail_right_container {
+    flex: 1;
+    flex-direction: column;
+    padding: 0px 20px 5px 10px;
+    justify-content: space-evenly;
+    display: flex;
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #181a20;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 262px;
+
+      //   margin-bottom: 5px;
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: 500;
+      color: #181a20;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 200px;
+    }
+    p {
+      font-size: 15px;
+      font-weight: 500;
+      color: #181a20;
+      width: 262px;
+      display: -webkit-box; /* Enables the flexbox for ellipsis */
+      -webkit-box-orient: vertical; /* Specifies the orientation */
+      overflow: hidden; /* Hides the overflow text */
+      text-overflow: ellipsis; /* Adds the ellipsis */
+      -webkit-line-clamp: 2; /* Limits to 2 lines */
+      // max-height: 3em; /* Adjust based on font size and line height */
+      // line-height: 1.5em; /* Line height for proper spacing */
+    }
+  }
+}
+.map_container {
+  min-height: 400px;
+  // background-color: #ffeded;
+  padding-top: 40px;
+  .heading_box_sec{
+    padding: 8px 15px;
+      background-color: #F3F3F3;
+      border-radius: 25px;
+      font-size: 12px;
+  }
+}
+@media (max-width: (567px)) {
+  .gm-style .gm-style-iw-c {
+    max-width: 275px !important;
+    max-height: initial !important;
+  }
+  .gm-style .gm-style-iw-d {
+    max-height: inherit !important;
+  }
+  .detail_card {
+    flex-wrap: wrap;
+    .image_container {
+      height: 140px;
+      width: 100%;
+      min-width: 100%;
+    }
+    .detail_right_container {
+      h3 {
+        font-size: 15px;
+        font-weight: 500;
+      }
+      h2 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      p {
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 15px;
+      }
+    }
+  }
+}

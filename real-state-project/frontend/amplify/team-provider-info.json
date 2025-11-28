@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-pocketpropertywebapp-dev-11808-authRole",
+      "UnauthRoleArn": "arn:aws:iam::596564853959:role/amplify-pocketpropertywebapp-dev-11808-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::596564853959:role/amplify-pocketpropertywebapp-dev-11808-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-pocketpropertywebapp-dev-11808-deployment",
+      "UnauthRoleName": "amplify-pocketpropertywebapp-dev-11808-unauthRole",
+      "StackName": "amplify-pocketpropertywebapp-dev-11808",
+      "StackId": "arn:aws:cloudformation:eu-west-1:596564853959:stack/amplify-pocketpropertywebapp-dev-11808/303352c0-0bc8-11f0-82b5-0649b688c8e1",
+      "AmplifyAppId": "d305j7dzy1ij6d"
+    },
+    "categories": {
+      "auth": {
+        "pocketpropertywebappd054c403": {}
+      }
+    }
+  }
+}

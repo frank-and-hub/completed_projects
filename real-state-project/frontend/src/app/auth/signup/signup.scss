@@ -1,0 +1,109 @@
+.comman_form_detail_left {
+  h1 {
+    max-width: 250px !important;
+  }
+}
+
+.phone_error {
+  color: var(--mantine-color-error);
+  font-size: var(
+    --input-error-size,
+    calc(var(--mantine-font-size-sm) - calc(0.125rem * var(--mantine-scale)))
+  );
+}
+.cuntry_input {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  #mobile_code {
+    border: 0;
+    border-radius: 0px 5px 5px 0px;
+    max-width: calc(100% - 127px);
+    flex: 0 0 calc(100% - 127px);
+    height: 36px;
+    padding: 0px 0px;
+  }
+  .iti .iti__selected-dial-code {
+    margin-left: 5px;
+    width: 65px;
+    text-align: left;
+  }
+  .iti--inline-dropdown {
+    .iti__tel-input {
+      background-color: #181a20;
+      display: none;
+    }
+  }
+  .iti--inline-dropdown {
+    .iti__dropdown-content {
+      z-index: 2;
+      margin-top: 2px;
+      width: 320px !important;
+    }
+  }
+  .iti__country {
+    padding: 5px var(--iti-spacer-horizontal);
+  }
+  .iti__country-name {
+    font-size: 12px;
+  }
+  .iti--allow-dropdown .iti__country-container {
+    height: 36px;
+    border-right: 1px solid #ddd;
+    border-left: 0;
+    top: -18px;
+  }
+  .iti__search-input {
+    padding: 0px 12px;
+    height: 36px;
+  }
+  :focus-visible {
+    outline: 0px;
+  }
+}
+.country_dropdown {
+  .css-1nmdiq5-menu {
+    height: 200px !important;
+    position: absolute !important;
+    z-index: 999;
+
+    .css-qr46ko {
+      height: 100% !important;
+      position: relative !important;
+      z-index: 999;
+    }
+  }
+}
+@media (max-width: (768px)) {
+  .responsive_text {
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+// @media (max-width: (479px)) {
+//   .responsive_text {
+//     width: 100px;
+//     overflow: hidden;
+//     white-space: nowrap;
+//     text-overflow: ellipsis;
+//   }
+// }
+
+.comman_form_detail.face_capture {
+  width: calc(100% - 0px) !important;
+  h2 {
+    text-align: center;
+  }
+  .foot_form {
+    button {
+      max-width: 180px;
+      margin: auto;
+    }
+  }
+}

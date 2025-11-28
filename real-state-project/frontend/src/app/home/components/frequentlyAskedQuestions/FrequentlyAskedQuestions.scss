@@ -1,0 +1,29 @@
+.chevron {
+  &[data-rotate] {
+    transform: rotate(45deg);
+  }
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  color: #888888;
+}
+.mantine-Accordion-label {
+  h3 {
+    color: #2c2c2c !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    text-align: left;
+  }
+}
+.mantine-Accordion-content {
+  h4 {
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    color: #2c2c2c !important;
+    b{
+      font-weight: 600 !important;
+    }
+  }
+}

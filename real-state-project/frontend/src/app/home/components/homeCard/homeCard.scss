@@ -1,0 +1,464 @@
+.btn {
+  height: 50px;
+  border-radius: 20px;
+  padding: 0px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  
+  .tabler-icon {
+    // margin-left: 6px;
+    transform: rotate(45deg);
+  }
+}
+
+.homeCard_sec{padding: 5rem 0;
+.heading_box_sec{
+  padding: 8px 15px;
+  background-color: #F3F3F3;
+  border-radius: 25px;
+  font-size: 12px;
+}
+h2{
+  font-size: 30px;
+  font-weight: 600;
+  color: #2C2C2C;
+  text-align: center;
+}
+h3{
+  font-size: 15px;
+  font-weight: 400;
+  color: #2C2C2C;
+  text-align: center;
+}
+}
+
+.home-card-container {
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  border: 1.5px solid #DDDDDD;
+  background: #fff;
+  box-shadow: none;
+  padding: 15px;
+  border-radius: 12px;
+  position: relative;
+
+  figure {
+    width:70px;
+    min-width: 70px;
+    height: 70px;
+    display: grid;
+    font-size: 12px;
+    place-items: center;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    border-radius: 50%;
+  background: rgb(243 0 81 / 5%);
+    color: #F30051;
+  }
+  h3{
+    font-size: 18px;
+    font-weight: 600;
+    color: #2C2C2C;
+    text-align: left;
+    // text-overflow: ellipsis;
+    //   overflow: hidden;
+    //   white-space: nowrap;
+    //   width: 100%;
+  }
+  h4{
+    font-size: 14px;
+    font-weight: 400;
+    color: #2C2C2C;
+    // overflow: hidden;
+    //   text-overflow: ellipsis;
+    //   display: -webkit-box;
+    //   -webkit-line-clamp: 3;
+    //   /* number of lines to show */
+    //   line-clamp: 3;
+    //   -webkit-box-orient: vertical;
+  }
+  .mantine-Group-root {
+    flex-direction: column;
+    align-items: flex-start;
+
+    span {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 36px;
+      text-align: left;
+      color: #F30051;;
+      // margin-bottom: 20px;
+      
+      .mantine-Text-root {
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 22.5px;
+        text-align: left;
+        color: #181A20;
+      }
+    }
+  }
+
+  ul {
+    list-style: disc;
+    margin-left: 15px;
+
+    li{
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 24.05px;
+      text-align: left;
+      color: #181A20;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: 0px 15px 15px -5px #0000001A;
+    transition: all 0.5s ease;
+    border: 1.5px solid #F30051;
+    
+    figure {
+      background: rgb(243 0 81 / 5%);
+      color: #F30051;
+      transition: all 0.5s ease;
+    }
+    .mantine-Group-root span {
+        color: #F30051;
+        transition: all 0.5s ease;
+    }
+    .mantine-Group-root P {
+        color: #F30051;
+        transition: all 0.5s ease;
+    }
+  }
+
+}
+
+.start_searching_button_container{
+      background-color: #F300510D;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+}
+.finding_apartment_container{
+    height: 100%;
+      border-radius: 40px;
+      position: relative;
+      overflow: hidden;
+      background-image: url("../../../../../assets/images/finding_apartment_bg.png");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding: 45px;
+      h2{
+        font-size: 30px;
+        color: #FFFF;
+        font-weight: 600;
+        text-align: left;
+      }
+}
+.rental_properties_container{
+  background: rgba(243, 0, 81, 0.05);
+    height: 100%;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    background-image: url("../../../../../assets/images/rental_properties_BG.png");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      h2{
+        font-size: 36px;
+        font-weight: 700;
+        color: #000;
+      }
+      .rental_properties_center{
+        padding: 40px;
+        .rental_properties_center_content {
+            width: 70% ;
+          }
+      }
+      .rental_properties_card{
+        background-color: #FFFF;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        padding: 6px 12px 6px 20px;
+        margin-right: 13px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        .rental_properties_card_icon{
+          background-color:rgba(243, 0, 81, 0.05) ;
+          padding: 8px;
+          border-radius: 8px;
+          margin-left: 25px;
+        }
+     &:hover {
+       
+         background-color: #F30051;
+         color: #fff;
+     
+  
+       .rental_properties_card_icon {
+         background-color: #FFFF;
+       }
+     }
+      }
+               
+}
+.chevron {
+  &[data-rotate] {
+    transform: rotate(45deg);
+  }
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+.get_h_wrk {
+  padding: 40px;
+  background: rgba(243, 0, 81, 0.05);
+  height:100%;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+
+  figcaption{
+    // max-width: 80%;
+  }
+  
+  &::after {
+    content: '';
+    background-image: url("../../../../../assets/images/home_banner.png");
+    background-position: bottom left;
+    background-size: contain;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+  }
+  
+  h3 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 33px;
+    text-align: left;
+    color: #181A20;
+    margin-bottom: 15px;
+  }
+  
+  p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #181A20;
+    margin-bottom: 15px;
+    max-width: 320px;
+  }
+}
+.who_we_are_bg_image{
+  height: 100%;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    background-image: url("../../../../../assets/images/whoWeAre_1.png");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+}
+// responsive mobile view css here ---->
+@media (max-width:(1200px)) {
+  .active-custom-main {
+     .homeCard_sec{
+        .mantine-Grid-inner{
+           .mantine-Grid-col {
+               flex-basis: 100%;
+               max-width: 100%;
+               .get_h_wrk {
+                  padding: 30px;
+                  min-height: auto;
+              }
+           }
+        }
+     }
+  }
+  
+  .homeCard_sec{
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width:(991px)) {
+  .get_h_wrk {
+    padding: 40px;
+    min-height: auto;
+      &::after {
+       
+          background-position: bottom right;
+         
+        }
+  }
+  .homeCard_sec{
+    padding: 2rem 0;
+    .mantine-Grid-inner{
+        .mantine-Grid-col {
+           max-width: 100%;
+           flex-basis: 100%;  
+           
+            
+        }
+    }    
+    // .heading_box_flex{
+    //   justify-content: center !important;
+    // }
+    // h2{
+    //   text-align: center !important;
+    // }
+    // h3{
+    //   text-align: center !important;
+    // }
+  }   
+    .finding_apartment_text_container {
+      h2 {
+          font-size: 25px;
+          color: #000;
+          text-align: left;
+        }
+    }
+           
+}
+
+@media (max-width:(767px)) {
+  .get_h_wrk {
+    padding: 20px;
+    h3 {
+          font-size: 20px;
+          line-height: initial;
+          margin-bottom: 5px;
+      }
+             &::after {
+              background-image:none
+             }
+  }  
+    .btn {
+      font-size: 12px;
+      font-weight: 600;
+      .m_b6d8b162{
+        font-size: 12px;
+          font-weight: 600;
+      }
+    }
+        .rental_properties_container {
+          .rental_properties_center {
+              padding: 20px 20px;
+              .rental_properties_center_content{
+                width: 100% ;
+              }
+            }
+          h2 {
+            font-size: 25px;
+          }
+        }
+        .rental_properties_card{
+          .mantine-Text-root{
+            font-size: 14px !important;
+          }
+        }
+       
+       
+}
+@media (max-width:(698px)){
+.still_have_qus_container {
+    display: block;
+  }
+  .still_have_qus{
+    margin-bottom: 20px;
+  }
+  .finding_apartment_container{
+    padding: 0px;
+
+  }
+         
+           .rental_properties_card{
+            
+            padding: 6px 10px 6px 10px !important;
+            .mantine-Text-root {
+                font-size: 12px !important;
+              }
+            .rental_properties_card_icon{
+                  margin-left: 10px !important;
+                  padding: 7px !important;
+                  img{
+                    width: 16px;
+                  }
+            }
+           }
+
+}
+
+@media (max-width:(479px)) {
+  .mantine-Grid-inner{
+    .mantine-Grid-col {
+          .mantine-SimpleGrid-root {
+            grid-template-columns: auto;
+          }
+        }
+    }
+.start_searching_button_container {
+  height: 120px;
+}
+
+  .get_h_wrk {
+    padding: 20px;
+    h3 {
+          font-size: 18px;
+          line-height: initial;
+          margin-bottom: 5px;
+      }
+      p {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 15px;
+        max-width: 100%;
+      }
+  }
+  .home-card-container {
+    padding: 10px;
+    figure {
+      width: 82px;
+      min-width: 82px;
+      height: 82px;
+    }
+    .mantine-Group-root {
+      display: inline-block;
+      span {
+        font-size: 20px;
+        line-height: 44px;
+
+      }
+      p{
+        font-size: 14px;
+        line-height: 18px;
+      }
+    }
+    ul {
+      li {
+        line-height: 20.05px;
+        margin-bottom: 5px;
+      }
+    }
+
+  }
+     .still_have_qus {
+     display: block;
+     }
+          
+}

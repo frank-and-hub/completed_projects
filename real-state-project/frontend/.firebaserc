@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "workspace-22015"
+  },
+  "targets": {
+    "workspace-22015": {
+      "hosting": {
+        "pairroxz": [
+          "pairroxz"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

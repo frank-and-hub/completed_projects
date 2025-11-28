@@ -1,0 +1,129 @@
+
+.logout_modal_card{
+    .modal_head_close {
+        border-bottom: 0;
+    }
+
+    .mantine-Paper-root {
+        width:500px;
+        max-width:500px;
+        min-width:500px;
+        border-radius: 28px;
+        box-shadow: 0px 11px 27px 0px rgba(0, 0, 0, 0.4);
+        border: 1.5px solid #3F0216;
+        padding: 10px;
+        overflow: hidden;
+        
+        &::after,
+        &::before {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        background-size: contain;
+        background-repeat: no-repeat;
+        }
+    
+        &::after {
+            background-image: url("../../../assets/images/lg_top.png");
+            background-position: top left;
+            left: -1px;
+            top: 0;
+            width: 174px;
+            height: 125px;
+        }
+    
+        &::before {
+            background-image: url("../../../assets/images/lg_bottom.png");
+            background-position: bottom right;
+            right: 0;
+            bottom: 0;
+            width: 180px;
+            height: 160px;
+        }
+   }
+
+   .inner_logout_modal{
+      position: relative;
+      padding: 0px 10px 22px 10px;
+     .close_icon_here {
+        top: -10px;
+        right: -20px;
+     }
+      &::after {
+        content: '';
+        position: absolute;
+        background-image: url("../../../assets/images/lg_left_shape.png");
+        background-position: bottom left;
+        background-repeat: no-repeat;
+        left: -35px;
+        bottom: -35px;
+        width: 150px;
+        height: 113px;
+    }
+   }
+ 
+   .inner_logout_modal_in{
+        text-align: center;
+        img{
+            max-width: 120px;
+            margin:0 auto 20px;
+            left: -13px;
+            position: relative;
+        }
+       h4{
+            font-size: 24px;
+            font-weight: 600;
+            text-align: center;
+            color: #181A20;
+            max-width: 300px;
+            margin:0  auto 20px;
+       }
+       button{
+        min-width: 200px;
+        margin: auto;
+       }
+   }
+}
+
+
+
+  // responsive mobile view css here ---->
+  @media (max-width:(768px)) {
+    .logout_modal_card{
+        .modal_head_close {
+           background: transparent;
+        }
+        .mantine-Paper-root {
+            width: 100%;
+            max-width: 100%;
+            min-width: 100%;
+        }
+    }
+  }
+
+  @media (max-width:(479px)) {
+    .logout_modal_card{
+        .inner_logout_modal_in{
+            img {
+                max-width: 70px;
+                margin: 0 auto 10px;  
+            }
+            h4 {
+                font-size: 18px;
+                max-width: 260px;
+                margin: 0 auto 10px;
+                line-height: 20px;
+            }
+        }
+        .mantine-Paper-root{
+            &::before {
+                width: 140px;
+                height: 120px;
+            }
+            &::after {
+                width: 134px;
+                height: 85px;
+            }
+        }
+    }
+  }

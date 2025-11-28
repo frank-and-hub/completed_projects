@@ -1,0 +1,64 @@
+.transcation_history_list_sec {
+  padding: 3rem 0 4rem 0;
+  min-height: 700px;
+  .mantine-Table-tr:nth-of-type(odd) {
+    background-color: #fff7fa;
+  }
+  .mantine-Table-tr:nth-of-type(even) {
+    background-color: #fcfcfc;
+  }
+
+  .table_responsive {
+    overflow: auto;
+    width: 100%;
+  }
+  table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    min-height: 350px;
+  }
+
+  .mantine-Table-thead {
+    .mantine-Table-tr {
+      background: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      span {
+        font-size: 13px;
+      }
+    }
+  }
+
+  .mantine-Table-tbody {
+    .mantine-Table-tr {
+      font-size: 14px;
+      font-weight: 600;
+      color: #717171;
+    }
+  }
+}
+
+@media (max-width: (767px)) {
+  .table_responsive {
+    overflow: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: (479px)) {
+  .table_responsive {
+    margin: 10px 0;
+    .mantine-Table-th {
+      padding: 10px 8px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .mantine-Table-td {
+      padding: 5px;
+      font-size: 12px;
+    }
+  }
+}

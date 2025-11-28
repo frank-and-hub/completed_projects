@@ -1,0 +1,430 @@
+.membership_sec {
+  background: #fafafa;
+  padding: 85px 0 65px 0;
+  position: relative;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &::after {
+    background-image: url("../../../../../assets/images/skyline_buildings_right.png");
+    background-position: bottom right;
+    right: 0;
+    width: 45%;
+    height: 40%;
+  }
+
+  &::before {
+    background-image: url("../../../../../assets/images/skyline_buildings_left.png");
+    background-position: bottom left;
+    left: 0;
+    width: 35%;
+    height: 30%;
+  }
+
+  .title_card_sc {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 45px;
+      text-align: center;
+      color: #181a20;
+      margin-bottom: 10px;
+    }
+    h3 {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 24px;
+      text-align: center;
+      color: #181a20;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 24px;
+      text-align: center;
+      color: #181a20;
+      margin-bottom: 10px;
+    }
+    .plan_button_container {
+      align-self: center;
+      width: 50%;
+      background-color: #fce5ed;
+      border-radius: 12px;
+      height: 80px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px;
+      .simple_plan_button {
+        text-align: center;
+        width: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      .plan_button {
+        background-color: #f30051;
+        width: 25%;
+        border-radius: 12px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        cursor: pointer;
+        span {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.membership_sec_in {
+  .mantine-Grid-inner {
+    justify-content: center;
+    z-index: 2;
+    position: relative;
+    padding: 2rem 0 0 0;
+
+    .mantine-Grid-col {
+      max-width: 390px;
+      margin: 0 15px;
+    }
+  }
+
+  .mantine-Card-root {
+    background: #fff;
+    z-index: 1;
+    box-shadow: 0px 25px 58px -10px #0000001a;
+    border-radius: 12px;
+    padding: 30px 30px 90px 30px;
+    border: none;
+    max-width: 386px;
+    height: 100%;
+    position: relative;
+    -webkit-transition: background-color 0.49s ease-out;
+    -moz-transition: background-color 0.49s ease-out;
+    -o-transition: background-color 0.49s ease-out;
+    transition: background-color 0.49s ease-out;
+
+    &:hover {
+      background: #f30051;
+      box-shadow: 0px 25px 58px -10px #0000001a;
+
+      figure {
+        background: rgb(255 255 255 / 20%);
+        color: #fff;
+      }
+
+      .plans_range {
+        h5,
+        h2 {
+          color: #fff;
+          transition: all 0.5s ease;
+
+          span {
+            color: #fff;
+            transition: all 0.5s ease;
+          }
+        }
+
+        h6 {
+          color: #fff;
+          transition: all 0.5s ease;
+        }
+      }
+
+      .plans_points {
+        ul li .mantine-List-itemLabel {
+          color: #fff;
+
+          &::after {
+            background-color: #ca0043;
+          }
+        }
+
+        h4 {
+          color: #fff;
+        }
+      }
+
+      .next_plans_points {
+        h4,
+        ul li {
+          color: #fff;
+          &::after {
+            background: #fff;
+          }
+        }
+      }
+
+      .btn {
+        background: #fff;
+        color: #f30051;
+      }
+    }
+
+    .btn {
+      position: absolute;
+      // width: calc(100% - 60px);
+      bottom: 30px;
+    }
+
+    figure {
+      width: 152px;
+      min-width: 152px;
+      height: 152px;
+      display: grid;
+      place-items: center;
+      font-size: 60px;
+      position: absolute;
+      top: -25px;
+      right: -25px;
+      border-radius: 50%;
+      background: rgb(243 0 81 / 12%);
+      color: #f30051;
+    }
+
+    .plans_range {
+      padding: 20px 0 10px 0;
+
+      h5 {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 30px;
+        color: #0d1c39;
+      }
+
+      h2 {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 36px;
+        color: #0d1c39;
+
+        span {
+          font-size: 15px;
+          font-weight: 300;
+          color: #0d1c39;
+          position: relative;
+          top: -15px;
+          left: 10px;
+        }
+      }
+
+      h6 {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 25.9px;
+        color: #181a20;
+      }
+    }
+
+    .plans_points {
+      margin-bottom: 10px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #a6a9b6;
+      h4 {
+        font-size: 14px;
+        font-weight: 600;
+        color: #a6a9b6;
+        line-height: 18px;
+        max-width: 80%;
+        margin-bottom: 6px;
+      }
+
+      ul li {
+        position: relative;
+        margin: 6px 0;
+
+        .mantine-List-itemLabel {
+          font-size: 13px;
+          font-weight: 500;
+          color: #181a20;
+          position: relative;
+          padding-left: 26px;
+
+          &::after {
+            content: "";
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #f30051;
+            background-image: url("../../../../../assets/images/check_icon.svg");
+            position: absolute;
+            left: 0;
+            top: 2px;
+            background-size: 52%;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+        }
+      }
+    }
+
+    .next_plans_points {
+      h4 {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+        text-align: left;
+        color: #181a20;
+        margin-bottom: 15px;
+      }
+
+      ul {
+        position: relative;
+        margin-bottom: 30px;
+
+        li {
+          font-size: 13px;
+          font-weight: 400;
+          line-height: 18px;
+          text-align: left;
+          color: #181a20;
+          margin: 6px 0;
+          position: relative;
+          padding-left: 16px;
+
+          &::after {
+            content: "";
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #181a20;
+            position: absolute;
+            left: 0;
+            top: 6px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// responsive mobile view css here ---->
+@media (max-width: (1200px)) {
+  .active-custom-main {
+    .mantine-Grid-inner {
+      .mantine-Grid-col {
+        max-width: 50%;
+        margin: 0 0px;
+      }
+    }
+  }
+
+  .active-custom-main {
+    .membership_sec_in {
+      .mantine-Grid-inner {
+        .mantine-Grid-col {
+          max-width: 50%;
+          margin: 0 0px;
+          flex-basis: 50%;
+        }
+      }
+    }
+  }
+
+  .membership_sec {
+    padding: 45px 0 45px 0;
+  }
+}
+
+@media (max-width: (991px)) {
+  .active-custom-main {
+    .membership_sec {
+      .mantine-Grid-inner {
+        .mantine-Grid-col {
+          max-width: 100%;
+          margin: 0 0px;
+          flex-basis: 100%;
+        }
+      }
+      .mantine-Card-root {
+        .plans_range {
+          padding: 10px 0 10px 0;
+        }
+      }
+    }
+  }
+
+  .membership_sec {
+    padding: 45px 0 45px 0;
+    .mantine-Card-root {
+      padding: 20px 15px 80px 15px;
+      max-width: 100%;
+    }
+
+    .mantine-Grid-inner {
+      .mantine-Grid-col {
+        max-width: 50%;
+        margin: 0 0px;
+      }
+    }
+  }
+  .membership_sec_in {
+    .mantine-Card-root .btn {
+      // width: calc(100% - 30px);
+    }
+  }
+}
+
+@media (max-width: (768px)) {
+  .membership_sec_in {
+    .mantine-Grid-inner {
+      padding: 1rem 0 0 0;
+    }
+  }
+
+  .membership_sec {
+    padding: 30px 0 45px 0;
+    .title_card_sc {
+      h2 {
+        font-size: 24px;
+        line-height: initial;
+        margin-bottom: 5px;
+      }
+    }
+
+    .mantine-Grid-inner {
+      .mantine-Grid-col {
+        max-width: 100%;
+        margin: 0 0px;
+        flex-basis: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: (479px)) {
+  .membership_sec {
+    .title_card_sc {
+      .plan_button_container {
+        width: 100%;
+      }
+    }
+    .mantine-Card-root {
+      .plans_range {
+        h2 {
+          font-size: 26px;
+          line-height: 32px;
+        }
+      }
+    }
+  }
+}

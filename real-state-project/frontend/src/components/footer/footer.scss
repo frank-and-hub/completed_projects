@@ -1,0 +1,179 @@
+footer {
+  background: #000;
+  padding: 45px 0 0 0;
+  .footer_logo {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+    display: grid;
+    place-items: center;
+  }
+  .mantine-Grid-root {
+    margin: 0 0 2rem 0;
+  }
+  .copy_rights {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 25.9px;
+    text-align: center;
+    color: #bebdbd;
+    border-top: 1px solid rgb(255 255 255 / 15%);
+    padding: 35px 0 20px 0;
+    width: 100%;
+    a {
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+  .inner_foot {
+    h4 {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 22.5px;
+      text-align: left;
+      color: #fff;
+      margin-bottom: 25px;
+    }
+    .get_info {
+      .mantine-focus-auto {
+        color: #fff;
+        max-width: 65%;
+        margin: 15px 0;
+        .tabler-icon {
+          font-size: 25px;
+          width: 35px;
+          min-width: 35px;
+        }
+      }
+
+      :hover {
+        color: #f30051;
+      }
+    }
+    p {
+      color: #bebdbd;
+      font-size: 14px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+    .mantine-Anchor-root {
+      text-decoration: none;
+      display: flex;
+      color: #fff;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 22.5px;
+      text-align: left;
+      .tabler-icon {
+        margin-right: 10px;
+      }
+    }
+    .mantine-List-root {
+      .mantine-List-item {
+        margin: 10px 0;
+        a {
+          color: #bebdbd;
+          font-size: 14px;
+        }
+        a:hover {
+          color: #f30051;
+        }
+      }
+    }
+    .actionIcon_lists {
+      justify-content: flex-start;
+      max-width: 150px;
+      justify-content: space-between;
+    }
+  }
+}
+.social_icon_container{
+  background-color: #2C2C2C;
+    padding: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    &:hover{
+background-color: #f30051;
+    }
+}
+// responsive mobile view css here ---->
+
+@media (max-width: 1200px) {
+  .active-custom-main {
+    footer {
+      .mantine-Grid-inner {
+        .mantine-Grid-col {
+          flex-basis: 100%;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: (991px)) {
+  footer {
+    .inner_foot {
+      .mantine-Anchor-root {
+        font-size: 14px;
+        line-height: 18.5px;
+      }
+      .mantine-List-root {
+        .mantine-List-item {
+          margin: 5px 0;
+        }
+      }
+      .get_info {
+        .mantine-focus-auto {
+          max-width: 90%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: (768px)) {
+  footer {
+    .mantine-Grid-inner {
+      .mantine-Grid-col {
+        flex-basis: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+
+  .active-custom-main {
+    footer {
+      .mantine-Grid-inner {
+        .mantine-Grid-col {
+          flex-basis: 100%;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: (479px)) {
+  footer {
+    padding: 25px 0 0 0;
+    .copy_rights {
+      padding: 20px 0 20px 0;
+    }
+    .inner_foot {
+      h4 {
+        margin-bottom: 10px;
+      }
+    }
+
+    .mantine-Grid-inner {
+      .mantine-Grid-col {
+        max-width: 100% !important;
+        margin: 0 0px;
+        flex-basis: 100% !important;
+      }
+    }
+  }
+}

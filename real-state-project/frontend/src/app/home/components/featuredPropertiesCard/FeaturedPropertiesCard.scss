@@ -1,0 +1,31 @@
+.featured_properties_card {
+  border-radius: 30px;
+  .featured_properties_image {
+    border-radius: 35px;
+    padding-bottom: 10px;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 300px;
+    width: 100%;
+  }
+  .dividerLine {
+    border-left: 1px solid #8888;
+    height: 20px;
+    margin: 0px 7px;
+  }
+  a {
+    width: 70%;
+    .featured_properties_title {
+      font-size: 17px;
+      font-weight: 600;
+      color: #2c2c2c;
+      text-align: left;
+      // text-overflow: ellipsis;
+      // overflow: hidden;
+      // white-space: nowrap;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,122 @@
+
+.select_plan_modal{
+    .mantine-Card-root {
+        padding: 30px 30px 70px 30px;
+        max-width: 100%;
+        .btn {
+            position: absolute;
+            width: calc(100% - 60px);
+            bottom: 20px;
+        }
+    }
+    .mantine-Modal-content {
+        width: 840px;
+        max-width: 840px;
+        min-width: 840px;
+        border-radius: 28px;
+        box-shadow: 0px 11px 27px 0px rgba(0, 0, 0, 0.4);
+        border: 1.5px solid #ffffff;
+    }
+
+    .membership_sec_in{
+        .mantine-Grid-inner {
+            justify-content: center;
+            z-index: 2;
+            position: relative;
+            padding: 0rem 0 0 0;
+            .mantine-Grid-col {
+                max-width: 45%;
+                margin: 0 5px;
+            }
+        }
+    }
+    .membership_sec_in{
+        .mantine-Card-root {
+            figure {
+                width: 132px;
+                min-width: 132px;
+                height: 132px;
+                display: grid;
+                place-items: center;
+                font-size: 40px;
+            }
+
+            .next_plans_points{ 
+                ul{
+                    li {
+                        font-size: 12px;
+                        font-weight: 400;
+                        line-height: 16px;
+                        margin: 4px 0;
+                        position: relative;
+                        padding-left: 14px;
+                    }
+                }
+            }
+
+            .plans_range {
+                padding: 10px 0 6px 0;
+                h1 {
+                    font-size: 28px;
+                    line-height: 26px;
+                }
+            }
+            .plans_points {
+                margin-bottom: 5px;
+                ul { 
+                    li {
+                        position: relative;
+                        margin: 2px 0;
+                    }
+                }
+                h4 {
+                    font-size: 13px;
+                    font-weight: 600;
+                    line-height: 16px;
+                    max-width: 77%;
+                    margin-bottom: 4px;
+                }
+            }
+       }
+    }
+
+}
+
+
+  // responsive mobile view css here ---->
+@media (max-width:(991px)) {
+    .select_plan_modal{ 
+        .mantine-Modal-content {
+            width: 100%;
+            max-width: 100%;
+            min-width: 100%;
+        }
+        .mantine-Card-root {
+            padding: 15px 15px 70px 15px;
+            max-width: 100%;
+        }
+
+        .membership_sec_in {
+            .mantine-Grid-inner{
+                 .mantine-Grid-col {
+                    max-width: 50%;
+                    margin: 0 0px;
+                }
+            }
+        }   
+    }
+}
+
+@media (max-width:(768px)) {
+    .select_plan_modal{ 
+        .membership_sec_in {
+            .mantine-Grid-inner{
+                .mantine-Grid-col {
+                    max-width: 100%;
+                    flex-basis: 100%;
+                    margin: 0 0px;
+                }
+            }
+        }
+    } 
+}

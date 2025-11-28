@@ -1,0 +1,349 @@
+.requests-container {
+  .request-card-container {
+    // box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    //   rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    border-width: 1px solid #efefef;
+
+    .request-card-index {
+      border: 1px solid #f30051;
+      background-color: #f30051;
+      border-radius: 5px;
+      // padding: 1px 15px 1px 15px;
+      text-align: center;
+      height: 100px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+    .request-card-content {
+      flex: 1;
+      padding: 10px;
+    }
+
+    .property-image {
+      height: 100px;
+      width: 100px;
+      border-radius: 5px;
+    }
+
+    .location_property {
+      border-left: 3px solid #f30051;
+      padding-left: 10px;
+      flex: 1;
+    }
+
+    .PropertyService_head_list {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      box-shadow: 0px 0px 5px 0px #00000026;
+      border-radius: 10px;
+      background: #fff;
+      column-gap: 12px;
+      padding: 10px;
+      // margin-bottom: 25px;
+
+      li {
+        border-right: 1px solid #f30051;
+        text-align: center;
+        &:last-child {
+          border: 0;
+        }
+      }
+
+      .mantine-List-itemLabel {
+        display: flex;
+        align-items: center;
+
+        span {
+          font-size: 12px;
+          font-weight: 400;
+          color: #717171;
+          margin-right: 10px;
+        }
+        strong {
+          font-size: 13px;
+          font-weight: 600;
+          color: #181a20;
+        }
+      }
+    }
+
+    .PropertyService_info_list {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      column-gap: 22px;
+      row-gap: 30px;
+      margin-bottom: 10px;
+
+      li {
+        .mantine-List-itemLabel {
+          display: flex;
+          align-items: center;
+          figure {
+            width: 40px;
+            min-width: 40px;
+            height: 40px;
+            overflow: hidden;
+            margin-right: 15px;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+              object-position: left;
+            }
+          }
+        }
+        .PropertyService_text {
+          h5 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #181a20;
+          }
+          h6 {
+            font-size: 12px;
+            font-weight: 400;
+            color: #717171;
+          }
+        }
+      }
+    }
+    .PropertyService_info_list_new {
+      display: grid;
+      // grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+      column-gap: 22px;
+      row-gap: 30px;
+
+      li {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        .mantine-List-itemLabel {
+          display: flex;
+          align-items: center;
+          figure {
+            width: 40px;
+            min-width: 40px;
+            height: 40px;
+            overflow: hidden;
+            margin-right: 15px;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+              object-position: left;
+            }
+          }
+        }
+        .PropertyService_text {
+          .property_text_content {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            h5 {
+              font-size: 14px;
+              font-weight: 600;
+              color: #181a20;
+              &::after {
+                content: " ,";
+              }
+              &:last-child::after {
+                content: "";
+              }
+            }
+          }
+          h6 {
+            font-size: 12px;
+            font-weight: 400;
+            color: #717171;
+            // margin-left: 1px;
+          }
+        }
+      }
+    }
+// .propertiesCardBtn{
+//   margin-right: 10px;
+// }
+    @media (max-width: (767px)) {
+      .PropertyService_head_list {
+        grid-template-columns: 100%;
+        border-radius: 10px;
+        // margin-bottom: 20px;
+        li {
+          border-right: 0;
+          text-align: left;
+        }
+      }
+      .PropertyService_info_list {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        column-gap: 10px;
+        row-gap: 12px;
+
+        li {
+          .mantine-List-itemLabel {
+            figure {
+              width: 35px;
+              min-width: 35px;
+              height: 35px;
+              overflow: hidden;
+              margin-right: 10px;
+            }
+          }
+          .PropertyService_text {
+            h6 {
+              font-size: 10px;
+              font-weight: 400;
+              color: #717171;
+              line-height: 11px;
+            }
+            h5 {
+              font-size: 12px;
+              font-weight: 600;
+              color: #181a20;
+              line-height: 14px;
+            }
+          }
+        }
+      }
+
+      .property_inner_card {
+        .location_property {
+          border-left: 2px solid #f30051;
+          padding-left: 10px;
+          margin-bottom: 20px;
+        }
+      }
+
+      .property_price_outer {
+        .property_price {
+          h3 {
+            font-size: 22px;
+            line-height: 26px;
+          }
+          strong {
+            font-size: 16px;
+          }
+          span {
+            font-size: 12px;
+          }
+        }
+        .btn {
+          min-width: 150px;
+        }
+      }
+
+      .PropertyService_head_list {
+        grid-template-columns: 100%;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        li {
+          border-right: 0;
+          text-align: left;
+        }
+      }
+
+      .requests_placed_date {
+        padding: 15px 0;
+        flex-wrap: wrap;
+        .mantine-Group-root {
+          strong {
+            font-size: 15px;
+          }
+        }
+        h6 {
+          font-size: 15px !important;
+          margin-bottom: 10px;
+        }
+      }
+
+      .property-image {
+        width: 100%;
+        height: auto;
+      }
+    }
+        @media (max-width: (512px)) {
+          .propertiesCardBtn {
+              margin-bottom: 10px;   
+              width: 100%;      
+            }
+        }
+    @media (max-width: (479px)) {
+      .PropertyService_info_list {
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 5px;
+
+        li {
+          .mantine-List-itemLabel figure {
+            width: 25px;
+            min-width: 25px;
+            height: 25px;
+            margin-right: 6px;
+          }
+        }
+      }
+
+      .property_price_outer {
+        .property_price {
+          h3 {
+            font-size: 18px;
+            line-height: 20px;
+          }
+          strong {
+            font-size: 14px;
+          }
+          span {
+            font-size: 12px;
+          }
+        }
+        .btn {
+          min-width: 110px;
+          padding: 0px 10px !important;
+          font-size: 12px !important;
+          height: 42px !important;
+          border-radius: 15px !important;
+        }
+      }
+
+      .property_inner_card {
+        .location_property {
+          border-left: 2px solid #f30051;
+          padding-left: 10px;
+          margin-bottom: 20px;
+          h4 {
+            font-size: 14px;
+          }
+          span {
+            font-size: 12px;
+            .tabler-icon {
+              max-width: 16px;
+            }
+          }
+        }
+      }
+
+      .requests_placed_date {
+        .mantine-Group-root {
+          gap: 0;
+          justify-content: space-between;
+          display: flex;
+          width: 100%;
+        }
+
+        .mantine-Group-root {
+          .mantine-Input-input {
+            width: 136px;
+            font-size: 11px;
+            padding-left: 37px;
+          }
+        }
+      }
+    }
+  }
+}

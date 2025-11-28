@@ -1,0 +1,155 @@
+
+
+.get_contact_info{
+    .title_card_sc{
+        text-align: left;
+        margin-bottom: 40px;
+        max-width: 80%;
+
+        h2 {
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 45px;
+            color: #F30051;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 28px;
+            color: #181a20;
+            margin-bottom: 20px;
+        }
+    }
+
+    ul{
+       display: flex;
+       flex-wrap: wrap;
+       border-radius: 12px;
+       overflow: hidden;
+
+        li{
+            width: 50%;
+            background: #fff;
+            border: 1px solid #DDDDDD;
+
+            &:nth-child(1){
+                border-bottom: 0;
+                border-left: 0;
+                border-top: 0;
+             }
+            &:nth-child(2){
+                border-bottom: 0;
+                border-right: 0;
+                border-left: 0;
+                border-top: 0;
+            }
+            &:nth-child(3){
+                border-bottom: 0;
+                border-left: 0;
+             }
+            &:nth-child(4){
+                border-bottom: 0;
+                border-right: 0;
+                border-left: 0;
+
+             }
+
+
+            .mantine-List-itemLabel{
+                padding:34px 24px;
+                min-height: 220px;
+
+
+                .tabler-icon{
+                    color: #F30051;
+                    margin-bottom: 20px;
+                }
+                h4{
+                    font-size: 15px;
+                    font-weight: 600;
+                    line-height: 22.5px;
+                    color: #181A20;
+                    margin-bottom: 5px;
+                }
+                p{
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 24.5px;
+                    color: #181A20;
+                }
+            }
+        }
+    }
+}
+
+
+ // responsive mobile view css here ---->
+ @media (max-width:(768px)) {
+    .get_contact_info {
+        ul {
+            li {
+                .mantine-List-itemLabel {
+                    padding: 20px 15px ;
+                    min-height: auto;
+                    p{
+                        font-size: 13px;
+                        line-height: 20px;
+                    }
+                }
+            }
+        }
+
+        .title_card_sc{
+            margin-bottom: 30px;
+            max-width: 100%;
+            text-align: center;
+            p{
+                line-height: 22px;
+            }
+            h2 {
+                font-size: 24px;
+                line-height: inherit;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
+@media (max-width:(479px)) {
+
+    .get_contact_info { 
+        ul {
+            li:nth-child(1) {
+                border-right: 0;
+                border-left: 0;
+                border-top: 0;
+                border-bottom: 1px solid #DDDDDD;
+            }
+            li:nth-child(3) {
+                border-right: 0;
+                border-left: 0;
+             
+            }
+            li {
+                width: 100%;
+                .mantine-List-itemLabel{
+                    padding: 10px 15px;
+                    .tabler-icon {
+                        color: #F30051;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+      }
+
+      .contact_uscard::after {
+        width: 105px;
+        height: 105px;
+        right: -10px;
+        top: -10px;
+      }
+
+      
+}
